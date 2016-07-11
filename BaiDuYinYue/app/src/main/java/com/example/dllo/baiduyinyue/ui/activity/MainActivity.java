@@ -1,7 +1,9 @@
-package com.example.dllo.baiduyinyue;
+package com.example.dllo.baiduyinyue.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.dllo.baiduyinyue.R;
 
 public class MainActivity extends AppCompatActivity {
 
