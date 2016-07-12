@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">BaiDuYinYue</string>
+    <string name="local_music">本地音乐</string>
+    <string name="recent_play">最近播放</string>
+    <string name="download">下载管理</string>
+    <string name="my_k">我的K歌</string>
+    <string name="create_list">自建歌单</string>
+    <string name="my_like_sing">我喜欢的单曲</string>
+    <string name="create_new_list">新建歌单</string>
+    <string name="collect_list">收藏歌单</string>
+    <string name="click_me">遇到喜欢的歌单,记得点❤️哟</string>
 </resources>

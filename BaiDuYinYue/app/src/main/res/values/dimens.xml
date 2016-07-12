@@ -2,4 +2,26 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="title_search_iv_margin_right">10dp</dimen>
+    <dimen name="title_user_iv_margin_right">5dp</dimen>
+    <dimen name="title_seting_iv_margin_right">10dp</dimen>
+    <dimen name="minibar_tv_linearlayout_margin">5dp</dimen>
+    <dimen name="minibar_song_name_padding">4dp</dimen>
+    <dimen name="minibar_singer_padding_top">2dp</dimen>
+    <dimen name="minibar_singer_padding_left">4dp</dimen>
+    <dimen name="minibar_singer_text_size">10sp</dimen>
+    <dimen name="minibar_iv_linearlayout_margin">10dp</dimen>
+    <dimen name="minibar_playinglist_margin">10dp</dimen>
+    <dimen name="minibar_play_pause_margin">10dp</dimen>
+    <dimen name="minibar_next_margin">10dp</dimen>
+    <dimen name="tab_indicator_height">0dp</dimen>
+    <dimen name="mine_content_sings_number_text_size">10sp</dimen>
+    <dimen name="mine_content_linerlayout_margin">10dp</dimen>
+    <dimen name="mine_content_widget_margin">5dp</dimen>
+    <dimen name="mine_content_first_line_margin_left">198dp</dimen>
+    <dimen name="mine_content_second_line_margin_left">120dp</dimen>
+    <dimen name="mine_content_third_line_margin_left">198dp</dimen>
+    <dimen name="mine_content_fourth_line_margin_left">202dp</dimen>
+
+
 </resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#ffffff">
+
+
+        <ImageView
+            android:id="@+id/main_music_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/minibar_tv_linearlayout_margin"
+            >
+
+            <TextView
+                android:id="@+id/main_song_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="歌名"
+                android:padding="@dimen/minibar_song_name_padding"
+                android:textColor="@color/song_name"/>
+
+            <TextView
+                android:id="@+id/main_singer_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/minibar_singer_text_size"
+                android:text="歌手名"
+                android:paddingLeft="@dimen/minibar_singer_padding_left"
+                android:textColor="@color/singer"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/minibar_iv_linearlayout_margin">
+
+            <ImageView
+                android:id="@+id/main_playing_list_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bt_minibar_playinglist_normal"
+                android:layout_margin="@dimen/minibar_playinglist_margin"/>
+
+            <ImageView
+                android:id="@+id/main_play_pause_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_play_pause"
+                android:layout_margin="@dimen/minibar_play_pause_margin"/>
+
+            <ImageView
+                android:id="@+id/main_next_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/bt_minibar_next_normal"
+                android:layout_margin="@dimen/minibar_next_margin"/>
+        </LinearLayout>
+
+
+</LinearLayout>
