@@ -2,228 +2,247 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/mine_local"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_margin="@dimen/mine_content_linerlayout_margin"
-        >
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_mymusic_local_normal"
             android:layout_margin="@dimen/mine_content_widget_margin"
-            />
+            android:src="@mipmap/ic_mymusic_local_normal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/local_music"
-            android:layout_margin="@dimen/mine_content_widget_margin"
             android:layout_gravity="center"
-            />
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="@string/local_music" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/mine_content_widget_margin"
             android:text="110首"
-            android:layout_margin="@dimen/mine_content_widget_margin"
-            android:textSize="@dimen/mine_content_sings_number_text_size"
-            android:layout_gravity="center"
-            />
+            android:textSize="@dimen/mine_content_sings_number_text_size" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/bt_localmusic_play_nor"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/mine_content_first_line_margin_left"
-            />
+            android:src="@mipmap/bt_localmusic_play_nor" />
 
     </LinearLayout>
-        <LinearLayout
-            android:id="@+id/mine_play"
-            android:layout_width="match_parent"
+
+    <LinearLayout
+        android:id="@+id/mine_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mine_content_linerlayout_margin"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="@dimen/mine_content_linerlayout_margin">
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:src="@mipmap/ic_mymusic_play_normal" />
 
-            <ImageView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="@string/recent_play" />
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_mymusic_play_normal"
-                android:layout_margin="@dimen/mine_content_widget_margin"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="共11首,11首离线播放"
+            android:textSize="@dimen/mine_content_sings_number_text_size" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/recent_play"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/mine_content_widget_margin"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="共11首,11首离线播放"
-                android:layout_gravity="center"
-                android:textSize="@dimen/mine_content_sings_number_text_size"
-                android:layout_margin="@dimen/mine_content_widget_margin"/>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/bt_recsong_module_more"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/mine_content_second_line_margin_left"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/mine_content_second_line_margin_left"
+            android:src="@mipmap/bt_recsong_module_more" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/main_download"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="@dimen/mine_content_linerlayout_margin">
+        android:layout_margin="@dimen/mine_content_linerlayout_margin"
+        android:orientation="horizontal">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_mymusic_download_normal"
-            android:layout_margin="@dimen/mine_content_widget_margin"/>
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:src="@mipmap/ic_mymusic_download_normal" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/download"
             android:layout_gravity="center"
             android:layout_margin="@dimen/mine_content_widget_margin"
-            />
+            android:text="@string/download" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0首"
             android:layout_gravity="center"
-            android:textSize="@dimen/mine_content_sings_number_text_size"
-            android:layout_margin="@dimen/mine_content_widget_margin"/>
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="0首"
+            android:textSize="@dimen/mine_content_sings_number_text_size" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/bt_recsong_module_more"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/mine_content_third_line_margin_left"/>
+            android:layout_marginLeft="@dimen/mine_content_third_line_margin_left"
+            android:src="@mipmap/bt_recsong_module_more" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/mine_k"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/mine_content_linerlayout_margin">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_mymusic_ktv_normal"
-            android:layout_margin="@dimen/mine_content_widget_margin"/>
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:src="@mipmap/ic_mymusic_ktv_normal" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/my_k"
             android:layout_gravity="center"
-            android:layout_margin="@dimen/mine_content_widget_margin"/>
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="@string/my_k" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/mine_content_widget_margin"
             android:text="0首"
-            android:layout_gravity="center"
-            android:textSize="@dimen/mine_content_sings_number_text_size"
-            android:layout_margin="@dimen/mine_content_widget_margin"/>
+            android:textSize="@dimen/mine_content_sings_number_text_size" />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/bt_recsong_module_more"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/mine_content_fourth_line_margin_left"/>
+            android:layout_marginLeft="@dimen/mine_content_fourth_line_margin_left"
+            android:src="@mipmap/bt_recsong_module_more" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/mine_content_linerlayout_margin">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_list"
-        android:layout_margin="@dimen/mine_content_widget_margin"/>
+        android:layout_margin="@dimen/mine_content_linerlayout_margin"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="@string/create_list" />
+
         <RelativeLayout
             android:id="@+id/mine_like"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/mine_like_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_mymusic_like"
-                android:layout_margin="@dimen/mine_content_widget_margin"/>
+                android:layout_margin="@dimen/mine_content_widget_margin"
+                android:src="@mipmap/ic_mymusic_like" />
+
             <TextView
                 android:id="@+id/mine_like_tv"
-                android:layout_toRightOf="@id/mine_like_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/my_like_sing"
                 android:layout_margin="@dimen/mine_content_widget_margin"
-                />
+                android:layout_toRightOf="@id/mine_like_iv"
+                android:text="@string/my_like_sing" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0首"
-                android:layout_margin="@dimen/mine_content_widget_margin"
                 android:layout_below="@id/mine_like_tv"
-                android:layout_toRightOf="@id/mine_like_iv"/>
+                android:layout_margin="@dimen/mine_content_widget_margin"
+                android:layout_toRightOf="@id/mine_like_iv"
+                android:text="0首" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/bt_recsong_module_more"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/bt_recsong_module_more" />
         </RelativeLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/mine_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_mymusic_add_nor"
-                android:layout_margin="@dimen/mine_content_widget_margin"/>
+                android:layout_margin="@dimen/mine_content_widget_margin"
+                android:src="@mipmap/ic_mymusic_add_nor" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/create_new_list"
-                android:layout_toRightOf="@id/mine_add"
-                android:layout_margin="@dimen/mine_content_widget_margin"
                 android:layout_gravity="center_vertical"
-                />
+                android:layout_margin="@dimen/mine_content_widget_margin"
+                android:layout_toRightOf="@id/mine_add"
+                android:text="@string/create_new_list" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/bt_recsong_module_more"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/bt_recsong_module_more" />
         </RelativeLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="@dimen/mine_content_linerlayout_margin">
+        android:layout_margin="@dimen/mine_content_linerlayout_margin"
+        android:orientation="vertical">
+
         <TextView
-            android:text="@string/collect_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/mine_content_widget_margin"/>
+            android:layout_margin="@dimen/mine_content_widget_margin"
+            android:text="@string/collect_list" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/click_me"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="@string/click_me" />
 
     </LinearLayout>
 </LinearLayout>

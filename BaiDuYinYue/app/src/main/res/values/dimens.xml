@@ -22,6 +22,12 @@
     <dimen name="mine_content_second_line_margin_left">120dp</dimen>
     <dimen name="mine_content_third_line_margin_left">198dp</dimen>
     <dimen name="mine_content_fourth_line_margin_left">202dp</dimen>
+    <dimen name="songtop_item_margin">15dp</dimen>
+    <dimen name="songtop_play_btn_margin">5dp</dimen>
+    <dimen name="songtop_detail_margin">10dp</dimen>
+    <dimen name="songtop_sort_text_size">20sp</dimen>
+    <dimen name="songtop_title_name_text_size">12dp</dimen>
+
 
 
 </resources>

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/default_album_bg"
     android:orientation="vertical"
-    tools:context=".ui.activity.MainActivity"
-    android:background="@mipmap/default_album_bg">
+    tools:context=".ui.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,11 +58,15 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
-
+    <!--播放条的布局-->
     <include layout="@layout/main_minibar" />
 
-    <SeekBar
-        android:id="@+id/main_seekbar"
+    <ProgressBar
+        android:id="@+id/main_progressbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/StyleProgressBarMini"
+        android:background="#ffffff"
+        android:progressTint="#7db6ff"
+        />
 </LinearLayout>

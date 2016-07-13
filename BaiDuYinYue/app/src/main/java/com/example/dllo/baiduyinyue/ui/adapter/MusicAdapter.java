@@ -4,28 +4,28 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
- * Created by Limiao on 16/7/12.
+ * Created by Limiao on 16/7/13.
+ * 乐库的adapter
  */
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class MusicAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
-    private String [] titles = {"我的","乐库","K歌","直播"};
+    private String[] titles = {"推荐", "排行", "歌单", "电台", "MV"};
+
+    public MusicAdapter(FragmentManager fm) {
+        super(fm);
+    }
 
     public void setFragments(List<Fragment> fragments) {
         this.fragments = fragments;
         notifyDataSetChanged();
     }
 
-    public ViewPagerAdapter(FragmentManager fm) {
-        super(fm);
-    }
-
     @Override
     public Fragment getItem(int position) {
-        return fragments.get(position);
+        return fragments == null ? null : fragments.get(position);
     }
 
     @Override
