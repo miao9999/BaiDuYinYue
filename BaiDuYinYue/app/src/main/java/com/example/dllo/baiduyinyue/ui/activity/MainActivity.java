@@ -13,32 +13,24 @@ import android.widget.ProgressBar;
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.ui.adapter.MainAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.LiveFragment;
+import com.example.dllo.baiduyinyue.ui.fragment.MainFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.MineFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.MusicFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.KSingingFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.SearchFragment;
 import com.example.dllo.baiduyinyue.utils.L;
+import com.example.dllo.baiduyinyue.utils.OnSkipFragment;
 import com.example.dllo.baiduyinyue.utils.T;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AbsBaseActivity {
-//    private TabLayout tabLayout;
-//    private ViewPager viewPager;
-//    private MainAdapter mainAdapter;
-//    private List<Fragment> fragments;
-//    private ImageView searchIv,hostIv;
+public class MainActivity extends AbsBaseActivity implements OnSkipFragment {
 
-    ////////////////////////////
-    private static final int PROGRESS = 0x1;
 
     private ProgressBar mProgress;
-    private int mProgressStatus = 0;
+    private MainFragment mainFragment;
 
-    private Handler mHandler = new Handler();
-
-    /////////////////////////////////////
     @Override
     protected int setLayout() {
         return R.layout.activity_main;
@@ -46,54 +38,31 @@ public class MainActivity extends AbsBaseActivity {
 
     @Override
     protected void initView() {
-//        tabLayout = findView(R.id.main_tab_layout);
-//        viewPager = findView(R.id.main_viewpager);
-        //////////////
         mProgress = findView(R.id.main_progressbar);
-
-//        searchIv = findView(R.id.main_search_iv);
-//        hostIv = findView(R.id.main_user_iv);
-
+        mainFragment = new MainFragment();
+        mainFragment.setOnSkipFragment(this);
     }
 
     @Override
     protected void initData() {
-//        mainAdapter = new MainAdapter(getSupportFragmentManager());
-//        initFragment();
-//        mainAdapter.setFragments(fragments);
-//        viewPager.setAdapter(mainAdapter);
-//        tabLayout.setupWithViewPager(viewPager);
-//
-//        // search和host的点击事件
-//        searchIv.setOnClickListener(this);
-//        hostIv.setOnClickListener(this);
-
-
-
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.hide(new MainFragment());
+        transaction.replace(R.id.main_content_frame, new MainFragment());
+        transaction.addToBackStack("searchFragment");
+        transaction.commit();
     }
 
-//    private void initFragment() {
-//        fragments = new ArrayList<>();
-//        fragments.add(new MineFragment());
-//        fragments.add(new MusicFragment());
-//        fragments.add(new KSingingFragment());
-//        fragments.add(new LiveFragment());
-//    }
+    @Override
+    public void toFragment(int type) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        switch (type) {
+            case 0:
+                transaction.replace(R.id.main_content_frame, new SearchFragment());
+                break;
 
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//            // search的点击事件
-//            case R.id.search_iv:
-//                T.longMsg("search");
-//                FragmentManager manager = getSupportFragmentManager();
-//                FragmentTransaction transaction = manager.beginTransaction();
-//                transaction.replace(R.id.main_content,new SearchFragment());
-//                break;
-//            // host的点击事件
-//            case R.id.main_user_iv:
-//                T.longMsg("user");
-//                break;
-//        }
-
+        }
+        transaction.commit();
+    }
 }

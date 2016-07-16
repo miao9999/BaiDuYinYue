@@ -61,25 +61,27 @@
     <!--android:layout_height="0dp"-->
     <!--android:layout_weight="1" />-->
     <FrameLayout
+        android:id="@+id/main_content_frame"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <fragment
-            android:id="@+id/main_content_fragment"
-            android:name="com.example.dllo.baiduyinyue.ui.fragment.MainFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </FrameLayout>
-        <!--播放条的布局-->
-        <include layout="@layout/main_minibar" />
 
-        <ProgressBar
-            android:id="@+id/main_progressbar"
-            style="@style/StyleProgressBarMini"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:progressTint="#7db6ff" />
+        <!--<fragment-->
+            <!--android:id="@+id/main_content_fragment"-->
+            <!--android:name="com.example.dllo.baiduyinyue.ui.fragment.MainFragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+    </FrameLayout>
+    <!--播放条的布局-->
+    <include layout="@layout/main_minibar" />
+
+    <ProgressBar
+        android:id="@+id/main_progressbar"
+        style="@style/StyleProgressBarMini"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:progressTint="#7db6ff" />
 
 </LinearLayout>
