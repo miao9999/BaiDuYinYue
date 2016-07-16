@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="50dp"
     android:orientation="horizontal"
     android:background="#ffffff">
 
@@ -51,7 +51,7 @@
                 android:id="@+id/main_playing_list_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/bt_minibar_playinglist_normal"
+                android:src="@mipmap/menu"
                 android:layout_margin="@dimen/minibar_playinglist_margin"/>
 
             <ImageView
@@ -65,7 +65,7 @@
                 android:id="@+id/main_next_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/bt_minibar_next_normal"
+                android:src="@mipmap/next"
                 android:layout_margin="@dimen/minibar_next_margin"/>
         </LinearLayout>
 

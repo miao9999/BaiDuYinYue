@@ -59,7 +59,7 @@ public class MvAdapter extends BaseAdapter {
         MvBean.ResultBean.MvListBean mvListBean = mvListBeen.get(position);
         holder.authorTv.setText(mvListBean.getArtist());
         holder.titleTv.setText(mvListBean.getTitle());
-        Picasso.with(context).load(mvListBean.getThumbnail()).resize(400,200).into(holder.imageView);
+        Picasso.with(context).load(mvListBean.getThumbnail()).resize(460,300).into(holder.imageView);
         return convertView;
     }
 

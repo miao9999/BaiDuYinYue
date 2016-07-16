@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/mine_content_first_line_margin_left"
-            android:src="@mipmap/bt_localmusic_play_nor" />
+            android:src="@mipmap/play_1" />
 
     </LinearLayout>
 
