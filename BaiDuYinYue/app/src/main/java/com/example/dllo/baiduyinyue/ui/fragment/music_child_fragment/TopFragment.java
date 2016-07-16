@@ -18,6 +18,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库——排行的fragment
  */
 public class TopFragment extends AbsBaseFragment {
     private RecyclerView recyclerView;

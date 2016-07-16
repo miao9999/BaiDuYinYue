@@ -5,6 +5,7 @@ import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库——电台的fragment
  */
 public class RaidoFragment extends AbsBaseFragment {
     @Override

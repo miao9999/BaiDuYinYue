@@ -4,6 +4,7 @@ import com.example.dllo.baiduyinyue.R;
 
 /**
  * Created by Limiao on 16/7/11.
+ * K歌的fragment
  */
 public class SingingFragment extends AbsBaseFragment {
     @Override

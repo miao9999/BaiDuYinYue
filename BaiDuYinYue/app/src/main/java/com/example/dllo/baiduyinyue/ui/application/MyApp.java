@@ -5,6 +5,7 @@ import android.content.Context;
 
 /**
  * Created by Limiao on 16/7/11.
+ * 整个application
  */
 public class MyApp extends Application {
     // 用private修饰,在整个应用中只有这一个context;

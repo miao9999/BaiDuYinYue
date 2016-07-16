@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库--排行的Adapter
  */
 public class SongtopRvAdapter extends RecyclerView.Adapter<SongtopRvAdapter.SongtopViewHolder> {
     private List<SongTopBean.ContentBean> contentBeen;
@@ -56,7 +57,7 @@ public class SongtopRvAdapter extends RecyclerView.Adapter<SongtopRvAdapter.Song
         holder.author3Tv.setText(been.get(2).getAuthor());
         holder.title3Tv.setText(been.get(2).getTitle());
         String url = contentBean.getPic_s210();
-        Picasso.with(context).load(url).into(holder.imageView);
+        Picasso.with(context).load(url).resize(200,200).into(holder.imageView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

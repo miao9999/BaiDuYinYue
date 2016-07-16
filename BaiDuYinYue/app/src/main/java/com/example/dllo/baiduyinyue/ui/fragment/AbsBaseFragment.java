@@ -13,6 +13,7 @@ import com.example.dllo.baiduyinyue.ui.activity.AbsBaseActivity;
 
 /**
  * Created by Limiao on 16/7/11.
+ * fragment的基类
  */
 public abstract class AbsBaseFragment extends Fragment {
     protected Context context;

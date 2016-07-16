@@ -5,6 +5,7 @@ import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库——MV 的fragment
  */
 public class MvFragment extends AbsBaseFragment {
     @Override

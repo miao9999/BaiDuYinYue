@@ -4,6 +4,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库--排行 的实体类
  */
 public class SongTopBean {
 

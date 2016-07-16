@@ -9,4 +9,8 @@
     <string name="create_new_list">新建歌单</string>
     <string name="collect_list">收藏歌单</string>
     <string name="click_me">遇到喜欢的歌单,记得点❤️哟</string>
+    <string name="radio_like">红心频道</string>
+    <string name="radio_person">私人频道</string>
+    <string name="search_et_text">歌曲,歌手,专辑,歌词,伴奏</string>
+    <string name="gridview_numColumns">3</string>
 </resources>

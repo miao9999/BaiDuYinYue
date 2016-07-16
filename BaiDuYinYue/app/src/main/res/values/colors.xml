@@ -11,4 +11,6 @@
     <color name="music_tab_indicator_color">#7db6ff</color>
     <color name="fragment_bg">#ffffff</color>
     <color name="songtop_title_author_text_color">#aaaaaa</color>
+    <color name="item_gridview_name_text_color">#888888</color>
+    <color name="item_listview_special_intro_text_color">#888888</color>
 </resources>

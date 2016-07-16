@@ -5,6 +5,7 @@ import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库——歌单的fragment
  */
 public class SonglistFragment extends AbsBaseFragment {
     @Override

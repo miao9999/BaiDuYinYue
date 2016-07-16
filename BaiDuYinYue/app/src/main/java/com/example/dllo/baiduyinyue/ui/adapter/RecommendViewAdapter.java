@@ -5,30 +5,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.dllo.baiduyinyue.mode.bean.RecommendCyclePicBean;
-
 import java.util.List;
 
 /**
  * Created by Limiao on 16/7/13.
+ * 乐库--推荐——轮播图的Adapter
  */
 public class RecommendViewAdapter extends PagerAdapter {
-    private List<ImageView> imageViews;
-    private List<RecommendCyclePicBean.PicBean> picBeen;
 
-    public void setImageViews(List<ImageView> imageViews) {
-        this.imageViews = imageViews;
-        notifyDataSetChanged();
-    }
+    private List<ImageView> imageView;
 
-    public void setPicBeen(List<RecommendCyclePicBean.PicBean> picBeen) {
-        this.picBeen = picBeen;
+    public void setImageView(List<ImageView> imageView) {
+        this.imageView = imageView;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return imageViews == null ? 0 : imageViews.size();
+        return imageView.size();
     }
 
     @Override
@@ -38,12 +32,18 @@ public class RecommendViewAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        container.addView(imageViews.get(position));
-        return imageViews.get(position);
+
+        int index = position % imageView.size();
+        ViewGroup parent = (ViewGroup) imageView.get(index).getParent();
+        if (parent != null) {
+            parent.removeView(imageView.get(index));
+        }
+        container.addView(imageView.get(index));
+        return imageView.get(index);
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView(imageViews.get(position));
+        container.removeView(imageView.get(position % imageView.size() ));
     }
 }

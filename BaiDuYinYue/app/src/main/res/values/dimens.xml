@@ -27,6 +27,24 @@
     <dimen name="songtop_detail_margin">10dp</dimen>
     <dimen name="songtop_sort_text_size">20sp</dimen>
     <dimen name="songtop_title_name_text_size">12dp</dimen>
+    <dimen name="radio_like_tv_margin">20dp</dimen>
+    <dimen name="radio_person_tv_margin">20dp</dimen>
+    <dimen name="radip_tv_padding">10dp</dimen>
+    <dimen name="search_iv_margin">10dp</dimen>
+    <dimen name="search_et_margin">10dp</dimen>
+    <dimen name="recommend_cycle_pic_height">150dp</dimen>
+    <dimen name="my_gridview_margin">20dp</dimen>
+    <dimen name="my_listview_margin">20dp</dimen>
+    <dimen name="recommend_title_margin">20dp</dimen>
+    <dimen name="item_gridview_title_text_size">11sp</dimen>
+    <dimen name="item_gridview_name_text_size">10sp</dimen>
+    <dimen name="item_listview_special_iv_margin_top">10dp</dimen>
+    <dimen name="item_listview_special_title_tv_margin_top">10dp</dimen>
+    <dimen name="item_listview_special_title_tv_margin_left">5dp</dimen>
+    <dimen name="item_listview_special_intro_tv_margin_left">5dp</dimen>
+    <dimen name="item_listview_special_title_text_size">11sp</dimen>
+    <dimen name="item_listview_special_intro_text_size">11sp</dimen>
+
 
 
 

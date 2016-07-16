@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/recommend_cycle_pic_height"
+            android:layout_gravity="center"
+            android:clipChildren="false">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/recommend_fragment_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:clipChildren="false" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <!--歌曲分类-->
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/sort_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:numColumns="3" />
+
+
+            <!--歌单推荐-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recommend_title_margin"
+                android:layout_marginRight="@dimen/recommend_title_margin">
+
+                <ImageView
+                    android:id="@+id/songlist_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_listen_count" />
+
+                <TextView
+                    android:id="@+id/songlist_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/songlist_title_iv"
+                    android:text="title" />
+
+                <ImageView
+                    android:id="@+id/songlist_more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/bt_recsong_module_more" />
+
+                <TextView
+                    android:id="@+id/songlist_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/songlist_more_iv"
+                     />
+            </RelativeLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/songlist_recommend_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:numColumns="3"
+                android:scrollbars="none" />
+            <!--新碟上架-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recommend_title_margin"
+                android:layout_marginRight="@dimen/recommend_title_margin">
+
+                <ImageView
+                    android:id="@+id/newsong_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_listen_count" />
+
+                <TextView
+                    android:id="@+id/newsong_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/newsong_title_iv"
+                     />
+
+                <ImageView
+                    android:id="@+id/newsong_more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/bt_recsong_module_more" />
+
+                <TextView
+                    android:id="@+id/newsong_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/newsong_more_iv"
+                     />
+            </RelativeLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/newsong_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:numColumns="3"
+                android:scrollbars="none" />
+
+            <!--热销专辑-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recommend_title_margin"
+                android:layout_marginRight="@dimen/recommend_title_margin">
+
+                <ImageView
+                    android:id="@+id/hotseal_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_listen_count" />
+
+                <TextView
+                    android:id="@+id/hotseal_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/hotseal_title_iv"
+                     />
+
+                <ImageView
+                    android:id="@+id/hotseal_more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/bt_recsong_module_more" />
+
+                <TextView
+                    android:id="@+id/hotseal_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/hotseal_more_iv"
+                     />
+            </RelativeLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/hotseal_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:numColumns="3"
+                android:scrollbars="none" />
+
+
+            <!--最热MV推荐-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recommend_title_margin"
+                android:layout_marginRight="@dimen/recommend_title_margin">
+
+                <ImageView
+                    android:id="@+id/hotmv_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_listen_count" />
+
+                <TextView
+                    android:id="@+id/hotmv_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/hotmv_title_iv"
+                     />
+
+                <ImageView
+                    android:id="@+id/hotmv_more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/bt_recsong_module_more" />
+
+                <TextView
+                    android:id="@+id/hotmv_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/hotmv_more_iv"
+                     />
+            </RelativeLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/hotmv_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:numColumns="3"
+                android:scrollbars="none" />
+
+
+            <!--乐播节目-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/recommend_title_margin"
+                android:layout_marginRight="@dimen/recommend_title_margin">
+
+                <ImageView
+                    android:id="@+id/radio_play_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_listen_count" />
+
+                <TextView
+                    android:id="@+id/radio_play_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/radio_play_title_iv"
+                     />
+
+                <ImageView
+                    android:id="@+id/radio_play_more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/bt_recsong_module_more" />
+
+                <TextView
+                    android:id="@+id/radio_play_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/radio_play_more_iv"
+                    />
+            </RelativeLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/radio_play_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:numColumns="3"
+                android:scrollbars="none" />
+
+            <!--专栏-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/recommend_title_margin"
+                android:layout_marginRight="@dimen/recommend_title_margin">
+
+                <ImageView
+                    android:id="@+id/special_title_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_listen_count" />
+
+                <TextView
+                    android:id="@+id/special_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/special_title_iv"
+                     />
+
+                <ImageView
+                    android:id="@+id/special_more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:src="@mipmap/bt_recsong_module_more" />
+
+                <TextView
+                    android:id="@+id/special_more_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/special_more_iv"
+                    />
+            </RelativeLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyListView
+                android:id="@+id/special_listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_listview_margin"
+                android:scrollbars="none" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
