@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="k歌"/>
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg">
+    <TextView
+        android:id="@+id/k_sing_fragment_search_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_k_search"
+        android:drawableLeft="@mipmap/mic"
+        android:text="@string/k_sing_search"
+        android:gravity="center_vertical"
+        android:padding="@dimen/k_sing_search_padding"
+        android:layout_marginLeft="@dimen/k_sing_search_margin"
+        android:layout_marginRight="@dimen/k_sing_search_margin"
+        android:layout_marginTop="@dimen/k_sing_search_margin"/>
+
+    <ListView
+        android:id="@+id/k_sing_fragment_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        />
+
 </LinearLayout>

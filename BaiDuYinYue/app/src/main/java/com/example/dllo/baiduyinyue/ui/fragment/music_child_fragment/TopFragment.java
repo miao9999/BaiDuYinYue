@@ -2,9 +2,7 @@ package com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import com.android.volley.toolbox.Volley;
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.SongTopBean;
 import com.example.dllo.baiduyinyue.ui.adapter.SongtopRvAdapter;

@@ -1,4 +1,4 @@
-package com.example.dllo.baiduyinyue.ui.adapter;
+package com.example.dllo.baiduyinyue.ui.adapter.recommend;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,27 +17,28 @@ import java.util.List;
 /**
  * Created by Limiao on 16/7/15.
  */
-public class RadioPlayAdapter extends BaseAdapter {
-    private List<RecommendBean.ResultBean.RadioBean.MusicPlayBean> musicPlayBeen;
+public class HotMvAdapter extends BaseAdapter {
+    private List<RecommendBean.ResultBean.Mix5Bean.HotMvBean> hotMvBeen;
     private Context context;
 
-    public RadioPlayAdapter(Context context) {
-        this.context = context;
+    public void setHotMvBeen(List<RecommendBean.ResultBean.Mix5Bean.HotMvBean> hotMvBeen) {
+        this.hotMvBeen = hotMvBeen;
+        notifyDataSetChanged();
     }
 
-    public void setMusicPlayBeen(List<RecommendBean.ResultBean.RadioBean.MusicPlayBean> musicPlayBeen) {
-        this.musicPlayBeen = musicPlayBeen;
-        notifyDataSetChanged();
+    public HotMvAdapter(Context context) {
+
+        this.context = context;
     }
 
     @Override
     public int getCount() {
-        return musicPlayBeen == null ? 0 : musicPlayBeen.size();
+        return hotMvBeen == null ? 0 : hotMvBeen.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return musicPlayBeen == null ? null : musicPlayBeen.get(position);
+        return hotMvBeen == null ? null : hotMvBeen.get(position);
     }
 
     @Override
@@ -47,27 +48,28 @@ public class RadioPlayAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        RadioPlayViewHolder holder = null;
+        HotMvViewHolder holder = null;
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_gridview,parent,false);
-            holder = new RadioPlayViewHolder(convertView);
+            holder = new HotMvViewHolder(convertView);
             convertView.setTag(holder);
         }else {
-            holder = (RadioPlayViewHolder) convertView.getTag();
+            holder = (HotMvViewHolder) convertView.getTag();
         }
-        RecommendBean.ResultBean.RadioBean.MusicPlayBean musicPlayBean = musicPlayBeen.get(position);
-        holder.titleTv.setText(musicPlayBean.getTitle());
-        Picasso.with(context).load(musicPlayBean.getPic()).resize(300,300).into(holder.bgIv);
+        RecommendBean.ResultBean.Mix5Bean.HotMvBean hotMvBean = hotMvBeen.get(position);
+        holder.nameTV.setText(hotMvBean.getAuthor());
+        holder.titleTv.setText(hotMvBean.getTitle());
+        Picasso.with(context).load(hotMvBean.getPic()).resize(300,300).into(holder.bgIv);
         return convertView;
     }
 
-    class RadioPlayViewHolder {
+    class HotMvViewHolder {
         private ImageView bgIv;
-        private TextView titleTv ;
-        public RadioPlayViewHolder(View view) {
+        private TextView titleTv, nameTV;
+        public HotMvViewHolder(View view) {
             bgIv = (ImageView) view.findViewById(R.id.item_gridview_bg_iv);
             titleTv = (TextView) view.findViewById(R.id.item_gridview_title_tv);
-
+            nameTV = (TextView) view.findViewById(R.id.item_gridview_name_tv);
         }
     }
 }

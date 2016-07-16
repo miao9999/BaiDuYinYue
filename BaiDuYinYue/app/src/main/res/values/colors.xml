@@ -13,4 +13,6 @@
     <color name="songtop_title_author_text_color">#aaaaaa</color>
     <color name="item_gridview_name_text_color">#888888</color>
     <color name="item_listview_special_intro_text_color">#888888</color>
+    <color name="item_k_sing_listview_num_text_color">#888888</color>
+    <color name="item_k_sing_listview_singed_text_color">#888888</color>
 </resources>

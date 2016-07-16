@@ -4,6 +4,8 @@ import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.dllo.baiduyinyue.R;
@@ -11,16 +13,17 @@ import com.example.dllo.baiduyinyue.ui.adapter.MainAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.LiveFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.MineFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.MusicFragment;
-import com.example.dllo.baiduyinyue.ui.fragment.SingingFragment;
+import com.example.dllo.baiduyinyue.ui.fragment.KSingingFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AbsBaseActivity{
+public class MainActivity extends AbsBaseActivity implements View.OnClickListener {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private MainAdapter mainAdapter;
     private List<Fragment> fragments;
+    private ImageView searchIv,hostIv;
 
     ////////////////////////////
     private static final int PROGRESS = 0x1;
@@ -42,6 +45,9 @@ public class MainActivity extends AbsBaseActivity{
         //////////////
         mProgress = findView(R.id.main_progressbar);
 
+        searchIv = findView(R.id.search_iv);
+        hostIv = findView(R.id.main_user_iv);
+
     }
 
     @Override
@@ -52,6 +58,9 @@ public class MainActivity extends AbsBaseActivity{
         viewPager.setAdapter(mainAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        // search和host的点击事件
+        searchIv.setOnClickListener(this);
+        hostIv.setOnClickListener(this);
         ////////////////////////////////////
 
 
@@ -76,7 +85,20 @@ public class MainActivity extends AbsBaseActivity{
         fragments = new ArrayList<>();
         fragments.add(new MineFragment());
         fragments.add(new MusicFragment());
-        fragments.add(new SingingFragment());
+        fragments.add(new KSingingFragment());
         fragments.add(new LiveFragment());
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            // search的点击事件
+            case R.id.search_iv:
+                
+                break;
+            // host的点击事件
+            case R.id.main_user_iv:
+                break;
+        }
     }
 }

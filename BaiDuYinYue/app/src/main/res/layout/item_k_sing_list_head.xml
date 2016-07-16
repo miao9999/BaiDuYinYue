@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_k_sing_cyclepic_height">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/k_sing_fragment_head_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+    <TextView
+        android:drawableLeft="@mipmap/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/k_sing_title"
+        android:layout_margin="@dimen/item_k_sing_title_margin"
+        />
+</LinearLayout>

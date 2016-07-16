@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fragment_bg">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="songlist"/>
+    android:background="@color/fragment_bg"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/songlist_fragment_all_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/song_list_frament_all_ll_margin">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/songlist_fragment_all" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bt_mv_pull_down_normal"
+            android:layout_marginLeft="@dimen/songlist_fragment_all_pull_iv_margin_left"/>
+    </LinearLayout>
+
+    <com.example.dllo.baiduyinyue.views.MyGridView
+        android:id="@+id/songlist_fragment_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/my_gridview_margin"
+        android:numColumns="2" />
 </LinearLayout>

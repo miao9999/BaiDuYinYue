@@ -3,14 +3,13 @@ package com.example.dllo.baiduyinyue.ui.fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.MotionEvent;
-import android.view.View;
 
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.ui.adapter.MusicAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment.MvFragment;
-import com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment.RaidoFragment;
+import com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment.RadioFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment.RecommendFragment;
+import com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment.SonglistFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment.TopFragment;
 
 import java.util.ArrayList;
@@ -69,8 +68,8 @@ public class MusicFragment extends AbsBaseFragment {
         fragments = new ArrayList<>();
         fragments.add(recommendFragment);
         fragments.add(new TopFragment());
-        fragments.add(new SingingFragment());
-        fragments.add(new RaidoFragment());
+        fragments.add(new SonglistFragment());
+        fragments.add(new RadioFragment());
         fragments.add(new MvFragment());
     }
 }

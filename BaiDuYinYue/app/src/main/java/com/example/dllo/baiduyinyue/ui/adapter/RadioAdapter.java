@@ -10,34 +10,36 @@ import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.RecommendBean;
+import com.example.dllo.baiduyinyue.utils.L;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 /**
- * Created by Limiao on 16/7/15.
+ * Created by Limiao on 16/7/16.
+ * 乐库--电台的Adapter
  */
-public class SpecialAdapter extends BaseAdapter {
-    private List<RecommendBean.ResultBean.Mod7Bean.SpecialBean> specialBeen;
+public class RadioAdapter extends BaseAdapter {
+    private List<RecommendBean.ResultBean.SceneAllBean.SceneBean.ActionBean> actionBeen;
     private Context context;
 
-    public SpecialAdapter(Context context) {
+    public RadioAdapter(Context context) {
         this.context = context;
     }
 
-    public void setSpecialBeen(List<RecommendBean.ResultBean.Mod7Bean.SpecialBean> specialBeen) {
-        this.specialBeen = specialBeen;
+    public void setActionBeen(List<RecommendBean.ResultBean.SceneAllBean.SceneBean.ActionBean> actionBeen) {
+        this.actionBeen = actionBeen;
         notifyDataSetChanged();
     }
 
     @Override
     public int getCount() {
-        return specialBeen == null ? 0 : specialBeen.size();
+        return actionBeen == null ? 0 : actionBeen.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return specialBeen == null ? null : specialBeen.get(position);
+        return actionBeen == null ? null : actionBeen.get(position);
     }
 
     @Override
@@ -49,26 +51,25 @@ public class SpecialAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         RadioViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_listview_speceal,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_radio_gv,parent,false);
             holder = new RadioViewHolder(convertView);
             convertView.setTag(holder);
         }else {
             holder = (RadioViewHolder) convertView.getTag();
         }
-        RecommendBean.ResultBean.Mod7Bean.SpecialBean specialBean = specialBeen.get(position);
-        holder.titleTv.setText(specialBean.getTitle());
-        holder.introTv.setText(specialBean.getDesc());
-        Picasso.with(context).load(specialBean.getPic()).resize(100,100).into(holder.imageView);
+        RecommendBean.ResultBean.SceneAllBean.SceneBean.ActionBean actionBean = actionBeen.get(position);
+        holder.textView.setText(actionBean.getScene_name());
+        L.e("radoiFragment",actionBean.getScene_name());
+        Picasso.with(context).load(actionBean.getIcon_android()).into(holder.imageView);
         return convertView;
     }
 
     class RadioViewHolder{
-        private TextView titleTv,introTv;
+        private TextView textView;
         private ImageView imageView;
         public RadioViewHolder(View view) {
-            titleTv = (TextView) view.findViewById(R.id.item_listview__special_title_tv);
-            introTv = (TextView) view.findViewById(R.id.item_listview_special_intro_tv);
-            imageView = (ImageView) view.findViewById(R.id.item_listview_special_iv);
+            textView = (TextView) view.findViewById(R.id.item_radio_recommend_tv);
+            imageView = (ImageView) view.findViewById(R.id.item_radio_recommend_iv);
         }
     }
 }

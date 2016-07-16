@@ -1,4 +1,4 @@
-package com.example.dllo.baiduyinyue.ui.adapter;
+package com.example.dllo.baiduyinyue.ui.adapter.recommend;
 
 import android.content.Context;
 import android.view.LayoutInflater;

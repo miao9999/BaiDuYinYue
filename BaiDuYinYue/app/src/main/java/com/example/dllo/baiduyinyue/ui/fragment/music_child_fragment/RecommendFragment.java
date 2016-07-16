@@ -7,16 +7,15 @@ import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.RecommendBean;
-import com.example.dllo.baiduyinyue.ui.adapter.SongListRecommendAdapter;
-import com.example.dllo.baiduyinyue.ui.adapter.HotMvAdapter;
-import com.example.dllo.baiduyinyue.ui.adapter.HotSealAdapter;
-import com.example.dllo.baiduyinyue.ui.adapter.NewSongAdapter;
-import com.example.dllo.baiduyinyue.ui.adapter.RadioPlayAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.SongListRecommendAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.HotMvAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.HotSealAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.NewSongAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.RadioPlayAdapter;
 import com.example.dllo.baiduyinyue.ui.adapter.RecommendViewAdapter;
-import com.example.dllo.baiduyinyue.ui.adapter.SortGridViewAdapter;
-import com.example.dllo.baiduyinyue.ui.adapter.SpecialAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.SortGridViewAdapter;
+import com.example.dllo.baiduyinyue.ui.adapter.recommend.SpecialAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
-import com.example.dllo.baiduyinyue.utils.L;
 import com.example.dllo.baiduyinyue.utils.Values;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.MyGridView;
@@ -91,7 +90,7 @@ public class RecommendFragment extends AbsBaseFragment {
     @Override
     protected void initData() {
         imageViews = new ArrayList<>();
-        recommendViewAdapter = new RecommendViewAdapter();
+        recommendViewAdapter = new RecommendViewAdapter(context);
         songListRecommendAdapter = new SongListRecommendAdapter(context);
         songlistRecommendGridView.setFocusable(false);
         sortGridViewAdapter = new SortGridViewAdapter(context);
@@ -149,7 +148,8 @@ public class RecommendFragment extends AbsBaseFragment {
             Picasso.with(context).load(imgUrl).into(imageView);
             imageViews.add(imageView);
         }
-        recommendViewAdapter.setImageView(imageViews);
+//        recommendViewAdapter.setImageView(imageViews);
+        recommendViewAdapter.setCyclePicBeen(cyclePicBeen);
         viewPager.setAdapter(recommendViewAdapter);
     }
 
@@ -243,7 +243,7 @@ public class RecommendFragment extends AbsBaseFragment {
 
         specialTitleTv.setText(recommendBean.getModule().get(13).getTitle());
         specialMoreTv.setText(recommendBean.getModule().get(13).getTitle_more());
-        Picasso.with(context).load(recommendBean.getModule().get(13).getPicurl()).into(specialIv);
+//        Picasso.with(context).load(recommendBean.getModule().get(13).getPicurl()).into(specialIv);
 
 
     }

@@ -44,6 +44,17 @@
     <dimen name="item_listview_special_intro_tv_margin_left">5dp</dimen>
     <dimen name="item_listview_special_title_text_size">11sp</dimen>
     <dimen name="item_listview_special_intro_text_size">11sp</dimen>
+    <dimen name="songlist_fragment_all_pull_iv_margin_left">5dp</dimen>
+    <dimen name="song_list_frament_all_ll_margin">20dp</dimen>
+    <dimen name="radio_fragment_recommend_ll_margin_left">20dp</dimen>
+    <dimen name="k_sing_search_margin">5dp</dimen>
+    <dimen name="k_sing_search_padding">8dp</dimen>
+    <dimen name="item_k_sing_listview_ll_margin">20dp</dimen>
+    <dimen name="item_k_sing_listview_ll_rl_margin">10dp</dimen>
+    <dimen name="item_k_sing_listview_num_text_size">10dp</dimen>
+    <dimen name="item_k_sing_listview_singed_text_size">10dp</dimen>
+    <dimen name="item_k_sing_cyclepic_height">100dp</dimen>
+    <dimen name="item_k_sing_title_margin">5dp</dimen>
 
 
 

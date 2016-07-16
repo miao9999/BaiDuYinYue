@@ -13,4 +13,10 @@
     <string name="radio_person">私人频道</string>
     <string name="search_et_text">歌曲,歌手,专辑,歌词,伴奏</string>
     <string name="gridview_numColumns">3</string>
+    <string name="songlist_fragment_all">全部歌单</string>
+    <string name="radio_recommend">推荐电台</string>
+    <string name="k_sing_search">搜索K歌伴奏</string>
+    <string name="k_sing_singed">人唱过</string>
+    <string name="k_sing_title">大家都在唱"</string>
+
 </resources>
