@@ -12,7 +12,14 @@
     <color name="fragment_bg">#ffffff</color>
     <color name="songtop_title_author_text_color">#aaaaaa</color>
     <color name="item_gridview_name_text_color">#888888</color>
+    <!--k歌listView-->
     <color name="item_listview_special_intro_text_color">#888888</color>
     <color name="item_k_sing_listview_num_text_color">#888888</color>
     <color name="item_k_sing_listview_singed_text_color">#888888</color>
+    <!--用户-->
+    <color name="user_aty_line">#eeeeee</color>
+    <color name="user_aty_more_text_color">#ffffff</color>
+    <!--搜索-->
+    <color name="search_text_color">#888888</color>
+
 </resources>

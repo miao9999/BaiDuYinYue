@@ -16,7 +16,7 @@ import com.example.dllo.baiduyinyue.ui.adapter.RecommendViewAdapter;
 import com.example.dllo.baiduyinyue.ui.adapter.recommend.SortGridViewAdapter;
 import com.example.dllo.baiduyinyue.ui.adapter.recommend.SpecialAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
-import com.example.dllo.baiduyinyue.utils.Values;
+import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.MyGridView;
 import com.example.dllo.baiduyinyue.views.MyListView;
@@ -102,7 +102,7 @@ public class RecommendFragment extends AbsBaseFragment {
 
 
         // 解析数据
-        VolleySingle.getInstance(context).startRequest(Values.RECOMMEND_URL, new VolleySingle.VolleyResult() {
+        VolleySingle.getInstance(context).startRequest(NetValues.RECOMMEND_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();

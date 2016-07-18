@@ -1,13 +1,11 @@
 package com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment;
 
-import android.content.Context;
-
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.SonglistBean;
 import com.example.dllo.baiduyinyue.ui.adapter.SongListAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.utils.L;
-import com.example.dllo.baiduyinyue.utils.Values;
+import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.MyGridView;
 import com.google.gson.Gson;
@@ -40,7 +38,7 @@ public class SonglistFragment extends AbsBaseFragment {
     protected void initData() {
         songListAdapter = new SongListAdapter(context);
         // 解析数据
-        VolleySingle.getInstance(context).startRequest(Values.SONGLIST_URL, new VolleySingle.VolleyResult() {
+        VolleySingle.getInstance(context).startRequest(NetValues.SONGLIST_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();

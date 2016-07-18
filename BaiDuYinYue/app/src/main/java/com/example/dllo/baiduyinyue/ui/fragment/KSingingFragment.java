@@ -11,7 +11,7 @@ import com.example.dllo.baiduyinyue.mode.bean.KSingingCyclePicBean;
 import com.example.dllo.baiduyinyue.ui.adapter.KSingListViewAdapter;
 import com.example.dllo.baiduyinyue.ui.adapter.KSingViewPagerAdapter;
 import com.example.dllo.baiduyinyue.utils.L;
-import com.example.dllo.baiduyinyue.utils.Values;
+import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.google.gson.Gson;
 
@@ -47,7 +47,7 @@ public class KSingingFragment extends AbsBaseFragment {
         kSingViewPagerAdapter = new KSingViewPagerAdapter(context);
 
         // 解析K歌数据
-        VolleySingle.getInstance(context).startRequest(Values.K_SING, new VolleySingle.VolleyResult() {
+        VolleySingle.getInstance(context).startRequest(NetValues.K_SING_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();
@@ -69,7 +69,7 @@ public class KSingingFragment extends AbsBaseFragment {
 
 
         // 解析数据
-        VolleySingle.getInstance(context).startRequest(Values.K_CYCLE_PIC, new VolleySingle.VolleyResult() {
+        VolleySingle.getInstance(context).startRequest(NetValues.K_CYCLE_PIC_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();

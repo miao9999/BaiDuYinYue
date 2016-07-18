@@ -11,12 +11,32 @@
     <string name="click_me">遇到喜欢的歌单,记得点❤️哟</string>
     <string name="radio_like">红心频道</string>
     <string name="radio_person">私人频道</string>
+
     <string name="search_et_text">歌曲,歌手,专辑,歌词,伴奏</string>
     <string name="gridview_numColumns">3</string>
     <string name="songlist_fragment_all">全部歌单</string>
     <string name="radio_recommend">推荐电台</string>
+
     <string name="k_sing_search">搜索K歌伴奏</string>
     <string name="k_sing_singed">人唱过</string>
     <string name="k_sing_title">大家都在唱"</string>
+
+    <string name="user_setskin">换肤</string>
+    <string name="user_music">音乐</string>
+    <string name="user_scan_music">扫描歌曲</string>
+    <string name="user_sound">听歌识曲</string>
+    <string name="user_import">电脑导歌</string>
+    <string name="user_vip">成为白金VIP</string>
+    <string name="user_package">免流量听歌</string>
+    <string name="user_ktv">雷石点唱机</string>
+    <string name="user_wifi">仅WiFi联网</string>
+    <string name="user_auto_close">定时关闭</string>
+    <string name="user_dedesktoplyrics">桌面歌词</string>
+    <string name="user_lockscreen">锁屏</string>
+    <string name="user_setting">设置</string>
+    <string name="user_activity">活动专区</string>
+    <string name="user_other_app">精品应用</string>
+
+    <string name="search_text">热门搜索</string>
 
 </resources>

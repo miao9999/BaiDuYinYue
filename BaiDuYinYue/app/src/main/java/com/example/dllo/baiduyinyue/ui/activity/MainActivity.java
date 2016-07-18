@@ -1,35 +1,23 @@
 package com.example.dllo.baiduyinyue.ui.activity;
 
-import android.os.Handler;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.dllo.baiduyinyue.R;
-import com.example.dllo.baiduyinyue.ui.adapter.MainAdapter;
-import com.example.dllo.baiduyinyue.ui.fragment.LiveFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.MainFragment;
-import com.example.dllo.baiduyinyue.ui.fragment.MineFragment;
-import com.example.dllo.baiduyinyue.ui.fragment.MusicFragment;
-import com.example.dllo.baiduyinyue.ui.fragment.KSingingFragment;
 import com.example.dllo.baiduyinyue.ui.fragment.SearchFragment;
-import com.example.dllo.baiduyinyue.utils.L;
+import com.example.dllo.baiduyinyue.utils.Contant;
 import com.example.dllo.baiduyinyue.utils.OnSkipFragment;
-import com.example.dllo.baiduyinyue.utils.T;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AbsBaseActivity implements OnSkipFragment {
 
 
     private ProgressBar mProgress;
     private MainFragment mainFragment;
+    private FragmentManager manager;
+    private FragmentTransaction transaction;
+    private SearchFragment searchFragment;
 
     @Override
     protected int setLayout() {
@@ -41,28 +29,33 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment {
         mProgress = findView(R.id.main_progressbar);
         mainFragment = new MainFragment();
         mainFragment.setOnSkipFragment(this);
+        searchFragment = new SearchFragment();
     }
 
     @Override
     protected void initData() {
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
+        manager = getSupportFragmentManager();
+        transaction = manager.beginTransaction();
         transaction.hide(new MainFragment());
-        transaction.replace(R.id.main_content_frame, new MainFragment());
-        transaction.addToBackStack("searchFragment");
+        transaction.replace(R.id.main_content_frame, mainFragment);
+//        transaction.addToBackStack("mainFragment");
         transaction.commit();
     }
 
     @Override
     public void toFragment(int type) {
-        FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         switch (type) {
-            case 0:
-                transaction.replace(R.id.main_content_frame, new SearchFragment());
+            case Contant.SEARCH_FRAGMENT:
+                transaction.replace(R.id.main_content_frame, searchFragment);
+                transaction.addToBackStack("searchFragment");
                 break;
-
+            case Contant.MAIN_FRAGMENT:
+                transaction.replace(R.id.main_content_frame,mainFragment);
+                break;
         }
         transaction.commit();
     }
+
+
 }

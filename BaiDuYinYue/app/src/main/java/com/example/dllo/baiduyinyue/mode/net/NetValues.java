@@ -1,10 +1,10 @@
-package com.example.dllo.baiduyinyue.utils;
+package com.example.dllo.baiduyinyue.mode.net;
 
 /**
  * Created by Limiao on 16/7/13.
  * 常量类
  */
-public final class Values {
+public final class NetValues {
     /**
      * 排行url
      */
@@ -24,10 +24,14 @@ public final class Values {
     /**
      * k歌轮播图
      */
-    public static final String K_CYCLE_PIC = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.active.showList";
+    public static final String K_CYCLE_PIC_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.active.showList";
     /**
      * K歌记录
      */
-    public static final String K_SING = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.learn.now&page_size=50";
+    public static final String K_SING_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.learn.now&page_size=50";
+    /**
+     * 搜索
+     */
+    public static final String SEARCH_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.search.hot";
 
 }

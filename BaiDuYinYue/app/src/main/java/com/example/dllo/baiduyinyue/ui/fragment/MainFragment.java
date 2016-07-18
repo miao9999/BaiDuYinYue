@@ -1,6 +1,6 @@
 package com.example.dllo.baiduyinyue.ui.fragment;
 
-import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.dllo.baiduyinyue.R;
+import com.example.dllo.baiduyinyue.ui.activity.UserActivity;
 import com.example.dllo.baiduyinyue.ui.adapter.MainAdapter;
-import com.example.dllo.baiduyinyue.utils.OnSkipFragment;
+import com.example.dllo.baiduyinyue.utils.Contant;
 import com.example.dllo.baiduyinyue.utils.T;
 
 import java.util.ArrayList;
@@ -24,13 +25,8 @@ public class MainFragment extends AbsBaseFragment implements View.OnClickListene
     private MainAdapter mainAdapter;
     private List<Fragment> fragments;
     private ImageView searchIv, hostIv;
-//    private SwitchFragment switchFragment;
-    private OnSkipFragment onSkipFragment;
 
 
-    public void setOnSkipFragment(OnSkipFragment onSkipFragment) {
-        this.onSkipFragment = onSkipFragment;
-    }
 
     @Override
     protected int setLayout() {
@@ -74,34 +70,17 @@ public class MainFragment extends AbsBaseFragment implements View.OnClickListene
             case R.id.main_search_iv:
                 T.shortMsg("search");
                 if (onSkipFragment!=null){
-                    onSkipFragment.toFragment(0);
+                    onSkipFragment.toFragment(Contant.SEARCH_FRAGMENT);
                 }
 
                 break;
             // host的点击事件
             case R.id.main_user_iv:
                 T.longMsg("user");
+                goTo(context,UserActivity.class);
                 break;
         }
     }
 
 
-//    public interface SwitchFragment {
-//        void toFragment();
-//    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        onSkipFragment = (OnSkipFragment) context;
-
-        // 这是为了保证Activity容器实现了用以回调的接口。如果没有，它会抛出一个异常。
-//        try {
-//            switchFragment = (SwitchFragment) context;
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException(context.toString()
-//                    + " must implement OnHeadlineSelectedListener");
-//        }
-    }
 }

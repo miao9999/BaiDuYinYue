@@ -8,7 +8,7 @@ import com.example.dllo.baiduyinyue.mode.bean.SongTopBean;
 import com.example.dllo.baiduyinyue.ui.adapter.SongtopRvAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.utils.L;
-import com.example.dllo.baiduyinyue.utils.Values;
+import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.google.gson.Gson;
 
@@ -36,7 +36,7 @@ public class TopFragment extends AbsBaseFragment {
     protected void initData() {
         songtopRvAdapter = new SongtopRvAdapter(context);
 
-        VolleySingle.getInstance(context).startRequest(Values.TOP_URL, new VolleySingle.VolleyResult() {
+        VolleySingle.getInstance(context).startRequest(NetValues.TOP_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();

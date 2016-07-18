@@ -1,19 +1,16 @@
 package com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment;
 
-import android.content.Context;
-
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.RecommendBean;
 import com.example.dllo.baiduyinyue.ui.adapter.RadioAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.utils.L;
-import com.example.dllo.baiduyinyue.utils.Values;
+import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.MyGridView;
 import com.google.gson.Gson;
 
 import java.util.List;
-import java.util.logging.Level;
 
 /**
  * Created by Limiao on 16/7/13.
@@ -39,7 +36,7 @@ public class RadioFragment extends AbsBaseFragment {
     protected void initData() {
         radioAdapter = new RadioAdapter(context);
         // 解析数据
-        VolleySingle.getInstance(context).startRequest(Values.RECOMMEND_URL, new VolleySingle.VolleyResult() {
+        VolleySingle.getInstance(context).startRequest(NetValues.RECOMMEND_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="fill_horizontal"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_skin"
+            android:text="@string/user_setskin"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:text="@string/user_music"
+            android:gravity="center"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_sound" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:text="@string/user_scan_music"
+            android:gravity="center"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_scan" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/user_sound"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_song" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/user_import"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_import" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/user_vip"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_creditcard" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/user_package"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_package" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/user_ktv"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/user_text_margin"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_ktv" />
+    </LinearLayout>
+</LinearLayout>
