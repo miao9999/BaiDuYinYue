@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -79,6 +80,7 @@ public class MainFragment extends AbsBaseFragment implements View.OnClickListene
                 T.longMsg("user");
                 goTo(context,UserActivity.class);
                 break;
+
         }
     }
 

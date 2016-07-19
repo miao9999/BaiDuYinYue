@@ -7,5 +7,6 @@ package com.example.dllo.baiduyinyue.utils;
 public final class Contant  {
     public static final int SEARCH_FRAGMENT = 0;
     public static final int MAIN_FRAGMENT = 1;
+    public static final int LOCAL_MUSIC_FRAGMENT= 2;
 
 }

@@ -19,6 +19,7 @@ import com.example.dllo.baiduyinyue.utils.OnSkipFragment;
 public abstract class AbsBaseFragment extends Fragment {
     protected Context context;
     protected OnSkipFragment onSkipFragment;
+    protected View view;
 
     public void setOnSkipFragment(OnSkipFragment onSkipFragment) {
         this.onSkipFragment = onSkipFragment;
@@ -41,7 +42,11 @@ public abstract class AbsBaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(setLayout(), container, false);
+        if (view == null) {
+            view = inflater.inflate(setLayout(),container,false);
+        }
+        return view;
+
     }
 
     /**
@@ -96,4 +101,9 @@ public abstract class AbsBaseFragment extends Fragment {
         context.startActivity(intent);
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+    }
 }

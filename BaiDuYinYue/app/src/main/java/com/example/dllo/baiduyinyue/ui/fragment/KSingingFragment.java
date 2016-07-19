@@ -13,6 +13,7 @@ import com.example.dllo.baiduyinyue.ui.adapter.KSingViewPagerAdapter;
 import com.example.dllo.baiduyinyue.utils.L;
 import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
+import com.example.dllo.baiduyinyue.views.MyListView;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class KSingingFragment extends AbsBaseFragment {
     private List<KSingingCyclePicBean.KSingBean> kSingBeen ;
     private ViewPager viewPager;
     private KSingViewPagerAdapter kSingViewPagerAdapter;
-    private ListView listView;
+    private MyListView listView;
     private KSingListViewAdapter kSingListViewAdapter;
     private KSingListBean kSingListBean;
     private List<KSingListBean.ResultBean.ItemsBean> itemsBeen;
@@ -38,6 +39,7 @@ public class KSingingFragment extends AbsBaseFragment {
     @Override
     protected void initView() {
         listView = findView(R.id.k_sing_fragment_lv);
+        viewPager = findView(R.id.k_sing_fragment_head_vp);
 
     }
 
@@ -67,7 +69,6 @@ public class KSingingFragment extends AbsBaseFragment {
         kSingListViewAdapter.setItemsBeen(itemsBeen);
         listView.setAdapter(kSingListViewAdapter);
 
-
         // 解析数据
         VolleySingle.getInstance(context).startRequest(NetValues.K_CYCLE_PIC_URL, new VolleySingle.VolleyResult() {
             @Override
@@ -85,12 +86,11 @@ public class KSingingFragment extends AbsBaseFragment {
         });
 
         // 设置数据--轮播图
-        View listHeadView = LayoutInflater.from(context).inflate(R.layout.item_k_sing_list_head,null);
-        viewPager = (ViewPager) listHeadView.findViewById(R.id.k_sing_fragment_head_vp);
+
+
         kSingViewPagerAdapter.setkSingBeen(kSingBeen);
         viewPager.setAdapter(kSingViewPagerAdapter);
-        listView.addHeaderView(listHeadView);
-        kSingListViewAdapter.notifyDataSetChanged();
+
 
 
     }

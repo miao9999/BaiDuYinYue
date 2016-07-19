@@ -44,6 +44,7 @@
     <dimen name="my_listview_margin">20dp</dimen>
     <dimen name="item_gridview_title_text_size">11sp</dimen>
     <dimen name="item_gridview_name_text_size">10sp</dimen>
+    <dimen name="item_gridview_horizontalSpacing">20dp</dimen>
     <!--自定义listView-->
     <dimen name="item_listview_special_iv_margin_top">10dp</dimen>
     <dimen name="item_listview_special_title_tv_margin_top">10dp</dimen>
@@ -78,6 +79,9 @@
     <dimen name="user_title_heigth">50dp</dimen>
     <dimen name="user_margin">20dp</dimen>
     <dimen name="user_second_text">12sp</dimen>
+
+    <!--k歌-->
+    <dimen name="k_sing_sort_ll_margin">10dp</dimen>
 
 
 

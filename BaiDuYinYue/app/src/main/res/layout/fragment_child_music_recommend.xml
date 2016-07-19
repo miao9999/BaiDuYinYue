@@ -36,6 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
+
                 android:numColumns="3" />
 
 
@@ -80,6 +81,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
                 android:numColumns="3"
+                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:scrollbars="none" />
             <!--新碟上架-->
             <RelativeLayout
@@ -122,6 +124,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
                 android:numColumns="3"
+                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:scrollbars="none" />
 
             <!--热销专辑-->
@@ -165,6 +168,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
                 android:numColumns="3"
+                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:scrollbars="none" />
 
 
@@ -209,6 +213,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
                 android:numColumns="3"
+                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:scrollbars="none" />
 
 
@@ -252,6 +257,7 @@
                 android:id="@+id/radio_play_grid_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:layout_margin="@dimen/my_gridview_margin"
                 android:numColumns="3"
                 android:scrollbars="none" />

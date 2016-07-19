@@ -39,4 +39,11 @@
 
     <string name="search_text">热门搜索</string>
 
+    <string name="k_sing_ktv">KTV热歌榜</string>
+    <string name="k_sing_chinese">华语金曲</string>
+    <string name="k_sing_occident">欧美经典</string>
+    <string name="k_sing_man">男歌手</string>
+    <string name="k_sing_woman">女歌手</string>
+    <string name="k_sing_band">乐队</string>
+
 </resources>

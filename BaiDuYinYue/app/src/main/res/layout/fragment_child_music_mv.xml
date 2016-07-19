@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/my_gridview_margin"
         android:numColumns="2"
+        android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
         android:scrollbars="none"
     />
 </LinearLayout>

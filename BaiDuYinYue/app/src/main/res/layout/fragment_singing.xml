@@ -1,26 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fragment_bg">
+    android:background="@color/fragment_bg"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/k_sing_fragment_search_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_k_search"
-        android:drawableLeft="@mipmap/mic"
-        android:text="@string/k_sing_search"
-        android:gravity="center_vertical"
-        android:padding="@dimen/k_sing_search_padding"
         android:layout_marginLeft="@dimen/k_sing_search_margin"
         android:layout_marginRight="@dimen/k_sing_search_margin"
-        android:layout_marginTop="@dimen/k_sing_search_margin"/>
+        android:layout_marginTop="@dimen/k_sing_search_margin"
+        android:background="@drawable/shape_k_search"
+        android:drawableLeft="@mipmap/mic"
+        android:gravity="center_vertical"
+        android:padding="@dimen/k_sing_search_padding"
+        android:text="@string/k_sing_search" />
 
-    <ListView
-        android:id="@+id/k_sing_fragment_lv"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="none"
-        />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/item_k_sing_cyclepic_height">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/k_sing_fragment_head_vp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/k_sing_sort_ll_margin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/k_sing_fragment_k_ktv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/img_k_ktv"
+                        android:gravity="center"
+                        android:text="@string/k_sing_ktv" />
+
+                    <TextView
+                        android:id="@+id/k_sing_fragment_k_chinese"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/img_k_chinese"
+                        android:gravity="center"
+                        android:text="@string/k_sing_chinese" />
+
+                    <TextView
+                        android:id="@+id/k_sing_fragment_k_occident"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/img_k_occident"
+                        android:gravity="center"
+                        android:text="@string/k_sing_occident" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_margin="@dimen/k_sing_sort_ll_margin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/k_sing_fragment_k_man"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/img_k_man"
+                        android:gravity="center"
+                        android:text="@string/k_sing_man" />
+
+                    <TextView
+                        android:id="@+id/k_sing_fragment_k_woman"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/img_k_woman"
+                        android:gravity="center"
+                        android:text="@string/k_sing_woman" />
+
+                    <TextView
+                        android:id="@+id/k_sing_fragment_k_band"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableTop="@mipmap/img_k_band"
+                        android:gravity="center"
+                        android:text="@string/k_sing_band" />
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/item_k_sing_title_margin"
+                    android:drawableLeft="@mipmap/bar"
+                    android:text="@string/k_sing_title" />
+            </LinearLayout>
+
+            <com.example.dllo.baiduyinyue.views.MyListView
+                android:id="@+id/k_sing_fragment_lv"
+                android:focusable="false"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

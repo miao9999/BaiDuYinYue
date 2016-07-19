@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@mipmap/default_album_bg">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+   <TextView
+       android:id="@+id/local_music_title_tv"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="本地音乐"
+       android:drawableLeft="@mipmap/back"
+       android:textColor="#564574"
+       android:textSize="18sp"
+       android:layout_margin="10dp"
+       />
+    <ImageView
+        android:id="@+id/local_music_title_sort_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_localmusic_sort"
+        android:layout_alignParentRight="true"
 
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_localmusic_scan"
+        android:layout_toLeftOf="@id/local_music_title_sort_iv"
+        android:id="@+id/local_music_title_scan_iv"
+        />
+    <ImageView
+        android:id="@+id/local_music_title_search_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_localmusic_search"
+        android:layout_toLeftOf="@id/local_music_title_scan_iv"/>
+</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/fragment_bg"
+        >
+        <android.support.design.widget.TabLayout
+            android:id="@+id/local_music_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <android.support.v4.view.ViewPager
+                android:id="@+id/local_music_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
+    </LinearLayout>
 </LinearLayout>
