@@ -63,7 +63,7 @@ public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickL
         switch (v.getId()){
             case R.id.local_music_title_tv:
                 if (onSkipFragment != null){
-                    onSkipFragment.toFragment(Contant.MAIN_FRAGMENT);
+                    onSkipFragment.toFragment(Contant.MAIN_FRAGMENT,null);
                 }
                 break;
         }

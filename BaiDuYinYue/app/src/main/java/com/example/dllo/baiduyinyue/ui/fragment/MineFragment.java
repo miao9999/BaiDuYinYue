@@ -34,7 +34,7 @@ public class MineFragment extends AbsBaseFragment implements View.OnClickListene
             case R.id.mine_local:
                 T.shortMsg("local music");
                 if (onSkipFragment != null){
-                    onSkipFragment.toFragment(Contant.LOCAL_MUSIC_FRAGMENT);
+                    onSkipFragment.toFragment(Contant.LOCAL_MUSIC_FRAGMENT,null);
                 }
                 break;
         }

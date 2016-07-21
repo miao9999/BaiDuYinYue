@@ -2,6 +2,8 @@ package com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment;
 
 import android.support.v4.view.ViewPager;
 
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import com.example.dllo.baiduyinyue.ui.adapter.recommend.SortGridViewAdapter;
 import com.example.dllo.baiduyinyue.ui.adapter.recommend.SpecialAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.mode.net.NetValues;
+import com.example.dllo.baiduyinyue.utils.Contant;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.MyGridView;
 import com.example.dllo.baiduyinyue.views.MyListView;
@@ -47,7 +50,7 @@ public class RecommendFragment extends AbsBaseFragment {
     private TextView songlistTitleTv, songlistMoreTv, newsongTitleTv, newsongMoreTv, hotsealTitleTv, hotsealMoreTv;
     private TextView hotMvTitleTv, hotMvMoreTv, radioPlayTitleTv, radioPlayMoreTv, specialTitleTv, specialMoreTv;
     private ImageView songlistIv, newsongIv, hotsealIv, hotMvIv, radioPlayIv, specialIv;
-    private List<RecommendBean.SmallIconBean> smallIconBeen;
+
 
 
     @Override
@@ -124,8 +127,20 @@ public class RecommendFragment extends AbsBaseFragment {
                 // 专栏
                 setSpecial();
                 // title
-                smallIconBeen = recommendBean.getModule();
                 setTitle();
+
+                // 为歌曲分类的gv设置监听
+                imgBtnGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        switch (position){
+                            case 0:
+                                if (onSkipFragment != null){
+                                    onSkipFragment.toFragment(Contant.RECOMMEND_SORT_FRAGMENT,null);
+                                }
+                        }
+                    }
+                });
 
             }
 
@@ -223,27 +238,27 @@ public class RecommendFragment extends AbsBaseFragment {
     public void setTitle() {
         songlistTitleTv.setText(recommendBean.getModule().get(3).getTitle());
         songlistMoreTv.setText(recommendBean.getModule().get(3).getTitle_more());
-        Picasso.with(context).load(recommendBean.getModule().get(3).getPicurl()).into(songlistIv);
+        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(songlistIv);
 
         newsongTitleTv.setText(recommendBean.getModule().get(5).getTitle());
         newsongMoreTv.setText(recommendBean.getModule().get(5).getTitle_more());
-        Picasso.with(context).load(recommendBean.getModule().get(5).getPicurl()).into(newsongIv);
+        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(newsongIv);
 
         hotsealTitleTv.setText(recommendBean.getModule().get(6).getTitle());
         hotsealMoreTv.setText(recommendBean.getModule().get(6).getTitle_more());
-        Picasso.with(context).load(recommendBean.getModule().get(6).getPicurl()).into(newsongIv);
+        Picasso.with(context).load(R.mipmap.ic_recommend_columnist).into(newsongIv);
 
         hotMvTitleTv.setText(recommendBean.getModule().get(11).getTitle());
         hotMvMoreTv.setText(recommendBean.getModule().get(11).getTitle_more());
-        Picasso.with(context).load(recommendBean.getModule().get(11).getPicurl()).into(hotMvIv);
+        Picasso.with(context).load(R.mipmap.ic_recommend_lebo).into(hotMvIv);
 
         radioPlayTitleTv.setText(recommendBean.getModule().get(12).getTitle());
         radioPlayMoreTv.setText(recommendBean.getModule().get(12).getTitle_more());
-        Picasso.with(context).load(recommendBean.getModule().get(12).getPicurl()).into(radioPlayIv);
+        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(radioPlayIv);
 
         specialTitleTv.setText(recommendBean.getModule().get(13).getTitle());
         specialMoreTv.setText(recommendBean.getModule().get(13).getTitle_more());
-//        Picasso.with(context).load(recommendBean.getModule().get(13).getPicurl()).into(specialIv);
+        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(specialIv);
 
 
     }

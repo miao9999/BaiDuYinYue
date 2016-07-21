@@ -1,6 +1,7 @@
 package com.example.dllo.baiduyinyue.ui.fragment;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -51,6 +52,7 @@ public class MainFragment extends AbsBaseFragment implements View.OnClickListene
         viewPager.setAdapter(mainAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+
         // search和host的点击事件
         searchIv.setOnClickListener(this);
         hostIv.setOnClickListener(this);
@@ -71,7 +73,7 @@ public class MainFragment extends AbsBaseFragment implements View.OnClickListene
             case R.id.main_search_iv:
                 T.shortMsg("search");
                 if (onSkipFragment!=null){
-                    onSkipFragment.toFragment(Contant.SEARCH_FRAGMENT);
+                    onSkipFragment.toFragment(Contant.SEARCH_FRAGMENT,null);
                 }
 
                 break;

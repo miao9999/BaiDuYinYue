@@ -33,5 +33,16 @@ public final class NetValues {
      * 搜索
      */
     public static final String SEARCH_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.search.hot";
-
+    /**
+     * 推荐--歌曲分类上面图片
+     */
+    public static final String RECOMMEND_SORT_HEAD_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.tag.getHotTag&format=json&from=android&version=5.8.0.1&nums=8";
+    /**
+     * 推荐--歌曲分类具体内容
+     */
+    public static final String RECOMMEND_SORT_CONTENT_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?from=android&version=5.8.0.1&channel=xiaomi&operator=2&method=baidu.ting.tag.getAllTag&format=json&from=android&version=5.8.0.1";
+    /**
+     * 乐库--排行--详情
+     */
+    public static final String TOP_DETAIL_URL = "http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.billboard.billList&type=参数&format=json&offset=0&size=50&from=ios&fields=title,song_id,author,resource_type,havehigh,is_new,has_mv_mobile,album_title,ting_uid,album_id,charge,all_rate&version=5.2.1&from=ios&channel=appstore";
 }

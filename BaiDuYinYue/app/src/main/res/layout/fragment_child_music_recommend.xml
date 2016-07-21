@@ -51,6 +51,8 @@
                     android:id="@+id/songlist_title_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/recommend_title_pic_margin"
                     android:src="@mipmap/ic_listen_count" />
 
                 <TextView
@@ -94,6 +96,8 @@
                     android:id="@+id/newsong_title_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/recommend_title_pic_margin"
                     android:src="@mipmap/ic_listen_count" />
 
                 <TextView
@@ -138,6 +142,8 @@
                     android:id="@+id/hotseal_title_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/recommend_title_pic_margin"
                     android:src="@mipmap/ic_listen_count" />
 
                 <TextView
@@ -183,6 +189,8 @@
                     android:id="@+id/hotmv_title_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/recommend_title_pic_margin"
                     android:src="@mipmap/ic_listen_count" />
 
                 <TextView
@@ -229,6 +237,8 @@
                     android:id="@+id/radio_play_title_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/recommend_title_pic_margin"
                     android:src="@mipmap/ic_listen_count" />
 
                 <TextView
@@ -273,6 +283,8 @@
                     android:id="@+id/special_title_iv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/recommend_title_pic_margin"
                     android:src="@mipmap/ic_listen_count" />
 
                 <TextView

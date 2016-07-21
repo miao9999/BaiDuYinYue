@@ -42,6 +42,7 @@ public class MusicFragment extends AbsBaseFragment {
     @Override
     protected void initData() {
         recommendFragment = new RecommendFragment();
+        viewPager.setOffscreenPageLimit(2);
 //        vp = recommendFragment.getViewPager();
         //
 //        // 把两个vp的touch事件统一

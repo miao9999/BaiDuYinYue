@@ -28,4 +28,6 @@ dependencies {
     compile 'eu.the4thfloor.volley:com.android.volley:2015.05.28'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'jp.wasabeef:glide-transformations:2.0.1'
+    compile 'com.jaeger.statusbaruitl:library:1.1.1'
 }

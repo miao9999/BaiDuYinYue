@@ -2,6 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="fragment_title_height">50dp</dimen>
+
     <!--推荐界面搜索图片和用户图片-->
     <dimen name="title_search_iv_margin_right">10dp</dimen>
     <dimen name="title_user_iv_margin_right">5dp</dimen>
@@ -37,11 +40,12 @@
     <dimen name="radio_person_tv_margin">20dp</dimen>
     <dimen name="radip_tv_padding">10dp</dimen>
     <!--推荐界面-->
+    <dimen name="recommend_title_pic_margin">4dp</dimen>
     <dimen name="recommend_cycle_pic_height">150dp</dimen>
     <dimen name="recommend_title_margin">20dp</dimen>
     <!--自定义gridView-->
-    <dimen name="my_gridview_margin">20dp</dimen>
-    <dimen name="my_listview_margin">20dp</dimen>
+    <dimen name="my_gridview_margin">10dp</dimen>
+    <dimen name="my_listview_margin">10dp</dimen>
     <dimen name="item_gridview_title_text_size">11sp</dimen>
     <dimen name="item_gridview_name_text_size">10sp</dimen>
     <dimen name="item_gridview_horizontalSpacing">20dp</dimen>
@@ -82,6 +86,18 @@
 
     <!--k歌-->
     <dimen name="k_sing_sort_ll_margin">10dp</dimen>
+
+    <!--推荐——歌曲分类-->
+    <dimen name="recommend_sort_head_text_size">10sp</dimen>
+    <dimen name="recommend_sort_head_content_size">10sp</dimen>
+    <dimen name="recommend_sort_head_content_title_size">11sp</dimen>
+    <dimen name="recommend_sort_head_tv_padding">10dp</dimen>
+    <dimen name="recommend_sort_content_horizontal_spacing">5dp</dimen>
+    <dimen name="recommend_sort_content_vertical_spacing">5dp</dimen>
+
+    <!--乐库——排行——详情-->
+    <dimen name="top_detail_rank_text_pading">3dp</dimen>
+    <dimen name="top_detail_rank_name_title_ll_margin">10dp</dimen>
 
 
 

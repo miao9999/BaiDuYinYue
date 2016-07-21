@@ -75,7 +75,7 @@ public class SearchFragment extends AbsBaseFragment implements View.OnClickListe
             case R.id.search_fragment_return_iv:
                 T.shortMsg("back");
                 if (onSkipFragment != null){
-                    onSkipFragment.toFragment(Contant.MAIN_FRAGMENT);
+                    onSkipFragment.toFragment(Contant.MAIN_FRAGMENT,null);
                 }
                 break;
             case R.id.search_fragment_search_iv:

@@ -8,5 +8,7 @@ public final class Contant  {
     public static final int SEARCH_FRAGMENT = 0;
     public static final int MAIN_FRAGMENT = 1;
     public static final int LOCAL_MUSIC_FRAGMENT= 2;
+    public static final int RECOMMEND_SORT_FRAGMENT = 3;
+    public static final int TOP_DETAIL_FRAGMENT = 4;
 
 }

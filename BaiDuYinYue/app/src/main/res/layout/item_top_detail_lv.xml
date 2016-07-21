@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_margin="@dimen/my_listview_margin"
+    >
+
+
+    <ImageView
+        android:id="@+id/item_top_detail_bg_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher" />
+
+    <ImageView
+        android:id="@+id/item_top_detail_rank_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_top_detail_bg_iv"
+        android:layout_alignTop="@id/item_top_detail_bg_iv"
+        android:src="@mipmap/img_king_mask1" />
+
+    <TextView
+        android:id="@+id/item_top_detail_rank_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/item_top_detail_bg_iv"
+        android:layout_alignTop="@id/item_top_detail_bg_iv"
+        android:padding="@dimen/top_detail_rank_text_pading"
+        android:textColor="@color/top_detail_item_rank_text_color"
+        android:text="1" />
+
+    <LinearLayout
+        android:id="@+id/title_and_name_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/top_detail_rank_name_title_ll_margin"
+        android:layout_toRightOf="@id/item_top_detail_bg_iv"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/item_top_detail_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ttile" />
+
+        <TextView
+            android:id="@+id/item_top_detail_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name" />
+    </LinearLayout>
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_list_more_normal"
+        android:layout_centerVertical="true"
+        />
+</RelativeLayout>
