@@ -8,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
-import com.example.dllo.baiduyinyue.mode.bean.A;
 import com.example.dllo.baiduyinyue.mode.bean.RecommendSortContentBean;
 import com.example.dllo.baiduyinyue.utils.L;
 import com.example.dllo.baiduyinyue.views.MyGridView;

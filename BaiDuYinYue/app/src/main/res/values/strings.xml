@@ -46,4 +46,10 @@
     <string name="k_sing_woman">女歌手</string>
     <string name="k_sing_band">乐队</string>
 
+    <string name="top_detail_refresh_text">最近更新:</string>
+    <string name="mv_fragment_all">全部</string>
+    <string name="mv_fragment_new">最新</string>
+    <string name="mv_fragment_hot">最热</string>
+
+
 </resources>

@@ -98,6 +98,15 @@
     <!--乐库——排行——详情-->
     <dimen name="top_detail_rank_text_pading">3dp</dimen>
     <dimen name="top_detail_rank_name_title_ll_margin">10dp</dimen>
+    <dimen name="top_detail_reresh_text_margin">20dp</dimen>
+    <dimen name="top_detail_rank_text_size">10sp</dimen>
+
+    <!--播放界面-->
+    <dimen name="play_detail_play_bar_margin">10dp</dimen>
+    <dimen name="play_detail_back_iv_margin">10dp</dimen>
+    <dimen name="play_detail_title_text_size">20sp</dimen>
+
+    <dimen name="mv_fragment_guide_bar_margin">20dp</dimen>
 
 
 

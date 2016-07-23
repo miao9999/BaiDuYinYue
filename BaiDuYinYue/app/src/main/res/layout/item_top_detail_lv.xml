@@ -29,7 +29,9 @@
         android:layout_alignTop="@id/item_top_detail_bg_iv"
         android:padding="@dimen/top_detail_rank_text_pading"
         android:textColor="@color/top_detail_item_rank_text_color"
-        android:text="1" />
+        android:textSize="@dimen/top_detail_rank_text_size"
+        android:text="1"
+        />
 
     <LinearLayout
         android:id="@+id/title_and_name_ll"

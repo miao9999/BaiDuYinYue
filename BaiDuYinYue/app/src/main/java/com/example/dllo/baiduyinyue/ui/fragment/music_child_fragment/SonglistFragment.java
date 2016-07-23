@@ -44,6 +44,10 @@ public class SonglistFragment extends AbsBaseFragment {
                 Gson gson = new Gson();
                 songlistBean = gson.fromJson(url,SonglistBean.class);
                 songListBeen = songlistBean.getContent();
+                L.e("songlistFragment","解析成功");
+                // 设置数据
+                songListAdapter.setSongListBeen(songListBeen);
+                songlistGridView.setAdapter(songListAdapter);
             }
 
             @Override
@@ -52,9 +56,6 @@ public class SonglistFragment extends AbsBaseFragment {
             }
         });
 
-        // 设置数据
-        songListAdapter.setSongListBeen(songListBeen);
-        songlistGridView.setAdapter(songListAdapter);
 
     }
 }

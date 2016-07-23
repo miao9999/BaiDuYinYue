@@ -33,16 +33,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_margin="20dp"
-                    android:text="最近更新:" />
+                    android:layout_marginLeft="@dimen/top_detail_reresh_text_margin"
+                    android:layout_marginBottom="@dimen/top_detail_reresh_text_margin"
+                    android:textColor="@color/top_detail_refresh_text_color"
+                    android:text="@string/top_detail_refresh_text" />
 
                 <TextView
                     android:id="@+id/top_detail_fragment_ctl_date_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_margin="20dp"
+                    android:layout_marginBottom="@dimen/top_detail_reresh_text_margin"
                     android:layout_toRightOf="@id/top_detail_fragment_ctl_tv"
+                    android:textColor="@color/top_detail_refresh_text_color"
                     android:text="345" />
 
                 <ImageView

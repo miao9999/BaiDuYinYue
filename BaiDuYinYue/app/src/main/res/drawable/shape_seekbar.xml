@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/seekbar_background">
+        <shape>
+            <solid android:color="#666666"/>
+        </shape>
+    </item>
+    <item android:id="@+id/seekbar_progress">
+        <clip>
+            <shape>
+                <solid android:color="#ffffff"/>
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@+id/seekbar_second_progress">
+        <clip>
+            <shape>
+                <solid android:color="#aaaaaa"/>
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

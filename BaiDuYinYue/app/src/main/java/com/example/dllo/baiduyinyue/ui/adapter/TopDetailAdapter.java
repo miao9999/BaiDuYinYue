@@ -58,7 +58,7 @@ public class TopDetailAdapter extends BaseAdapter{
             holder = (TopDetailViewHolder) convertView.getTag();
         }
         TopDetailBean.SongListBean songListBean = songListBeen.get(position);
-        Picasso.with(context).load(songListBean.getPic_big()).into(holder.bgIv);
+        Picasso.with(context).load(songListBean.getPic_big()).resize(150,150).into(holder.bgIv);
         holder.rankTv.setText(songListBean.getRank());
         holder.nameTv.setText(songListBean.getArtist_name());
         holder.titleTv.setText(songListBean.getTitle());

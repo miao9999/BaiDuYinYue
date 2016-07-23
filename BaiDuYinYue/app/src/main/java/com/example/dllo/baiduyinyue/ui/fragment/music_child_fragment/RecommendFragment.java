@@ -236,29 +236,29 @@ public class RecommendFragment extends AbsBaseFragment {
      * title
      */
     public void setTitle() {
-        songlistTitleTv.setText(recommendBean.getModule().get(3).getTitle());
-        songlistMoreTv.setText(recommendBean.getModule().get(3).getTitle_more());
-        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(songlistIv);
-
-        newsongTitleTv.setText(recommendBean.getModule().get(5).getTitle());
-        newsongMoreTv.setText(recommendBean.getModule().get(5).getTitle_more());
-        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(newsongIv);
-
-        hotsealTitleTv.setText(recommendBean.getModule().get(6).getTitle());
-        hotsealMoreTv.setText(recommendBean.getModule().get(6).getTitle_more());
-        Picasso.with(context).load(R.mipmap.ic_recommend_columnist).into(newsongIv);
-
-        hotMvTitleTv.setText(recommendBean.getModule().get(11).getTitle());
-        hotMvMoreTv.setText(recommendBean.getModule().get(11).getTitle_more());
-        Picasso.with(context).load(R.mipmap.ic_recommend_lebo).into(hotMvIv);
-
-        radioPlayTitleTv.setText(recommendBean.getModule().get(12).getTitle());
-        radioPlayMoreTv.setText(recommendBean.getModule().get(12).getTitle_more());
-        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(radioPlayIv);
-
-        specialTitleTv.setText(recommendBean.getModule().get(13).getTitle());
-        specialMoreTv.setText(recommendBean.getModule().get(13).getTitle_more());
-        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(specialIv);
+//        songlistTitleTv.setText(recommendBean.getModule().get(3).getTitle());
+//        songlistMoreTv.setText(recommendBean.getModule().get(3).getTitle_more());
+//        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(songlistIv);
+//
+//        newsongTitleTv.setText(recommendBean.getModule().get(5).getTitle());
+//        newsongMoreTv.setText(recommendBean.getModule().get(5).getTitle_more());
+//        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(newsongIv);
+//
+//        hotsealTitleTv.setText(recommendBean.getModule().get(6).getTitle());
+//        hotsealMoreTv.setText(recommendBean.getModule().get(6).getTitle_more());
+//        Picasso.with(context).load(R.mipmap.ic_recommend_columnist).into(newsongIv);
+//
+//        hotMvTitleTv.setText(recommendBean.getModule().get(11).getTitle());
+//        hotMvMoreTv.setText(recommendBean.getModule().get(11).getTitle_more());
+//        Picasso.with(context).load(R.mipmap.ic_recommend_lebo).into(hotMvIv);
+//
+//        radioPlayTitleTv.setText(recommendBean.getModule().get(12).getTitle());
+//        radioPlayMoreTv.setText(recommendBean.getModule().get(12).getTitle_more());
+//        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(radioPlayIv);
+//
+//        specialTitleTv.setText(recommendBean.getModule().get(13).getTitle());
+//        specialMoreTv.setText(recommendBean.getModule().get(13).getTitle_more());
+//        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(specialIv);
 
 
     }

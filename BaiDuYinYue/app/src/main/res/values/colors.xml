@@ -28,5 +28,9 @@
 
     <!--乐库——排行——详情-->
     <color name="top_detail_item_rank_text_color">#ffffff</color>
+    <color name="top_detail_refresh_text_color">#ffffff</color>
+
+    <!--播放界面-->
+    <color name="play_detail_name_title_text_color">#ffffff</color>
 
 </resources>

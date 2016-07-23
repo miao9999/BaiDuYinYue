@@ -25,6 +25,7 @@ public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickL
     private List<Fragment> fragments;
     private TextView titleBackTv;
 
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_child_mine_local;
@@ -36,6 +37,7 @@ public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickL
         viewPager = findView(R.id.local_music_viewpager);
         tabLayout = findView(R.id.local_music_tab_layout);
         titleBackTv = findView(R.id.local_music_title_tv);
+
     }
 
     @Override

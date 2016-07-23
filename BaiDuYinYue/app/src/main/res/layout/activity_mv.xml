@@ -2,13 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="vertical">
 
-    >
-
-    <ListView
-        android:id="@+id/local_music_song_fragment_lv"
+    <VideoView
+        android:id="@+id/mv_activity_vv"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/my_listview_margin"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+         />
 </LinearLayout>

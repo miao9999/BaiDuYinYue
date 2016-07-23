@@ -8,6 +8,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,17 +20,21 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.dllo.baiduyinyue.R;
+import com.example.dllo.baiduyinyue.mode.bean.EventBean;
 import com.example.dllo.baiduyinyue.mode.bean.TopDetailBean;
 import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.ui.activity.MainActivity;
 import com.example.dllo.baiduyinyue.ui.adapter.TopDetailAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
+import com.example.dllo.baiduyinyue.utils.Contant;
 import com.example.dllo.baiduyinyue.utils.L;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.MyListView;
 import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.squareup.picasso.Picasso;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -52,6 +57,7 @@ public class TopDetailFragment extends AbsBaseFragment {
     private TopDetailBean.BillboardBean billboardBean;
     private ImageView titleBgIv,playIv;
     private TopDetailAdapter topDetailAdapter;
+    private EventBus eventBus;
 
 
     @Override
@@ -76,6 +82,7 @@ public class TopDetailFragment extends AbsBaseFragment {
 
     @Override
     protected void initData() {
+        eventBus = EventBus.getDefault();
         topDetailAdapter = new TopDetailAdapter(context);
         // 获取传来的值
         Bundle bundle = getArguments();
@@ -103,7 +110,9 @@ public class TopDetailFragment extends AbsBaseFragment {
                 billboardBean = topDetailBean.getBillboard();
                 L.e("songListBeen", songListBeen.size() + " -------");
                 dateTv.setText(billboardBean.getUpdate_date());
-
+                // 设置下方的listview
+                topDetailAdapter.setSongListBeen(songListBeen);
+                myListView.setAdapter(topDetailAdapter);
                 // 设置整个标题的属性
                 appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
                     @Override
@@ -120,9 +129,7 @@ public class TopDetailFragment extends AbsBaseFragment {
                         }
                     }
                 });
-//                Picasso.with(context).load(billboardBean.getPic_s210()).error(R.mipmap.ic_launcher).into(titleBgIv);
                 // 设置模糊效果
-//                StatusBarUtil.setTranslucent(getActivity(), StatusBarUtil.DEFAULT_STATUS_BAR_ALPHA);
                 Glide.with(context).load(topDetailBean.getBillboard().getPic_s210()).bitmapTransform(new BlurTransformation(context,10)).into(new SimpleTarget<GlideDrawable>() {
                     @Override
                     public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
@@ -138,10 +145,22 @@ public class TopDetailFragment extends AbsBaseFragment {
             }
         });
 
-        // 设置下方的listview
-        topDetailAdapter.setSongListBeen(songListBeen);
-        myListView.setAdapter(topDetailAdapter);
 
+
+
+
+        // 为listView设置点击事件
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TopDetailBean.SongListBean songListBean = songListBeen.get(position);
+                EventBean eventBean = new EventBean();
+                String songUrl = NetValues.SONG_ULR.replace("参数",songListBean.getSong_id());
+                eventBean.setSongUrl(songUrl);
+                eventBean.setType(Contant.INTERNER_TYPE);
+                eventBus.post(eventBean);
+            }
+        });
 
     }
 }
