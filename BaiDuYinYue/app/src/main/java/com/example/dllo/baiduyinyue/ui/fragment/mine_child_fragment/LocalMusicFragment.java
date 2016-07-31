@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
+import com.example.dllo.baiduyinyue.mode.bean.EventBean;
 import com.example.dllo.baiduyinyue.ui.adapter.localmusic.LocalMusicVpAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.utils.Contant;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +29,7 @@ public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickL
     private TextView titleBackTv;
 
 
+
     @Override
     protected int setLayout() {
         return R.layout.fragment_child_mine_local;
@@ -37,6 +41,7 @@ public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickL
         viewPager = findView(R.id.local_music_viewpager);
         tabLayout = findView(R.id.local_music_tab_layout);
         titleBackTv = findView(R.id.local_music_title_tv);
+
 
     }
 

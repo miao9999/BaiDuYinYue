@@ -105,7 +105,7 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
                             Gson gson = new Gson();
                             mvDetailBean = gson.fromJson(url, MvDetailBean.class);
                             Intent toMvAtyIntent = new Intent(context, MvActivity.class);
-                            Log.d("MvFragment", mvDetailBean.getResult().getFiles().getValue21().getFile_link());
+//                            Log.d("MvFragment", mvDetailBean.getResult().getFiles().getValue21().getFile_link());
                             toMvAtyIntent.putExtra(Contant.MV_INTNET_URL, mvDetailBean.getResult().getFiles().getValue21().getFile_link());
                             context.startActivity(toMvAtyIntent);
                         }

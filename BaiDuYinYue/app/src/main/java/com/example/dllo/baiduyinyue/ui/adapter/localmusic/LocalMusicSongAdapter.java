@@ -54,8 +54,8 @@ public class LocalMusicSongAdapter extends BaseAdapter {
             holder = (SongViewHolder) convertView.getTag();
         }
         LocalMusicSongBean localMusicSongBean = songBeen.get(position);
-        holder.singerTv.setText(localMusicSongBean.getSinger());
-        holder.nameTv.setText(localMusicSongBean.getName());
+        holder.singerTv.setText(localMusicSongBean.getName());
+        holder.nameTv.setText(localMusicSongBean.getSinger());
         return convertView;
     }
 

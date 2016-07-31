@@ -105,9 +105,14 @@
     <dimen name="play_detail_play_bar_margin">10dp</dimen>
     <dimen name="play_detail_back_iv_margin">10dp</dimen>
     <dimen name="play_detail_title_text_size">20sp</dimen>
+    <dimen name="play_detail_img_margin">5dp</dimen>
+
 
     <dimen name="mv_fragment_guide_bar_margin">20dp</dimen>
 
+    <!--喜欢的歌曲的界面-->
+    <dimen name="like_fragment_text_size">18sp</dimen>
+    <dimen name="like_fragment_text_margin">10dp</dimen>
 
 
 

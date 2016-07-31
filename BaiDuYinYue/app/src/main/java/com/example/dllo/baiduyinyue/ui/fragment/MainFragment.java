@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.ui.activity.UserActivity;

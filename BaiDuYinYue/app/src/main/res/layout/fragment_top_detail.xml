@@ -15,8 +15,7 @@
             android:id="@+id/top_detail_fragment_ctl"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            >
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <RelativeLayout
                 android:id="@+id/top_detail_fragment_ctl_rl"
@@ -33,10 +32,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginLeft="@dimen/top_detail_reresh_text_margin"
                     android:layout_marginBottom="@dimen/top_detail_reresh_text_margin"
-                    android:textColor="@color/top_detail_refresh_text_color"
-                    android:text="@string/top_detail_refresh_text" />
+                    android:layout_marginLeft="@dimen/top_detail_reresh_text_margin"
+                    android:text="@string/top_detail_refresh_text"
+                    android:textColor="@color/top_detail_refresh_text_color" />
 
                 <TextView
                     android:id="@+id/top_detail_fragment_ctl_date_tv"
@@ -45,8 +44,8 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginBottom="@dimen/top_detail_reresh_text_margin"
                     android:layout_toRightOf="@id/top_detail_fragment_ctl_tv"
-                    android:textColor="@color/top_detail_refresh_text_color"
-                    android:text="345" />
+                    android:text="345"
+                    android:textColor="@color/top_detail_refresh_text_color" />
 
                 <ImageView
                     android:id="@+id/top_detail_fragment_ctl_play_iv"
@@ -58,15 +57,17 @@
                     android:src="@drawable/selector_songtop_play_detail_btn" />
             </RelativeLayout>
 
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/top_detail_fragment_abl_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fragment_title_height"
                 app:layout_collapseMode="pin"
-                app:titleTextAppearance="@color/recommend_sort_head_text_color"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:theme="@style/ThemeOverlay.AppCompat.Light"
-                />
+                app:titleTextAppearance="@color/recommend_sort_head_text_color" />
+
+
+            <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:theme="@style/ThemeOverlay.AppCompat.Light"-->
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
@@ -78,10 +79,42 @@
         android:background="@color/fragment_bg"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.example.dllo.baiduyinyue.views.MyListView
-            android:id="@+id/top_detail_fragment_cl_lv"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin"
+                >
+
+                <TextView
+                    android:id="@+id/top_detail_fragment_total_song_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/item_listview_special_title_tv_margin_top"
+                    android:text="23" />
+
+                <ImageView
+                    android:id="@+id/top_detail_fragment_share_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/item_listview_special_title_tv_margin_top"
+                    android:src="@mipmap/share" />
+            </RelativeLayout>
+
+
+
+            <com.example.dllo.baiduyinyue.views.MyListView
+                android:id="@+id/top_detail_fragment_cl_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
 </android.support.design.widget.CoordinatorLayout>

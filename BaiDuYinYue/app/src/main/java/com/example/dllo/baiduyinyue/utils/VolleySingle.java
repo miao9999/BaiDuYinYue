@@ -21,6 +21,9 @@ public class VolleySingle  {
         queue = Volley.newRequestQueue(context);
     }
 
+    public RequestQueue getQueue(){
+        return queue;
+    }
 
     /**
      * 为外部提供一个方法

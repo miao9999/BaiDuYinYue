@@ -9,7 +9,9 @@
         android:id="@+id/item_local_music_song_lv_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="title" />
+        android:text="title"
+        android:layout_margin="10dp"
+        />
 
     <TextView
         android:id="@+id/item_local_music_song_lv_name_tv"
@@ -17,5 +19,7 @@
         android:layout_height="wrap_content"
         android:text="name"
         android:textColor="#888888"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:layout_marginLeft="10dp"
+        />
 </LinearLayout>

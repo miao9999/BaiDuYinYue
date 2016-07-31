@@ -10,6 +10,7 @@ import com.example.dllo.baiduyinyue.R;
  */
 public class UserActivity extends AbsBaseActivity implements View.OnClickListener {
     private TextView titleTv;
+    private TextView loginTv;
     @Override
     protected int setLayout() {
         return R.layout.activity_user;
@@ -18,11 +19,14 @@ public class UserActivity extends AbsBaseActivity implements View.OnClickListene
     @Override
     protected void initView() {
         titleTv = findView(R.id.user_aty_title_more_tv);
+        loginTv = findView(R.id.user_aty_login_tv);
     }
 
     @Override
     protected void initData() {
         titleTv.setOnClickListener(this);
+        loginTv.setOnClickListener(this);
+
 
     }
 
@@ -31,6 +35,9 @@ public class UserActivity extends AbsBaseActivity implements View.OnClickListene
         switch (v.getId()){
             case R.id.user_aty_title_more_tv:
                 goTo(this,MainActivity.class);
+                break;
+            case R.id.user_aty_login_tv:
+                goTo(this,LoginActivity.class);
                 break;
         }
     }

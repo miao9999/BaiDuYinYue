@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fragment_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/likesong_fragment_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/likesong_fragment_img1"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@mipmap/like_defult1" />
+
+            <ImageView
+                android:id="@+id/likesong_fragment_img2"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:src="@mipmap/like_defult2" />
+
+            <ImageView
+                android:id="@+id/likesong_fragment_img3"
+                android:layout_width="0dp"
+                android:layout_height="110dp"
+                android:layout_weight="1"
+                android:src="@mipmap/like_defult3" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/likesong_fragment_back_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/back"
+            android:layout_margin="@dimen/like_fragment_text_margin"
+            />
+
+        <TextView
+            android:id="@+id/likesong_fragment_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/likesong_fragment_img"
+            android:layout_marginLeft="@dimen/like_fragment_text_margin"
+            android:textColor="@color/like_fragment_text_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/likesong_fragment_img"
+            android:layout_toRightOf="@id/likesong_fragment_num"
+            android:text="@string/like_fragment_num"
+            android:textColor="@color/like_fragment_text_color" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/likesong_fragment_num"
+            android:layout_marginLeft="@dimen/like_fragment_text_margin"
+            android:layout_marginRight="@dimen/like_fragment_text_margin"
+            android:text="@string/like_fragment_like"
+            android:textColor="@color/like_fragment_text_color"
+            android:textSize="@dimen/like_fragment_text_size" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.example.dllo.baiduyinyue.views.MyListView
+            android:id="@+id/likesong_fragment_lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </ScrollView>
+</LinearLayout>

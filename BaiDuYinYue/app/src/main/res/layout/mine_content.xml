@@ -26,7 +26,7 @@
             android:text="@string/local_music" />
 
         <TextView
-            android:id="@+id/main_content_song_num_tv"
+            android:id="@+id/mine_content_song_num_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -192,12 +192,21 @@
                 android:text="@string/my_like_sing" />
 
             <TextView
+                android:id="@+id/mine_like_num_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_toRightOf="@id/mine_like_iv"
+                android:layout_below="@id/mine_like_tv"
+                android:layout_margin="@dimen/mine_content_widget_margin"
+                />
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/mine_like_tv"
                 android:layout_margin="@dimen/mine_content_widget_margin"
-                android:layout_toRightOf="@id/mine_like_iv"
-                android:text="0首" />
+                android:layout_toRightOf="@id/mine_like_num_tv"
+                android:text="首" />
 
             <ImageView
                 android:layout_width="wrap_content"

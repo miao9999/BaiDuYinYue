@@ -21,10 +21,11 @@
 
     <ProgressBar
         android:id="@+id/main_progressbar"
-        style="@style/StyleProgressBarMini"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="3dp"
         android:background="#ffffff"
-        android:progressTint="#7db6ff" />
+        android:progressDrawable="@drawable/progressbar_horizontal"
+        />
 
 </LinearLayout>

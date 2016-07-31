@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.example.dllo.baiduyinyue.ui.application.MyApp;
+import com.jaeger.library.StatusBarUtil;
+
 /**
  * Created by Limiao on 16/7/11.
  * Activity的基类
@@ -17,8 +20,9 @@ public abstract class AbsBaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // 设置全屏显示
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(setLayout());
+        StatusBarUtil.setTranslucent(this, 0);
         // 初始化组件
         initView();
         // 设置数据

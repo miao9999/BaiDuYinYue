@@ -32,5 +32,10 @@
 
     <!--播放界面-->
     <color name="play_detail_name_title_text_color">#ffffff</color>
+    <color name="music_start_time">#ffffff</color>
+    <color name="music_end_time">#ffffff</color>
+
+    <!--喜欢的单曲的界面-->
+    <color name="like_fragment_text_color">#ffffff</color>
 
 </resources>

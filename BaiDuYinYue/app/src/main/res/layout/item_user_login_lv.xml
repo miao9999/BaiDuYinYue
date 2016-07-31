@@ -5,6 +5,7 @@
     android:gravity="center"
     android:layout_margin="@dimen/user_margin">
  <TextView
+     android:id="@+id/user_aty_login_tv"
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:text="立即登录"

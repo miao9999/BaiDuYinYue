@@ -1,11 +1,14 @@
 package com.example.dllo.baiduyinyue.mode.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
  * Created by Limiao on 16/7/20.
  */
-public class TopDetailBean  {
+public class TopDetailBean implements Parcelable {
 
 
     /**
@@ -80,6 +83,24 @@ public class TopDetailBean  {
 
     private List<SongListBean> song_list;
 
+    protected TopDetailBean(Parcel in) {
+        billboard = in.readParcelable(BillboardBean.class.getClassLoader());
+        error_code = in.readInt();
+        song_list = in.createTypedArrayList(SongListBean.CREATOR);
+    }
+
+    public static final Creator<TopDetailBean> CREATOR = new Creator<TopDetailBean>() {
+        @Override
+        public TopDetailBean createFromParcel(Parcel in) {
+            return new TopDetailBean(in);
+        }
+
+        @Override
+        public TopDetailBean[] newArray(int size) {
+            return new TopDetailBean[size];
+        }
+    };
+
     public BillboardBean getBillboard() {
         return billboard;
     }
@@ -104,7 +125,19 @@ public class TopDetailBean  {
         this.song_list = song_list;
     }
 
-    public static class BillboardBean {
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(billboard, flags);
+        dest.writeInt(error_code);
+        dest.writeTypedList(song_list);
+    }
+
+    public static class BillboardBean implements Parcelable{
         private String billboard_type;
         private String billboard_no;
         private String update_date;
@@ -117,6 +150,33 @@ public class TopDetailBean  {
         private String pic_s260;
         private String pic_s210;
         private String web_url;
+
+        protected BillboardBean(Parcel in) {
+            billboard_type = in.readString();
+            billboard_no = in.readString();
+            update_date = in.readString();
+            billboard_songnum = in.readString();
+            havemore = in.readInt();
+            name = in.readString();
+            comment = in.readString();
+            pic_s640 = in.readString();
+            pic_s444 = in.readString();
+            pic_s260 = in.readString();
+            pic_s210 = in.readString();
+            web_url = in.readString();
+        }
+
+        public static final Creator<BillboardBean> CREATOR = new Creator<BillboardBean>() {
+            @Override
+            public BillboardBean createFromParcel(Parcel in) {
+                return new BillboardBean(in);
+            }
+
+            @Override
+            public BillboardBean[] newArray(int size) {
+                return new BillboardBean[size];
+            }
+        };
 
         public String getBillboard_type() {
             return billboard_type;
@@ -213,9 +273,30 @@ public class TopDetailBean  {
         public void setWeb_url(String web_url) {
             this.web_url = web_url;
         }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(billboard_type);
+            dest.writeString(billboard_no);
+            dest.writeString(update_date);
+            dest.writeString(billboard_songnum);
+            dest.writeInt(havemore);
+            dest.writeString(name);
+            dest.writeString(comment);
+            dest.writeString(pic_s640);
+            dest.writeString(pic_s444);
+            dest.writeString(pic_s260);
+            dest.writeString(pic_s210);
+            dest.writeString(web_url);
+        }
     }
 
-    public static class SongListBean {
+    public static class SongListBean implements Parcelable{
         private String artist_id;
         private String language;
         private String pic_big;
@@ -260,6 +341,65 @@ public class TopDetailBean  {
         private String resource_type_ext;
         private String mv_provider;
         private String artist_name;
+
+        protected SongListBean(Parcel in) {
+            artist_id = in.readString();
+            language = in.readString();
+            pic_big = in.readString();
+            pic_small = in.readString();
+            country = in.readString();
+            area = in.readString();
+            publishtime = in.readString();
+            album_no = in.readString();
+            lrclink = in.readString();
+            copy_type = in.readString();
+            hot = in.readString();
+            all_artist_ting_uid = in.readString();
+            resource_type = in.readString();
+            is_new = in.readString();
+            rank_change = in.readString();
+            rank = in.readString();
+            all_artist_id = in.readString();
+            style = in.readString();
+            del_status = in.readString();
+            relate_status = in.readString();
+            toneid = in.readString();
+            all_rate = in.readString();
+            sound_effect = in.readString();
+            file_duration = in.readInt();
+            has_mv_mobile = in.readInt();
+            versions = in.readString();
+            bitrate_fee = in.readString();
+            title = in.readString();
+            song_id = in.readString();
+            author = in.readString();
+            havehigh = in.readInt();
+            album_title = in.readString();
+            ting_uid = in.readString();
+            album_id = in.readString();
+            charge = in.readInt();
+            is_first_publish = in.readInt();
+            has_mv = in.readInt();
+            learn = in.readInt();
+            song_source = in.readString();
+            piao_id = in.readString();
+            korean_bb_song = in.readString();
+            resource_type_ext = in.readString();
+            mv_provider = in.readString();
+            artist_name = in.readString();
+        }
+
+        public static final Creator<SongListBean> CREATOR = new Creator<SongListBean>() {
+            @Override
+            public SongListBean createFromParcel(Parcel in) {
+                return new SongListBean(in);
+            }
+
+            @Override
+            public SongListBean[] newArray(int size) {
+                return new SongListBean[size];
+            }
+        };
 
         public String getArtist_id() {
             return artist_id;
@@ -611,6 +751,59 @@ public class TopDetailBean  {
 
         public void setArtist_name(String artist_name) {
             this.artist_name = artist_name;
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(artist_id);
+            dest.writeString(language);
+            dest.writeString(pic_big);
+            dest.writeString(pic_small);
+            dest.writeString(country);
+            dest.writeString(area);
+            dest.writeString(publishtime);
+            dest.writeString(album_no);
+            dest.writeString(lrclink);
+            dest.writeString(copy_type);
+            dest.writeString(hot);
+            dest.writeString(all_artist_ting_uid);
+            dest.writeString(resource_type);
+            dest.writeString(is_new);
+            dest.writeString(rank_change);
+            dest.writeString(rank);
+            dest.writeString(all_artist_id);
+            dest.writeString(style);
+            dest.writeString(del_status);
+            dest.writeString(relate_status);
+            dest.writeString(toneid);
+            dest.writeString(all_rate);
+            dest.writeString(sound_effect);
+            dest.writeInt(file_duration);
+            dest.writeInt(has_mv_mobile);
+            dest.writeString(versions);
+            dest.writeString(bitrate_fee);
+            dest.writeString(title);
+            dest.writeString(song_id);
+            dest.writeString(author);
+            dest.writeInt(havehigh);
+            dest.writeString(album_title);
+            dest.writeString(ting_uid);
+            dest.writeString(album_id);
+            dest.writeInt(charge);
+            dest.writeInt(is_first_publish);
+            dest.writeInt(has_mv);
+            dest.writeInt(learn);
+            dest.writeString(song_source);
+            dest.writeString(piao_id);
+            dest.writeString(korean_bb_song);
+            dest.writeString(resource_type_ext);
+            dest.writeString(mv_provider);
+            dest.writeString(artist_name);
         }
     }
 }
