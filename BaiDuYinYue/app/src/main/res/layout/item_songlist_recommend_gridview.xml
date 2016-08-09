@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+
+    <ImageView
+        android:id="@+id/item_gridview_bg_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/item_gridview_eyephone_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_gridview_bg_iv"
+        android:layout_margin="5dp" />
+
+    <TextView
+        android:id="@+id/item_gridview_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_gridview_bg_iv"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@id/item_gridview_eyephone_iv"
+        android:textColor="#ffffff"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/item_gridview_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_gridview_bg_iv"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/item_gridview_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_gridview_title_tv"
+        android:textColor="#888888"
+        android:textSize="10sp" />
+
+</RelativeLayout>

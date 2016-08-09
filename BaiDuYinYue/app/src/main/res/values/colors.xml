@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="song_name">#000000</color>
+    <color name="singer">#888888</color>
+    <color name="tab_text">#66ffffff</color>
+    <color name="tab_selected_text">#ffffff</color>
+    <color name="music_tab_text_color">#7db6ff</color>
+    <color name="music_tab_indicator_color">#7db6ff</color>
+    <color name="fragment_bg">#ffffff</color>
+    <color name="songtop_title_author_text_color">#aaaaaa</color>
+    <color name="item_gridview_name_text_color">#888888</color>
+    <!--k歌listView-->
+    <color name="item_listview_special_intro_text_color">#888888</color>
+    <color name="item_k_sing_listview_num_text_color">#888888</color>
+    <color name="item_k_sing_listview_singed_text_color">#888888</color>
+    <!--用户-->
+    <color name="user_aty_line">#eeeeee</color>
+    <color name="user_aty_more_text_color">#ffffff</color>
+    <!--搜索-->
+    <color name="search_text_color">#888888</color>
+    <!--推荐——歌曲分类-->
+    <color name="recommend_sort_title_text_color">#ffffff</color>
+    <color name="recommend_sort_head_text_color">#ffffff</color>
+    <color name="mine_local_music_title_text_color">#ffffff</color>
+
+    <!--乐库——排行——详情-->
+    <color name="top_detail_item_rank_text_color">#ffffff</color>
+    <color name="top_detail_refresh_text_color">#ffffff</color>
+
+    <!--播放界面-->
+    <color name="play_detail_name_title_text_color">#ffffff</color>
+    <color name="music_start_time">#ffffff</color>
+    <color name="music_end_time">#ffffff</color>
+
+    <!--喜欢的单曲的界面-->
+    <color name="like_fragment_text_color">#ffffff</color>
+
+</resources>

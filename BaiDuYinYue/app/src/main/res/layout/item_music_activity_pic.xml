@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.example.dllo.baiduyinyue.views.RunningView
+        android:id="@+id/item_music_aty_pic_runningview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+
+        />
+
+    <com.example.dllo.baiduyinyue.views.PicLrcView
+        android:id="@+id/item_music_aty_like_lrcview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_music_aty_pic_runningview"
+        android:layout_margin="20dp"
+        app:textColor_current="#ff3456"
+        app:textColor_normal="#ffffff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/bt_playpage_button_download_press"
+
+            />
+
+        <ImageView
+            android:id="@+id/item_music_aty_like_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/bt_playpage_button_like_press"
+
+            />
+
+        <ImageView
+            android:id="@+id/item_music_aty_share_iv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@mipmap/bt_playpage_moreactions_press" />
+    </LinearLayout>
+</RelativeLayout>

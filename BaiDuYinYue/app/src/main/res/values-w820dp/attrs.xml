@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LrcView">
+        <!--歌词-->
+        <attr name="textSize" format="dimension"/>
+        <attr name="divider_height" format="dimension"/>
+        <attr name="textColor_normal" format="reference|color"/>
+        <attr name="textColor_current" format="reference|color"/>
+        <attr name="animation_duration" format="integer"/>
+    </declare-styleable>
+    <declare-styleable name="RunningView">
+        <!--圆形旋转图片-->
+        <attr name="imgSrc" format="reference"/>
+    </declare-styleable>
+</resources>

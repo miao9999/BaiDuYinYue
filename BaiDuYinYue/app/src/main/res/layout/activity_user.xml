@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/default_album_bg"
+    android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/user_aty_title_more_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/user_title_heigth"
+            android:drawableLeft="@mipmap/user_return"
+            android:gravity="center_vertical"
+            android:padding="@dimen/user_more_text_padding"
+            android:text="更多"
+            android:textColor="@color/user_aty_more_text_color" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/fragment_bg"
+            android:orientation="vertical">
+
+            <include layout="@layout/item_user_login_lv" />
+
+            <View
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/user_aty_line" />
+
+            <include layout="@layout/item_user_second_lv" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/user_aty_line" />
+
+            <include layout="@layout/item_user_thrid_lv" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/user_aty_line" />
+
+            <LinearLayout
+                android:id="@+id/user_aty_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/user_ll_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/user_img_margin_right"
+                    android:src="@mipmap/ic_setting_setting" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/user_setting" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/user_aty_line" />
+
+            <LinearLayout
+                android:id="@+id/user_aty_activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/user_ll_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/user_img_margin_right"
+                    android:src="@mipmap/ic_setting_activity" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/user_activity" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/user_aty_line" />
+
+            <LinearLayout
+                android:id="@+id/user_aty_other_app"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/user_ll_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/user_img_margin_right"
+                    android:src="@mipmap/ic_setting_app" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/user_other_app" />
+            </LinearLayout>
+        </LinearLayout>
+
+</ScrollView>
+</LinearLayout>

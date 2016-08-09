@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/user_margin"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_aty_icon_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/user_aty_login_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_login"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="立即登录"
+        android:textColor="#7db6ff" />
+
+    <TextView
+        android:id="@+id/user_aty_login_tv_after_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="登录后,自动为您同步歌曲"
+        android:textColor="#888888" />
+
+    <TextView
+        android:id="@+id/user_aty_exit_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="退出登录" />
+</LinearLayout>

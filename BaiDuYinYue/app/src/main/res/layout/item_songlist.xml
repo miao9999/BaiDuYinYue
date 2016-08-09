@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+
+
+    <ImageView
+        android:id="@+id/item_songlist_bg_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/item_songlist_eyephone_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_songlist_bg_iv"
+        android:layout_margin="5dp"
+        android:src="@mipmap/ic_listen_count" />
+
+    <TextView
+        android:id="@+id/item_songlist_num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_songlist_bg_iv"
+        android:layout_margin="5dp"
+        android:layout_toRightOf="@id/item_songlist_eyephone_iv"
+        android:textColor="#ffffff"
+        android:textSize="10sp" />
+
+    <TextView
+        android:id="@+id/item_songlist_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_songlist_bg_iv"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/item_songlist_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_songlist_title_tv"
+        android:textColor="#888888"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/item_songlist_paly_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/item_songlist_num_tv"
+        android:layout_alignRight="@id/item_songlist_bg_iv"
+        android:src="@drawable/selector_songtop_paly_btn" />
+
+</RelativeLayout>

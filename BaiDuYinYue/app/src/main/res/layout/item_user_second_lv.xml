@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/user_margin"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/item_user_second_lv_wifi_iv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/user_text_margin"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/selector_wifi"
+        android:gravity="center"
+        android:text="@string/user_wifi"
+        android:textSize="@dimen/user_second_text" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/item_user_second_lv_auro_close_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bt_setup_auto_close_nor"
+            />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/user_text_margin"
+        android:gravity="center"
+        android:text="@string/user_auto_close"
+        android:textSize="@dimen/user_second_text" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/item_user_second_lv_desktop_lyrics_iv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/user_text_margin"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/selector_desktoplyrics"
+        android:gravity="center"
+        android:text="@string/user_dedesktoplyrics"
+        android:textSize="@dimen/user_second_text" />
+
+
+    <TextView
+        android:id="@+id/item_user_second_lv_lockscreen_iv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/user_text_margin"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/selector_lockscreen"
+        android:gravity="center"
+        android:text="@string/user_lockscreen"
+        android:textSize="@dimen/user_second_text" />
+
+
+</LinearLayout>

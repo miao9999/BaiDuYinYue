@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/mv_fragment_guide_bar_margin"
+        >
+        <ImageView
+            android:id="@+id/mv_fragment_bar_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bar"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/mv_fragment_all_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mv_fragment_all"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mv_fragment_bar_iv"
+            />
+        <TextView
+            android:id="@+id/mv_fragment_hot_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mv_fragment_hot"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@+id/mv_fragment_line_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/line"
+            android:layout_toLeftOf="@id/mv_fragment_hot_tv"
+            />
+        <TextView
+            android:id="@+id/mv_fragment_new_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/mv_fragment_new"
+            android:layout_toLeftOf="@id/mv_fragment_line_iv"
+            />
+    </RelativeLayout>
+    <com.example.dllo.baiduyinyue.views.MyGridView
+        android:id="@+id/mv_fragment_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/my_gridview_margin"
+        android:numColumns="2"
+        android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
+        android:scrollbars="none"
+    />
+    </LinearLayout>
+</ScrollView>

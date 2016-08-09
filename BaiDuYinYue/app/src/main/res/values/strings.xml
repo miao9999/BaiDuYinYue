@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">BaiDuYinYue</string>
+    <string name="local_music">本地音乐</string>
+    <string name="recent_play">最近播放</string>
+    <string name="download">下载管理</string>
+    <string name="my_k">我的K歌</string>
+    <string name="create_list">自建歌单</string>
+    <string name="my_like_sing">我喜欢的单曲</string>
+    <string name="create_new_list">新建歌单</string>
+    <string name="collect_list">收藏歌单</string>
+    <string name="click_me">遇到喜欢的歌单,记得点❤️哟</string>
+    <string name="radio_like">红心频道</string>
+    <string name="radio_person">私人频道</string>
+
+    <string name="search_et_text">歌曲,歌手,专辑,歌词,伴奏</string>
+    <string name="gridview_numColumns">3</string>
+    <string name="songlist_fragment_all">全部歌单</string>
+    <string name="radio_recommend">推荐电台</string>
+
+    <string name="k_sing_search">搜索K歌伴奏</string>
+    <string name="k_sing_singed">人唱过</string>
+    <string name="k_sing_title">大家都在唱"</string>
+
+    <string name="user_setskin">换肤</string>
+    <string name="user_music">音乐</string>
+    <string name="user_scan_music">扫描歌曲</string>
+    <string name="user_sound">听歌识曲</string>
+    <string name="user_import">电脑导歌</string>
+    <string name="user_vip">成为白金VIP</string>
+    <string name="user_package">免流量听歌</string>
+    <string name="user_ktv">雷石点唱机</string>
+    <string name="user_wifi">仅WiFi联网</string>
+    <string name="user_auto_close">定时关闭</string>
+    <string name="user_dedesktoplyrics">桌面歌词</string>
+    <string name="user_lockscreen">锁屏</string>
+    <string name="user_setting">设置</string>
+    <string name="user_activity">活动专区</string>
+    <string name="user_other_app">精品应用</string>
+
+    <string name="search_text">热门搜索</string>
+
+    <string name="k_sing_ktv">KTV热歌榜</string>
+    <string name="k_sing_chinese">华语金曲</string>
+    <string name="k_sing_occident">欧美经典</string>
+    <string name="k_sing_man">男歌手</string>
+    <string name="k_sing_woman">女歌手</string>
+    <string name="k_sing_band">乐队</string>
+
+    <string name="top_detail_refresh_text">最近更新:</string>
+    <string name="mv_fragment_all">全部</string>
+    <string name="mv_fragment_new">最新</string>
+    <string name="mv_fragment_hot">最热</string>
+
+    <string name="like_fragment_like">我喜欢的单曲</string>
+    <string name="like_fragment_num">首</string>
+
+    <string name="second_title">音乐</string>
+
+    <string name="add_url">参数</string>
+
+    <string name="success">授权成功</string>
+    <string name="failure">授权失败</string>
+    <string name="cancel">授权取消</string>
+    <string-array name="local_tab_text">
+        <item>歌曲</item>
+        <item>文件夹</item>
+        <item>歌手</item>
+        <item>专辑</item>
+    </string-array>
+    <string-array name="main_tab_text">
+        <item>我的</item>
+        <item>乐库</item>
+        <item>K歌</item>
+    </string-array>
+    <string-array name="music_tab_text">
+        <item>推荐</item>
+        <item>排行</item>
+        <item>歌单</item>
+        <item>电台</item>
+        <item>MV</item>
+    </string-array>
+</resources>

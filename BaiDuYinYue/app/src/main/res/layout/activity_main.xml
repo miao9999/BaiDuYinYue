@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/default_album_bg"
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity">
+
+    <!--fragment的点位布局-->
+    <FrameLayout
+        android:id="@+id/main_content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </FrameLayout>
+    <!--播放条的布局-->
+    <include layout="@layout/main_minibar" />
+
+    <ProgressBar
+        android:id="@+id/main_progressbar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="#ffffff"
+        android:progressDrawable="@drawable/progressbar_horizontal" />
+
+</LinearLayout>

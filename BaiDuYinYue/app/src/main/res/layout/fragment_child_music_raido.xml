@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/radio_fragment_like_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/radio_like_tv_margin"
+            android:layout_weight="1"
+            android:background="@mipmap/img_radiopage_like"
+            android:drawableTop="@mipmap/ic_radiopage_icon_like"
+            android:gravity="center"
+            android:padding="@dimen/radip_tv_padding"
+            android:text="@string/radio_like" />
+
+        <TextView
+            android:id="@+id/radio_fragment_person_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/radio_person_tv_margin"
+            android:layout_weight="1"
+            android:background="@mipmap/img_radiopage_personal"
+            android:drawableTop="@mipmap/ic_radiopage_icon_personal"
+            android:gravity="center"
+            android:padding="@dimen/radip_tv_padding"
+            android:text="@string/radio_person" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/radio_fragment_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/radio_fragment_recommend_ll_margin_left"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/bar" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_recommend" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <com.example.dllo.baiduyinyue.views.MyGridView
+        android:id="@+id/radio_fragment_gv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/my_gridview_margin"
+        android:numColumns="4"
+        android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
+        android:scrollbars="none"/>
+</LinearLayout>
