@@ -21,9 +21,6 @@ public abstract class AbsBaseFragment extends Fragment {
     protected OnSkipFragment onSkipFragment;
     protected View view;
 
-    public void setOnSkipFragment(OnSkipFragment onSkipFragment) {
-        this.onSkipFragment = onSkipFragment;
-    }
 
     /**
      * 当activity与fragment发生关联时回调
@@ -43,7 +40,7 @@ public abstract class AbsBaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (view == null) {
-            view = inflater.inflate(setLayout(),container,false);
+            view = inflater.inflate(setLayout(), container, false);
         }
         return view;
 

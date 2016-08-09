@@ -1,9 +1,8 @@
 package com.example.dllo.baiduyinyue.ui.fragment.recommend_chlid_fragment;
 
-import android.util.Log;
+import android.graphics.drawable.AnimationDrawable;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
@@ -12,6 +11,7 @@ import com.example.dllo.baiduyinyue.mode.bean.RecommendSortHeadBean;
 import com.example.dllo.baiduyinyue.mode.net.NetValues;
 import com.example.dllo.baiduyinyue.ui.adapter.recommend.RecommendSortContentAdapter;
 import com.example.dllo.baiduyinyue.ui.adapter.recommend.RecommendSortHeadAdapter;
+import com.example.dllo.baiduyinyue.ui.application.MyApp;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.utils.Contant;
 import com.example.dllo.baiduyinyue.utils.L;
@@ -54,12 +54,10 @@ public class RecommendSortFragment extends AbsBaseFragment implements View.OnCli
     protected void initData() {
         recommendSortHeadAdapter = new RecommendSortHeadAdapter(context);
         contentAdapter = new RecommendSortContentAdapter(context);
-
         // 解析上方图片的数据
         VolleySingle.getInstance(context).startRequest(NetValues.RECOMMEND_SORT_HEAD_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
-                L.e("recommendSortFragment","解析成功");
                 Gson gson =  new Gson();
                 recommendSortHeadBean = gson.fromJson(url,RecommendSortHeadBean.class);
                 taglistBeen = recommendSortHeadBean.getTaglist();
@@ -67,7 +65,6 @@ public class RecommendSortFragment extends AbsBaseFragment implements View.OnCli
 
             @Override
             public void failure() {
-                L.e("recommendSortFragment","解析失败");
             }
         });
 
@@ -80,21 +77,18 @@ public class RecommendSortFragment extends AbsBaseFragment implements View.OnCli
         VolleySingle.getInstance(context).startRequest(NetValues.RECOMMEND_SORT_CONTENT_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
-                L.e("recommendSortFragment","解析成功");
                 Gson gson = new Gson();
                 recommendSortContentBean = gson.fromJson(url,RecommendSortContentBean.class);
-                L.e("recommendSortContentBean",recommendSortContentBean.getTags().size() + "");
+                // 设置具体的内容
+                contentAdapter.setRecommendSortContentBean(recommendSortContentBean);
+                listView.setAdapter(contentAdapter);
             }
 
             @Override
             public void failure() {
-                L.e("recommendSortFragment","解析失败");
             }
         });
-//        // 设置具体的内容
-        contentAdapter.setRecommendSortContentBean(recommendSortContentBean);
-        listView.setAdapter(contentAdapter);
-        L.e("contentAdapter");
+
 
         // 设置title返回的监听
         titleTv.setOnClickListener(this);

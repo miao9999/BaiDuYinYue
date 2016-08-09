@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Limiao on 16/7/16.
  * 乐库--mv的实体类
  */
-public class MvBean  {
+public class MvBean {
 
     /**
      * error_code : 22000

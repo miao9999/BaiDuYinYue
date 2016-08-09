@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/15.
+ * 专栏的Adapter
  */
 public class SpecialAdapter extends BaseAdapter {
     private List<RecommendBean.ResultBean.Mod7Bean.SpecialBean> specialBeen;

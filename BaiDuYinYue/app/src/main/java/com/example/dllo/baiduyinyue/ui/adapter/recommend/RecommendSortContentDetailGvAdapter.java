@@ -11,6 +11,7 @@ import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.RecommendSortContentBean;
 import com.example.dllo.baiduyinyue.utils.L;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,12 +20,12 @@ import java.util.List;
  */
 public class RecommendSortContentDetailGvAdapter extends BaseAdapter{
     private RecommendSortContentBean recommendSortContentBean;
-    private List<String> tags;
+    private List<String> tags;// 分类标签
     private Context context;
 
     public RecommendSortContentDetailGvAdapter(Context context) {
         this.context = context;
-//        tags = recommendSortContentBean.getTags();
+        tags = new ArrayList<>();
     }
 
     public void setRecommendSortContentBean(RecommendSortContentBean recommendSortContentBean) {
@@ -35,9 +36,7 @@ public class RecommendSortContentDetailGvAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        L.e("tags",tags.size() + "");
         return tags == null ? 0 : tags.size();
-//        return 30;
     }
 
     @Override

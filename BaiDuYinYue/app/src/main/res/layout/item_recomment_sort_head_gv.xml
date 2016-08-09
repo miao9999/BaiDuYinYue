@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="@dimen/recommend_sort_head_tv_padding"
-        android:textSize="@dimen/recommend_sort_head_text_size"
         android:textColor="@color/recommend_sort_head_text_color"
-        android:text="22222" />
+        android:textSize="@dimen/recommend_sort_head_text_size" />
 </RelativeLayout>

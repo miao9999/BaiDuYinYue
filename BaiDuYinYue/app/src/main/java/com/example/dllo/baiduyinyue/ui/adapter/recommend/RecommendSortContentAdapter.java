@@ -92,7 +92,6 @@ public class RecommendSortContentAdapter extends BaseAdapter {
                 }
                 recommendSortContentDetailGvAdapter.setRecommendSortContentBean(recommendSortContentBean);
                 recommendSortDetailViewHolder.myGridView.setAdapter(recommendSortContentDetailGvAdapter);
-                L.e("assdgsdg");
                 break;
         }
 

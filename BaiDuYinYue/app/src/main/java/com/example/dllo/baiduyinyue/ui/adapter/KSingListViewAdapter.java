@@ -56,7 +56,6 @@ public class KSingListViewAdapter extends BaseAdapter {
             holder = (KSingViewHolder) convertView.getTag();
         }
         KSingListBean.ResultBean.ItemsBean itemsBean = itemsBeen.get(position);
-        L.e("itemsBeen",itemsBeen.size()+  " ");
         holder.numTv.setText(itemsBean.getPlay_num());
         holder.titleTv.setText(itemsBean.getSong_title());
         holder.nameTv.setText(itemsBean.getArtist_name());

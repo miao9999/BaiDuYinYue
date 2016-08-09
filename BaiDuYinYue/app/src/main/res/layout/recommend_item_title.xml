@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/item_gridview_title_iv"
-        android:text="title"
         />
     <ImageView
         android:id="@+id/item_gridview_more_iv"
@@ -27,6 +26,5 @@
         android:id="@+id/item_gridview_more_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="更多"
         android:layout_toLeftOf="@id/item_gridview_more_iv"/>
 </RelativeLayout>

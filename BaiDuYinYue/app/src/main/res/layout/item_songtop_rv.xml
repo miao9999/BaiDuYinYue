@@ -18,8 +18,7 @@
             <ImageView
                 android:id="@+id/songtop_rv_iv"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+                android:layout_height="wrap_content" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -41,7 +40,6 @@
                 android:id="@+id/songtop_rv_sort_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="sort"
                 android:textSize="@dimen/songtop_sort_text_size" />
 
             <RelativeLayout
@@ -61,12 +59,11 @@
                     android:id="@+id/songtop_rv_detail1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/songtop_rv_num1_iv"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="name"
                     android:textColor="@color/songtop_title_author_text_color"
-                    android:layout_centerVertical="true"
                     android:textSize="@dimen/songtop_title_name_text_size" />
 
                 <TextView
@@ -81,12 +78,11 @@
                     android:id="@+id/songtop_rv_author1_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/songtop_short_line"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="arthor"
                     android:textColor="@color/songtop_title_author_text_color"
-                    android:layout_centerVertical="true"
                     android:textSize="@dimen/songtop_title_name_text_size" />
             </RelativeLayout>
 
@@ -108,12 +104,11 @@
                     android:id="@+id/songtop_rv_detail2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/songtop_rv_num2_iv"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="name"
                     android:textColor="@color/songtop_title_author_text_color"
-                    android:layout_centerVertical="true"
                     android:textSize="@dimen/songtop_title_name_text_size" />
 
                 <TextView
@@ -127,12 +122,11 @@
                     android:id="@+id/songtop_rv_author2_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/songtop_short_line2"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="arthor"
                     android:textColor="@color/songtop_title_author_text_color"
-                    android:layout_centerVertical="true"
                     android:textSize="@dimen/songtop_title_name_text_size" />
             </RelativeLayout>
 
@@ -140,7 +134,6 @@
                 android:id="@+id/songtop_rv_third_rl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_below="@id/songtop_rv_second_rl">
 
                 <ImageView
@@ -154,12 +147,11 @@
                     android:id="@+id/songtop_rv_detail3_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/songtop_rv_num3_iv"
                     android:ellipsize="end"
-                    android:textColor="@color/songtop_title_author_text_color"
                     android:singleLine="true"
-                    android:text="name"
-                    android:layout_centerVertical="true"
+                    android:textColor="@color/songtop_title_author_text_color"
                     android:textSize="@dimen/songtop_title_name_text_size" />
 
                 <TextView
@@ -173,12 +165,11 @@
                     android:id="@+id/songtop_rv_author3_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/songtop_short_line3"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="arthor"
                     android:textColor="@color/songtop_title_author_text_color"
-                    android:layout_centerVertical="true"
                     android:textSize="@dimen/songtop_title_name_text_size" />
             </RelativeLayout>
         </RelativeLayout>

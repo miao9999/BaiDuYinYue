@@ -23,11 +23,10 @@ import java.util.List;
  */
 public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickListener {
     private ViewPager viewPager;
-    private LocalMusicVpAdapter localMusicVpAdapter ;
+    private LocalMusicVpAdapter localMusicVpAdapter;
     private TabLayout tabLayout;
     private List<Fragment> fragments;
     private TextView titleBackTv;
-
 
 
     @Override
@@ -67,10 +66,10 @@ public class LocalMusicFragment extends AbsBaseFragment implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.local_music_title_tv:
-                if (onSkipFragment != null){
-                    onSkipFragment.toFragment(Contant.MAIN_FRAGMENT,null);
+                if (onSkipFragment != null) {
+                    onSkipFragment.toFragment(Contant.MAIN_FRAGMENT, null);
                 }
                 break;
         }

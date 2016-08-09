@@ -42,14 +42,11 @@ public class RadioFragment extends AbsBaseFragment {
                 Gson gson = new Gson();
                 recommendBean = gson.fromJson(url,RecommendBean.class);
                 actionBeen = recommendBean.getResult().getScene().getResult().getAction();
-                L.e("radioFragment","解析成功");
-                L.e("radioFragment",actionBeen.get(2).getScene_name());
 
             }
 
             @Override
             public void failure() {
-                L.e("radioFragment","解析失败");
             }
         });
 

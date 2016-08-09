@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.db.CollectionBean;
+import com.example.dllo.baiduyinyue.mode.db.DBTool;
 
 import java.util.List;
 
@@ -26,6 +28,13 @@ public class LikeSongAdapter extends BaseAdapter {
 
     public void setCollectionBeen(List<CollectionBean> collectionBeen) {
         this.collectionBeen = collectionBeen;
+        notifyDataSetChanged();
+    }
+
+    public void delData(int pos){
+        String songName = collectionBeen.get(pos).getSongName();
+        collectionBeen.remove(pos);
+        DBTool.getDbInstance().delBySongName(songName);
         notifyDataSetChanged();
     }
 

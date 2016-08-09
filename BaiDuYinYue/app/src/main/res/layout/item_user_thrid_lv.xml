@@ -2,95 +2,94 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_margin="20dp"
     android:gravity="fill_horizontal"
-    android:layout_margin="20dp">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
+            android:layout_weight="1"
             android:drawableTop="@mipmap/setting_tool_bt_setup_skin"
-            android:text="@string/user_setskin"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="@string/user_setskin" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:text="@string/user_music"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_sound"
             android:gravity="center"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_sound" />
+            android:text="@string/user_music" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:text="@string/user_scan_music"
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_scan"
             android:gravity="center"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_scan" />
+            android:text="@string/user_scan_music" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/user_sound"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_song" />
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_song"
+            android:gravity="center"
+            android:text="@string/user_sound" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/user_import"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_import" />
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_import"
+            android:gravity="center"
+            android:text="@string/user_import" />
 
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/user_vip"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_creditcard" />
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_creditcard"
+            android:gravity="center"
+            android:text="@string/user_vip" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/user_package"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_package" />
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_package"
+            android:gravity="center"
+            android:text="@string/user_package" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:text="@string/user_ktv"
-            android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/user_text_margin"
-            android:drawableTop="@mipmap/setting_tool_bt_setup_ktv" />
+            android:layout_weight="1"
+            android:drawableTop="@mipmap/setting_tool_bt_setup_ktv"
+            android:gravity="center"
+            android:text="@string/user_ktv" />
     </LinearLayout>
 </LinearLayout>

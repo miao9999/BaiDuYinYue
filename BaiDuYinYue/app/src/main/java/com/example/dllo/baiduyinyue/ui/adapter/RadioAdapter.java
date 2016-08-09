@@ -59,7 +59,6 @@ public class RadioAdapter extends BaseAdapter {
         }
         RecommendBean.ResultBean.SceneAllBean.SceneBean.ActionBean actionBean = actionBeen.get(position);
         holder.textView.setText(actionBean.getScene_name());
-        L.e("radoiFragment",actionBean.getScene_name());
         Picasso.with(context).load(actionBean.getIcon_android()).into(holder.imageView);
         return convertView;
     }

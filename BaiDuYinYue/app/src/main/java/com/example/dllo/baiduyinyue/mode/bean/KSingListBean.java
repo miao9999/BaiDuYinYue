@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Limiao on 16/7/16.
  * k歌记录的实体类
  */
-public class KSingListBean  {
+public class KSingListBean {
 
     /**
      * error_code : 22000

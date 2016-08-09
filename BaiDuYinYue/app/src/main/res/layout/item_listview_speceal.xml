@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/my_listview_margin">
-<ImageView
-    android:id="@+id/item_listview_special_iv"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@mipmap/ic_launcher"
-    android:layout_marginTop="@dimen/item_listview_special_iv_margin_top"/>
+    android:layout_margin="@dimen/my_listview_margin"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/item_listview_special_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_listview_special_iv_margin_top"
+        android:src="@mipmap/ic_launcher" />
+
     <TextView
-        android:layout_toRightOf="@id/item_listview_special_iv"
         android:id="@+id/item_listview__special_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/item_listview_special_title_tv_margin_top"
         android:layout_marginLeft="@dimen/item_listview_special_title_tv_margin_left"
-        android:textSize="@dimen/item_listview_special_title_text_size"/>
-    <TextView
+        android:layout_marginTop="@dimen/item_listview_special_title_tv_margin_top"
         android:layout_toRightOf="@id/item_listview_special_iv"
+        android:textSize="@dimen/item_listview_special_title_text_size" />
+
+    <TextView
         android:id="@+id/item_listview_special_intro_tv"
         android:layout_width="wrap_content"
-        android:layout_below="@id/item_listview__special_title_tv"
         android:layout_height="wrap_content"
+        android:layout_below="@id/item_listview__special_title_tv"
         android:layout_marginLeft="@dimen/item_listview_special_intro_tv_margin_left"
+        android:layout_toRightOf="@id/item_listview_special_iv"
         android:textColor="@color/item_listview_special_intro_text_color"
-        android:textSize="@dimen/item_listview_special_intro_text_size"
-        />
+        android:textSize="@dimen/item_listview_special_intro_text_size" />
+
     <ImageView
         android:id="@+id/item_listview__special_more_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/bt_recsong_module_more"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        />
+        android:src="@mipmap/bt_recsong_module_more" />
 </RelativeLayout>

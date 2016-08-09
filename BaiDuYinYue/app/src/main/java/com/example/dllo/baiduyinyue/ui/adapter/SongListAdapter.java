@@ -50,23 +50,24 @@ public class SongListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         SonglistViewHoldre holdre = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_songlist,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_songlist, parent, false);
             holdre = new SonglistViewHoldre(convertView);
             convertView.setTag(holdre);
-        }else {
+        } else {
             holdre = (SonglistViewHoldre) convertView.getTag();
         }
         SonglistBean.SongListBean songListBean = songListBeen.get(position);
         holdre.nameTv.setText(songListBean.getTag());
         holdre.numTv.setText(songListBean.getListenum());
         holdre.titleTv.setText(songListBean.getTitle());
-        Picasso.with(context).load(songListBean.getPic_300()).resize(400,400).into(holdre.imageView);
+        Picasso.with(context).load(songListBean.getPic_300()).resize(400, 400).into(holdre.imageView);
         return convertView;
     }
 
-    class SonglistViewHoldre{
-        private TextView titleTv,numTv, nameTv;
+    class SonglistViewHoldre {
+        private TextView titleTv, numTv, nameTv;
         private ImageView imageView;
+
         public SonglistViewHoldre(View view) {
             titleTv = (TextView) view.findViewById(R.id.item_songlist_title_tv);
             numTv = (TextView) view.findViewById(R.id.item_songlist_num_tv);

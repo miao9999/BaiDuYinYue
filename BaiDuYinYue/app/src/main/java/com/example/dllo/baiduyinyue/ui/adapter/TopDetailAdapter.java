@@ -19,7 +19,7 @@ import java.util.List;
  * Created by Limiao on 16/7/21.
  * 乐库--排行---详情的Adapter
  */
-public class TopDetailAdapter extends BaseAdapter{
+public class TopDetailAdapter extends BaseAdapter {
     private List<TopDetailBean.SongListBean> songListBeen;
     private Context context;
 
@@ -34,7 +34,7 @@ public class TopDetailAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return songListBeen == null ? 0:songListBeen.size();
+        return songListBeen == null ? 0 : songListBeen.size();
     }
 
     @Override
@@ -51,14 +51,14 @@ public class TopDetailAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         TopDetailViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_top_detail_lv,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_top_detail_lv, parent, false);
             holder = new TopDetailViewHolder(convertView);
             convertView.setTag(holder);
-        }else {
+        } else {
             holder = (TopDetailViewHolder) convertView.getTag();
         }
         TopDetailBean.SongListBean songListBean = songListBeen.get(position);
-        Picasso.with(context).load(songListBean.getPic_big()).resize(150,150).into(holder.bgIv);
+        Picasso.with(context).load(songListBean.getPic_big()).resize(150, 150).into(holder.bgIv);
         holder.rankTv.setText(songListBean.getRank());
         holder.nameTv.setText(songListBean.getArtist_name());
         holder.titleTv.setText(songListBean.getTitle());
@@ -66,10 +66,10 @@ public class TopDetailAdapter extends BaseAdapter{
     }
 
 
-
-    class TopDetailViewHolder{
-        private TextView titleTv,nameTv,rankTv;
+    class TopDetailViewHolder {
+        private TextView titleTv, nameTv, rankTv;
         private ImageView bgIv;
+
         public TopDetailViewHolder(View view) {
             titleTv = (TextView) view.findViewById(R.id.item_top_detail_title_tv);
             nameTv = (TextView) view.findViewById(R.id.item_top_detail_name_tv);

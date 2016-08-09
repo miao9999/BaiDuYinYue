@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by Limiao on 16/7/21.
  * 歌曲的实体类
  */
-public class MusicDetailBean implements Parcelable{
+public class MusicDetailBean implements Parcelable {
 
     /**
      * special_type : 0
@@ -122,7 +122,7 @@ public class MusicDetailBean implements Parcelable{
         dest.writeParcelable(bitrate, flags);
     }
 
-    public static class SonginfoBean implements Parcelable{
+    public static class SonginfoBean implements Parcelable {
         private int special_type;
         private String pic_huge;
         private String resource_type;
@@ -523,7 +523,7 @@ public class MusicDetailBean implements Parcelable{
         }
     }
 
-    public static class BitrateBean implements Parcelable{
+    public static class BitrateBean implements Parcelable {
         private String show_link;
         private int free;
         private int song_file_id;

@@ -1,7 +1,10 @@
 package com.example.dllo.baiduyinyue.ui.activity;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -31,9 +34,7 @@ import com.example.dllo.baiduyinyue.ui.fragment.recommend_chlid_fragment.Recomme
 import com.example.dllo.baiduyinyue.ui.fragment.top_child_fragment.TopDetailFragment;
 import com.example.dllo.baiduyinyue.ui.service.MusicService;
 import com.example.dllo.baiduyinyue.utils.Contant;
-import com.example.dllo.baiduyinyue.utils.L;
 import com.example.dllo.baiduyinyue.utils.OnSkipFragment;
-import com.example.dllo.baiduyinyue.utils.T;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
@@ -45,8 +46,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AbsBaseActivity implements OnSkipFragment, View.OnClickListener {
-
-
     private ProgressBar progressBar;
     private MainFragment mainFragment;
     private FragmentManager manager;
@@ -62,7 +61,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
     private MusicService.MyBinder myBinder;
     private ServiceConnection connection;
     private EventBus eventBus;
-    private String songNum, likeSongNum;
     private boolean isPlaying;// 监听播放-暂停键的状态
     private String intentUrl;
     private LocalMusicSongBean localMusicSongBean;
@@ -74,6 +72,8 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
     private String songUrl;
     private int musicType;
     private LikeSongFragment likeSongFragment;
+    private RefreshSongReceiver refreshSongReceiver;
+    private int refreshCurrent;
 
     @Override
     protected int setLayout() {
@@ -94,12 +94,8 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
         headIv.setOnClickListener(this);
         nextIv.setOnClickListener(this);
         listIv.setOnClickListener(this);
-
         initFragment();
-
-
     }
-
 
     @Override
     protected void initData() {
@@ -108,7 +104,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 myBinder = (MusicService.MyBinder) service;
-
             }
 
             @Override
@@ -122,28 +117,31 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
         // 注册eventBus
         eventBus = EventBus.getDefault();
         eventBus.register(this);
-
+        // 刚打开时显示的界面
         manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.main_content_frame, mainFragment);
         transaction.addToBackStack("mainFragment");
         transaction.commit();
-
-
         // 设置播放minibar
         playIv.setImageResource(R.mipmap.play);
 
-        Intent likeSongNumIntent = getIntent();
-        likeSongNum = likeSongNumIntent.getStringExtra("likeSongNum");
-
+        // 注册接收歌曲信息的广播
+        IntentFilter filter = new IntentFilter(Contant.REFRESH_SONG_INFO_RECEIVER);
+        refreshSongReceiver = new RefreshSongReceiver();
+        registerReceiver(refreshSongReceiver, filter);
 
     }
 
-    // 接收eventBus的值
+    /**
+     * 接收eventBus的值
+     *
+     * @param eventBean
+     */
     @Subscribe
     public void onReceiver(final EventBean eventBean) {
-        Log.d("MainActivity", "aaaaa");
         musicType = eventBean.getType();
+        refreshCurrent = 0;
         switch (musicType) {
             case Contant.LOCAL_TYPE:
                 // 获取本地音乐的信息
@@ -167,7 +165,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                         topDetailBean = eventBean.getTopDetailBean();
                         topDeatilCurrentIndex = eventBean.getCurrentIndex();
                         songUrl = url.substring(1, url.length() - 2);
-                        L.e("mainAty", Contant.SUCCESS);
                         Gson gson = new Gson();
                         musicDetailBean = gson.fromJson(songUrl, MusicDetailBean.class);
                         songinfoBean = musicDetailBean.getSonginfo();
@@ -179,10 +176,8 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                         playIv.setImageResource(R.mipmap.pause);
                         myBinder.setTopDetailData(topDetailBean, topDeatilCurrentIndex, musicType);
                     }
-
                     @Override
                     public void failure() {
-                        L.e("mainAty", Contant.FAILURE);
                     }
                 });
                 break;
@@ -197,7 +192,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                         Thread.sleep(1000);
                         progressBar.setMax(myBinder.getPlayer().getDuration());
                         progressBar.setProgress(myBinder.getPlayer().getCurrentPosition());
-//                        L.e("progressbar");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -236,7 +230,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                 bundle.putString(NetValues.TOP_DETAIL_URL, url);
                 topDetailFragment.setArguments(bundle);
                 transaction.replace(R.id.main_content_frame, topDetailFragment).addToBackStack(null);
-                L.e("mainaty", url);
                 break;
             case Contant.LIKE_SONG_FRAGMENT:
                 transaction.replace(R.id.main_content_frame, likeSongFragment).addToBackStack(null);
@@ -251,6 +244,8 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
         eventBus.unregister(this);
         // 解绑服务
         unbindService(connection);
+        // 取消注册广播
+        unregisterReceiver(refreshSongReceiver);
         super.onDestroy();
     }
 
@@ -263,7 +258,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
                 finish();
@@ -291,7 +285,6 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
         switch (v.getId()) {
             //播放按钮
             case R.id.main_play_pause_iv:
-//                if (myBinder.getPlayer() != null) {
                 if (isPlaying) {
                     playIv.setImageResource(R.mipmap.pause);
                     myBinder.play(url);
@@ -301,39 +294,37 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                     myBinder.pause();
                     isPlaying = !isPlaying;
                 }
-//                } else {
-//                    T.shortMsg("请选择歌曲");
-//                }
                 break;
             //跳转到播放详情,并把值都传到播放的musicActivity
             case R.id.main_music_play_pic_iv:
-                T.shortMsg("跳转");
                 switch (musicType) {
                     case Contant.LOCAL_TYPE:
                         intent = new Intent(MainActivity.this, MusicActivity.class);
                         intent.putParcelableArrayListExtra("localMusicSongBeen", (ArrayList<? extends Parcelable>) localMusicSongBeen);
-                        intent.putExtra("pos", localCurrentIndex);
-                        intent.putExtra("musicType", Contant.LOCAL_TYPE);
-                        if ((DBTool.getDbInstance().queryBySongName(localMusicSongBean.getName()).size() > 0)) {
-                            intent.putExtra("isLike", true);
+                        if (refreshCurrent != 0) {
+                            intent.putExtra("pos", refreshCurrent);
                         } else {
-                            intent.putExtra("isLike", false);
+                            intent.putExtra("pos", localCurrentIndex);
                         }
+                        intent.putExtra("musicType", Contant.LOCAL_TYPE);
+                        // 判断当前歌曲是否收藏,把收藏状态传到播放界面显示
+                        isLikeLocal();
                         break;
 
                     case Contant.TOP_DETAIL_TYPE:
                         intent = new Intent(MainActivity.this, MusicActivity.class);
                         intent.putExtra("topDetailBean", topDetailBean);
                         intent.putExtra("musicType", Contant.TOP_DETAIL_TYPE);
-                        intent.putExtra("pos", topDeatilCurrentIndex);
+                        if (refreshCurrent != 0) {
+                            intent.putExtra("pos", refreshCurrent);
+                        } else {
+                            intent.putExtra("pos", topDeatilCurrentIndex);
+                        }
                         intent.putExtra("musicDetailBean", musicDetailBean);
                         intent.putExtra("songUrl", intentUrl);
                         if (TextUtils.isEmpty(songinfoBean.getTitle())) {
-                            if (DBTool.getDbInstance().queryBySongName(songinfoBean.getTitle()).size() > 0) {
-                                intent.putExtra("isLike", true);
-                            } else {
-                                intent.putExtra("isLike", false);
-                            }
+                            // 当前歌曲是否收藏
+                            isLikeTop();
                         }
                         break;
                 }
@@ -342,13 +333,13 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                 break;
             // 下一首
             case R.id.main_next_iv:
-                T.shortMsg("下一首");
                 switch (musicType) {
                     case Contant.LOCAL_TYPE:
                         myBinder.next(Contant.LOCAL_TYPE);
                         localCurrentIndex++;
                         songNameTv.setText(localMusicSongBeen.get(localCurrentIndex).getName());
                         singerTv.setText(localMusicSongBeen.get(localCurrentIndex).getSinger());
+                        isLikeLocal();
                         break;
                     case Contant.TOP_DETAIL_TYPE:
                         myBinder.next(Contant.TOP_DETAIL_TYPE);
@@ -356,16 +347,74 @@ public class MainActivity extends AbsBaseActivity implements OnSkipFragment, Vie
                         Picasso.with(this).load(topDetailBean.getSong_list().get(topDeatilCurrentIndex).getPic_small()).resize(150, 150).error(R.mipmap.view_loading).into(headIv);
                         songNameTv.setText(topDetailBean.getSong_list().get(topDeatilCurrentIndex).getTitle());
                         singerTv.setText(topDetailBean.getSong_list().get(topDeatilCurrentIndex).getArtist_name());
+                        isLikeTop();
                         break;
                 }
                 break;
             case R.id.main_playing_list_iv:
-                T.shortMsg("列表");
                 break;
-
         }
     }
 
+    /**
+     * 当前排行歌曲是否收藏
+     */
+    private void isLikeTop() {
+        if (DBTool.getDbInstance().queryBySongName(songinfoBean.getTitle()).size() > 0) {
+            intent.putExtra("isLike", true);
+        } else {
+            intent.putExtra("isLike", false);
+        }
+    }
+
+    /**
+     * 当前本地歌曲是否被收藏
+     */
+    private void isLikeLocal() {
+        if ((DBTool.getDbInstance().queryBySongName(localMusicSongBean.getName()).size() > 0)) {
+            intent.putExtra("isLike", true);
+        } else {
+            intent.putExtra("isLike", false);
+        }
+    }
+
+    /**
+     * 在点击歌曲切换时刷新界面的歌曲信息
+     */
+    class RefreshSongReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            refreshCurrent = intent.getIntExtra("currentIndex", 0);
+            int type = intent.getIntExtra("type", 0);
+            switch (type) {
+                case Contant.LOCAL_TYPE:
+                    songNameTv.setText(localMusicSongBeen.get(refreshCurrent).getName());
+                    singerTv.setText(localMusicSongBeen.get(refreshCurrent).getSinger());
+                    break;
+                case Contant.TOP_DETAIL_TYPE:
+                    TopDetailBean.SongListBean songListBean = topDetailBean.getSong_list().get(refreshCurrent);
+                    String songUrl = NetValues.SONG_ULR.replace(Contant.ADD_URL, songListBean.getSong_id());
+                    VolleySingle.getInstance(MainActivity.this).startRequest(songUrl, new VolleySingle.VolleyResult() {
+                        @Override
+                        public void success(String url) {
+                            String songUrl = url.substring(1, url.length() - 2);
+                            Gson gson = new Gson();
+                            musicDetailBean = gson.fromJson(songUrl, MusicDetailBean.class);
+                            songinfoBean = musicDetailBean.getSonginfo();
+                            bitrateBean = musicDetailBean.getBitrate();
+                            songNameTv.setText(songinfoBean.getTitle());
+                            singerTv.setText(songinfoBean.getAuthor());
+                        }
+
+                        @Override
+                        public void failure() {
+                        }
+                    });
+                    break;
+            }
+        }
+
+    }
 }
 
 

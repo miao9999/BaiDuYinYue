@@ -10,6 +10,7 @@ import java.io.InputStream;
 
 /**
  * Created by Limiao on 16/7/29.
+ * 解析歌词的工具类
  */
 public class StreamRequest extends Request<InputStream> {
     private final Response.Listener<InputStream> mListener;
@@ -21,6 +22,7 @@ public class StreamRequest extends Request<InputStream> {
     }
 
     public StreamRequest(String url, Response.Listener<InputStream> listener, Response.ErrorListener errorListener) {
+        // 调用本类构造四个参数的构造方法
         this(Request.Method.GET, url, listener, errorListener);
     }
 

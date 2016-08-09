@@ -2,78 +2,74 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:orientation="horizontal"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:orientation="horizontal">
 
 
-        <ImageView
-            android:id="@+id/main_music_play_pic_iv"
+    <ImageView
+        android:id="@+id/main_music_play_pic_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:src="@mipmap/view_loading" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/minibar_tv_linearlayout_margin"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/main_song_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@mipmap/view_loading"
-            android:layout_gravity="center"
-            />
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:padding="@dimen/minibar_song_name_padding"
+            android:singleLine="true"
+            android:textColor="@color/song_name" />
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
+        <TextView
+            android:id="@+id/main_singer_tv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="@dimen/minibar_tv_linearlayout_margin"
-            >
+            android:paddingLeft="@dimen/minibar_singer_padding_left"
+            android:textColor="@color/singer"
+            android:textSize="@dimen/minibar_singer_text_size" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/main_song_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="歌名"
-                android:ellipsize="marquee"
-                android:singleLine="true"
-                android:marqueeRepeatLimit="marquee_forever"
-                android:padding="@dimen/minibar_song_name_padding"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:textColor="@color/song_name"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/minibar_iv_linearlayout_margin"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/main_singer_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/minibar_singer_text_size"
-                android:text="歌手名"
-                android:paddingLeft="@dimen/minibar_singer_padding_left"
-                android:textColor="@color/singer"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
+        <ImageView
+            android:id="@+id/main_playing_list_iv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="@dimen/minibar_iv_linearlayout_margin">
+            android:layout_margin="@dimen/minibar_playinglist_margin"
+            android:src="@mipmap/menu" />
 
-            <ImageView
-                android:id="@+id/main_playing_list_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/menu"
-                android:layout_margin="@dimen/minibar_playinglist_margin"/>
+        <ImageView
+            android:id="@+id/main_play_pause_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/minibar_play_pause_margin" />
 
-            <ImageView
-                android:id="@+id/main_play_pause_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/minibar_play_pause_margin"/>
-
-            <ImageView
-                android:id="@+id/main_next_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/next"
-                android:layout_margin="@dimen/minibar_next_margin"/>
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/main_next_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/minibar_next_margin"
+            android:src="@mipmap/next" />
+    </LinearLayout>
 
 
 </LinearLayout>

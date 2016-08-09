@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/26.
+ * 播放界面的viewpager的Adapter
  */
 public class MusicAtyVpAdapter extends PagerAdapter {
     private List<View> views;

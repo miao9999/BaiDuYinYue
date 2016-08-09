@@ -19,7 +19,7 @@ import java.util.List;
 public class SonglistFragment extends AbsBaseFragment {
     private MyGridView songlistGridView;
     private SongListAdapter songListAdapter;
-    private SonglistBean  songlistBean;
+    private SonglistBean songlistBean;
     private List<SonglistBean.SongListBean> songListBeen;
 
     @Override
@@ -42,9 +42,8 @@ public class SonglistFragment extends AbsBaseFragment {
             @Override
             public void success(String url) {
                 Gson gson = new Gson();
-                songlistBean = gson.fromJson(url,SonglistBean.class);
+                songlistBean = gson.fromJson(url, SonglistBean.class);
                 songListBeen = songlistBean.getContent();
-                L.e("songlistFragment","解析成功");
                 // 设置数据
                 songListAdapter.setSongListBeen(songListBeen);
                 songlistGridView.setAdapter(songListAdapter);
@@ -52,7 +51,6 @@ public class SonglistFragment extends AbsBaseFragment {
 
             @Override
             public void failure() {
-                L.e("songlistFragment","解析失败");
             }
         });
 

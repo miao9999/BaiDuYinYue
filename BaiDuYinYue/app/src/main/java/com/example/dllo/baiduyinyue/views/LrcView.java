@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Environment;
@@ -45,14 +46,13 @@ public class LrcView extends View {
     private Paint mNormalPaint;
     private Paint mCurrentPaint;
     private float mTextSize;
-    private float mDividerHeight;
-    private long mAnimationDuration;
-    private float mAnimOffset;
+    private float mDividerHeight;// 行间距
+    private long mAnimationDuration;// 动画的时间
+    private float mAnimOffset;//初使位置
     private long mNextTime = 0L;
     private int mCurrentLine = 0;
     private boolean isEnd = false;
     private String label = "暂无歌词";
-
 
 
     public LrcView(Context context) {
@@ -75,10 +75,9 @@ public class LrcView extends View {
         mDividerHeight = ta.getDimension(R.styleable.LrcView_divider_height, dp2px(22));
         mAnimationDuration = ta.getInt(R.styleable.LrcView_animation_duration, 1000);
         mAnimationDuration = mAnimationDuration < 0 ? 1000 : mAnimationDuration;
-        int normalColor = ta.getColor(R.styleable.LrcView_textColor_normal, 0xFFFFFFFF);
-        int currentColor = ta.getColor(R.styleable.LrcView_textColor_current, 0xFFFF4081);
+        int normalColor = ta.getColor(R.styleable.LrcView_textColor_normal, Color.BLACK);
+        int currentColor = ta.getColor(R.styleable.LrcView_textColor_current, Color.BLUE);
         ta.recycle();
-
         mLrcTimes = new ArrayList<>();
         mLrcTexts = new ArrayList<>();
         mNormalPaint = new Paint();
@@ -89,15 +88,25 @@ public class LrcView extends View {
         mCurrentPaint.setAntiAlias(true);
         mCurrentPaint.setColor(currentColor);
         mCurrentPaint.setTextSize(mTextSize);
-
     }
 
+    /**
+     * sp转px
+     *
+     * @param spValue
+     * @return
+     */
     public static int sp2px(float spValue) {
         final float fontScale = MyApp.getContext().getResources().getDisplayMetrics().density;
         return (int) (spValue * fontScale + 0.5f);
-
     }
 
+    /**
+     * dp转px
+     *
+     * @param dpValue
+     * @return
+     */
     public static int dp2px(float dpValue) {
         final float scale = MyApp.getContext().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
@@ -108,19 +117,16 @@ public class LrcView extends View {
         super.onDraw(canvas);
         // 中心Y坐标
         float centerY = getHeight() / 2 + mTextSize / 2 + mAnimOffset;
-
-//         无歌词文件
+        //无歌词文件
         if (!hasLrc()) {
             float centerX = (getWidth() - mCurrentPaint.measureText(label)) / 2;
             canvas.drawText(label, centerX, centerY, mCurrentPaint);
             return;
         }
-
         // 画当前行
         String currStr = mLrcTexts.get(mCurrentLine);
         float currX = (getWidth() - mCurrentPaint.measureText(currStr)) / 2;
         canvas.drawText(currStr, currX, centerY, mCurrentPaint);
-
         // 画当前行上面的
         for (int i = mCurrentLine - 1; i >= 0; i--) {
             String upStr = mLrcTexts.get(i);
@@ -132,7 +138,6 @@ public class LrcView extends View {
             }
             canvas.drawText(upStr, upX, upY, mNormalPaint);
         }
-
         // 画当前行下面的
         for (int i = mCurrentLine + 1; i < mLrcTimes.size(); i++) {
             String downStr = mLrcTexts.get(i);
@@ -145,14 +150,6 @@ public class LrcView extends View {
             canvas.drawText(downStr, downX, downY, mNormalPaint);
         }
     }
-
-    public void searchLrc() {
-        reset();
-
-        label = "正在搜索歌词";
-        postInvalidate();
-    }
-
 
     //加载网络歌词
     public void loadNetLrc(String url) {
@@ -207,11 +204,9 @@ public class LrcView extends View {
         path = Environment.getExternalStorageDirectory() + "/music/lrc/" + path + ".lrc";
         if (TextUtils.isEmpty(path) || !new File(path).exists()) {
             label = "暂无歌词";
-
             postInvalidate();
             return;
         }
-
         BufferedReader br = null;
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(path))));
@@ -236,17 +231,18 @@ public class LrcView extends View {
         }
     }
 
+    /**
+     * 加载歌词
+     */
     private String temp = null;
 
     public void loadLrc(String path) {
         if (path != null) {
             if (!path.equals(temp)) {
                 if (path.length() > 3 && path.substring(0, 4).equals("http")) {
-                    Log.d("LrcView", "if");
                     loadNetLrc(path);
                     temp = path;
                 } else {
-                    Log.d("LrcView", "else");
                     loadLocalLrc(path);
                     temp = path;
                 }
@@ -254,6 +250,9 @@ public class LrcView extends View {
         }
     }
 
+    /**
+     * 重置
+     */
     private void reset() {
         mLrcTexts.clear();
         mLrcTimes.clear();
@@ -270,17 +269,14 @@ public class LrcView extends View {
     public synchronized void updateTime(long time) {
         // 避免重复绘制
         if (time < mNextTime || isEnd) {
-//            L.e("lrcView", time + "");
             return;
         }
         for (int i = mCurrentLine; i < mLrcTimes.size(); i++) {
             if (mLrcTimes.get(i) > time) {
                 mNextTime = mLrcTimes.get(i);
-                mCurrentLine =( i < 1 ? 0 : i - 1);
-                L.e("nexttime", mNextTime + "");
+                mCurrentLine = (i < 1 ? 0 : i - 1);
                 newLineAnim();
                 break;
-
             } else if (i == mLrcTimes.size() - 1) {
                 // 最后一行
                 mCurrentLine = mLrcTimes.size() - 1;
@@ -292,6 +288,11 @@ public class LrcView extends View {
         }
     }
 
+    /**
+     * 拖动进度时同步歌词
+     *
+     * @param progress
+     */
     public void onDrag(int progress) {
         for (int i = 0; i < mLrcTimes.size(); i++) {
             if (mLrcTimes.get(i) > progress) {
@@ -304,12 +305,17 @@ public class LrcView extends View {
         }
     }
 
+    /**
+     * 是否有歌词
+     *
+     * @return
+     */
     public boolean hasLrc() {
         return mLrcTexts != null && !mLrcTexts.isEmpty();
     }
 
     /**
-     * 解析一行
+     * 解析一行歌词
      *
      * @param
      * @return {

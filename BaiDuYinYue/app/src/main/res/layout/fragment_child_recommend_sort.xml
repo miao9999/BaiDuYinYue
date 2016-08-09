@@ -1,162 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/default_album_bg"
-    >
-<TextView
-    android:id="@+id/recommend_child_fragment_sort_title_tv"
-    android:layout_width="wrap_content"
-    android:layout_height="@dimen/fragment_title_height"
-    android:text="歌曲分类"
-    android:gravity="center"
-    android:textColor="@color/recommend_sort_title_text_color"
-    android:drawableLeft="@mipmap/back"
-    android:padding="10dp"
-    />
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/recommend_child_fragment_sort_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/fragment_title_height"
+        android:drawableLeft="@mipmap/back"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="歌曲分类"
+        android:textColor="@color/recommend_sort_title_text_color" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/fragment_bg">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-    <com.example.dllo.baiduyinyue.views.MyGridView
-        android:layout_margin="@dimen/my_gridview_margin"
-        android:id="@+id/recommend_child_fragment_sort_head_gv"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:numColumns="4"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        />
 
-        <com.example.dllo.baiduyinyue.views.MyListView
-            android:id="@+id/recommend_child_fragment_sort_content_lv"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_style_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_style_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_theme_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_theme_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-        <!--<TextView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_tv"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:drawableLeft="@mipmap/red_bar"-->
-            <!--/>-->
-        <!--<com.example.dllo.baiduyinyue.views.MyGridView-->
-            <!--android:id="@+id/item_recommend_sort_content_mood_gv"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"/>-->
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.example.dllo.baiduyinyue.views.MyGridView
+                android:id="@+id/recommend_child_fragment_sort_head_gv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/my_gridview_margin"
+                android:horizontalSpacing="10dp"
+                android:numColumns="4"
+                android:verticalSpacing="10dp" />
+
+            <com.example.dllo.baiduyinyue.views.MyListView
+                android:id="@+id/recommend_child_fragment_sort_content_lv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

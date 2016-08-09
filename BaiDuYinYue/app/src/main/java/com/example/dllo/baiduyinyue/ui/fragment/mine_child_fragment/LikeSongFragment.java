@@ -1,7 +1,8 @@
 package com.example.dllo.baiduyinyue.ui.fragment.mine_child_fragment;
 
-import android.content.Intent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,7 +11,6 @@ import com.example.dllo.baiduyinyue.mode.db.CollectionBean;
 import com.example.dllo.baiduyinyue.mode.db.DBTool;
 import com.example.dllo.baiduyinyue.ui.adapter.LikeSongAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
-import com.example.dllo.baiduyinyue.utils.L;
 import com.example.dllo.baiduyinyue.views.MyListView;
 import com.squareup.picasso.Picasso;
 
@@ -29,7 +29,9 @@ public class LikeSongFragment extends AbsBaseFragment implements View.OnClickLis
     private ImageView img1,img2,img3;
     private ImageView[] imgs = {img1, img2, img3};
     private List<CollectionBean> collectionBeen;
+    private Button delBtn;
     private int [] imgIds = {R.id.likesong_fragment_img1,R.id.likesong_fragment_img2,R.id.likesong_fragment_img3};
+
 
     @Override
     protected int setLayout() {
@@ -39,6 +41,7 @@ public class LikeSongFragment extends AbsBaseFragment implements View.OnClickLis
     @Override
     protected void initView() {
         songNumTv = findView(R.id.likesong_fragment_num);
+        delBtn = findView(R.id.likesong_fragment_del_btn);
         backIv = findView(R.id.likesong_fragment_back_iv);
         myListView = findView(R.id.likesong_fragment_lv);
         for (int i = 0; i < imgs.length; i++) {
@@ -47,6 +50,7 @@ public class LikeSongFragment extends AbsBaseFragment implements View.OnClickLis
         collectionBeen = new ArrayList<>();
         likeSongAdapter = new LikeSongAdapter(context);
         backIv.setOnClickListener(this);
+        delBtn.setOnClickListener(this);
     }
 
     @Override
@@ -64,7 +68,6 @@ public class LikeSongFragment extends AbsBaseFragment implements View.OnClickLis
         }
         // 当imgUrls集合中有数据时，最多只显示3条
         if (imgUrls.size() > 0) {
-            L.e("musicaty",imgUrls.size() + "");
             int imgUrlSize = imgUrls.size() > 3 ? 3 : imgUrls.size();
             for (int i = 0; i < imgUrlSize; i++) {
                 if (imgUrls.get(i).length() > 0) {
@@ -73,8 +76,14 @@ public class LikeSongFragment extends AbsBaseFragment implements View.OnClickLis
             }
         }
         songNumTv.setText(String.valueOf(collectionBeen.size()));
-
-
+        // 长按删除
+        myListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                likeSongAdapter.delData(position);
+                return false;
+            }
+        });
     }
 
     @Override
@@ -84,6 +93,9 @@ public class LikeSongFragment extends AbsBaseFragment implements View.OnClickLis
             case R.id.likesong_fragment_back_iv:
                 getActivity().onBackPressed();
                 break;
+
         }
     }
+
+
 }

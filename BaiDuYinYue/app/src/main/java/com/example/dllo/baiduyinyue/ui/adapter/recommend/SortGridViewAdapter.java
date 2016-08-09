@@ -33,7 +33,7 @@ public class SortGridViewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return imgBtnBeen == null ? 0 :imgBtnBeen.size();
+        return imgBtnBeen == null ? 0 : imgBtnBeen.size();
     }
 
     @Override
@@ -50,10 +50,10 @@ public class SortGridViewAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         SortGridViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_sort_gridview,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_sort_gridview, parent, false);
             holder = new SortGridViewHolder(convertView);
             convertView.setTag(holder);
-        }else {
+        } else {
             holder = (SortGridViewHolder) convertView.getTag();
         }
         RecommendBean.ResultBean.EntryBean.ImgBtnBean imgBtnBean = imgBtnBeen.get(position);
@@ -63,9 +63,10 @@ public class SortGridViewAdapter extends BaseAdapter {
         return convertView;
     }
 
-    class SortGridViewHolder{
+    class SortGridViewHolder {
         private ImageView imageView;
-        private TextView textView,dayTv;
+        private TextView textView, dayTv;
+
         public SortGridViewHolder(View view) {
             imageView = (ImageView) view.findViewById(R.id.item_sort_gridview_iv);
             textView = (TextView) view.findViewById(R.id.item_sort_gridview_tv);

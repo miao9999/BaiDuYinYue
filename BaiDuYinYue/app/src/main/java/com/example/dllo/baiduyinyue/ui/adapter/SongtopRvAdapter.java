@@ -40,7 +40,7 @@ public class SongtopRvAdapter extends RecyclerView.Adapter<SongtopRvAdapter.Song
     @Override
     public SongtopViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         SongtopViewHolder holder = null;
-        View view = LayoutInflater.from(context).inflate(R.layout.item_songtop_rv,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_songtop_rv, parent, false);
         holder = new SongtopViewHolder(view);
         return holder;
     }
@@ -57,7 +57,7 @@ public class SongtopRvAdapter extends RecyclerView.Adapter<SongtopRvAdapter.Song
         holder.author3Tv.setText(been.get(2).getAuthor());
         holder.title3Tv.setText(been.get(2).getTitle());
         String url = contentBean.getPic_s210();
-        Picasso.with(context).load(url).resize(200,200).into(holder.imageView);
+        Picasso.with(context).load(url).resize(200, 200).into(holder.imageView);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,9 +72,10 @@ public class SongtopRvAdapter extends RecyclerView.Adapter<SongtopRvAdapter.Song
         return contentBeen.size();
     }
 
-    class SongtopViewHolder extends RecyclerView.ViewHolder{
+    class SongtopViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView nameTv,author1Tv,title1Tv,author2Tv,title2Tv,author3Tv,title3Tv;
+        TextView nameTv, author1Tv, title1Tv, author2Tv, title2Tv, author3Tv, title3Tv;
+
         public SongtopViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.songtop_rv_iv);
@@ -88,7 +89,10 @@ public class SongtopRvAdapter extends RecyclerView.Adapter<SongtopRvAdapter.Song
         }
     }
 
-    public interface SongtopRvClickListener{
+    /**
+     * recycleView的行布局点击接口
+     */
+    public interface SongtopRvClickListener {
         void onRvClick(int pos);
     }
 }

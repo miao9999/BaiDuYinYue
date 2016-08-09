@@ -7,11 +7,11 @@ import java.util.List;
  * eventBus的事件类
  */
 public class EventBean {
-    private String imgUrl,songUrl;
+    private String imgUrl, songUrl;
     private int songNum;
-    private int type,currentIndex;
+    private int type, currentIndex;
 
-   private TopDetailBean topDetailBean;
+    private TopDetailBean topDetailBean;
 
     public TopDetailBean getTopDetailBean() {
         return topDetailBean;
@@ -31,6 +31,7 @@ public class EventBean {
     }
 
     private List<LocalMusicSongBean> localMusicSongBeen;
+
     public int getType() {
         return type;
     }

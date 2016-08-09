@@ -43,20 +43,6 @@ public class MusicFragment extends AbsBaseFragment {
     protected void initData() {
         recommendFragment = new RecommendFragment();
         viewPager.setOffscreenPageLimit(2);
-//        vp = recommendFragment.getViewPager();
-        //
-//        // 把两个vp的touch事件统一
-//        viewPager.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (viewPager.getCurrentItem() == 0) {
-//
-//                    return new ViewPager(context).dispatchTouchEvent(event);
-//                }
-//                return true;
-//            }
-//        });
-
         musicAdapter = new MusicAdapter(getChildFragmentManager());
         initFragment();
         musicAdapter.setFragments(fragments);

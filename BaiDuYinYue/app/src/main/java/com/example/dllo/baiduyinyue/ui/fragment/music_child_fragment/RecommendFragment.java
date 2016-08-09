@@ -47,10 +47,6 @@ public class RecommendFragment extends AbsBaseFragment {
     private RadioPlayAdapter radioPlayAdapter;
     private MyListView specialListView;
     private SpecialAdapter specialAdapter;
-    private TextView songlistTitleTv, songlistMoreTv, newsongTitleTv, newsongMoreTv, hotsealTitleTv, hotsealMoreTv;
-    private TextView hotMvTitleTv, hotMvMoreTv, radioPlayTitleTv, radioPlayMoreTv, specialTitleTv, specialMoreTv;
-    private ImageView songlistIv, newsongIv, hotsealIv, hotMvIv, radioPlayIv, specialIv;
-
 
 
     @Override
@@ -69,24 +65,6 @@ public class RecommendFragment extends AbsBaseFragment {
         hotMvGridView = findView(R.id.hotmv_grid_view);
         radioPlayGridView = findView(R.id.radio_play_grid_view);
         specialListView = findView(R.id.special_listview);
-        songlistIv = findView(R.id.songlist_title_iv);
-        songlistTitleTv = findView(R.id.songlist_title_tv);
-        songlistMoreTv = findView(R.id.songlist_more_tv);
-        newsongIv = findView(R.id.newsong_title_iv);
-        newsongTitleTv = findView(R.id.newsong_title_tv);
-        newsongMoreTv = findView(R.id.newsong_more_tv);
-        hotsealIv = findView(R.id.hotmv_title_iv);
-        hotsealTitleTv = findView(R.id.hotseal_title_tv);
-        hotsealMoreTv = findView(R.id.hotseal_more_tv);
-        hotMvIv = findView(R.id.hotmv_title_iv);
-        hotMvMoreTv = findView(R.id.hotmv_more_tv);
-        hotMvTitleTv = findView(R.id.hotmv_title_tv);
-        radioPlayIv = findView(R.id.radio_play_title_iv);
-        radioPlayTitleTv = findView(R.id.radio_play_title_tv);
-        radioPlayMoreTv = findView(R.id.radio_play_more_tv);
-        specialIv = findView(R.id.special_title_iv);
-        specialTitleTv = findView(R.id.special_title_tv);
-        specialMoreTv = findView(R.id.special_more_tv);
 
     }
 
@@ -126,17 +104,15 @@ public class RecommendFragment extends AbsBaseFragment {
                 setRadioPlay();
                 // 专栏
                 setSpecial();
-                // title
-                setTitle();
 
                 // 为歌曲分类的gv设置监听
                 imgBtnGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        switch (position){
+                        switch (position) {
                             case 0:
-                                if (onSkipFragment != null){
-                                    onSkipFragment.toFragment(Contant.RECOMMEND_SORT_FRAGMENT,null);
+                                if (onSkipFragment != null) {
+                                    onSkipFragment.toFragment(Contant.RECOMMEND_SORT_FRAGMENT, null);
                                 }
                         }
                     }
@@ -163,7 +139,6 @@ public class RecommendFragment extends AbsBaseFragment {
             Picasso.with(context).load(imgUrl).into(imageView);
             imageViews.add(imageView);
         }
-//        recommendViewAdapter.setImageView(imageViews);
         recommendViewAdapter.setCyclePicBeen(cyclePicBeen);
         viewPager.setAdapter(recommendViewAdapter);
     }
@@ -231,36 +206,4 @@ public class RecommendFragment extends AbsBaseFragment {
         specialAdapter.setSpecialBeen(specialBeen);
         specialListView.setAdapter(specialAdapter);
     }
-
-    /**
-     * title
-     */
-    public void setTitle() {
-//        songlistTitleTv.setText(recommendBean.getModule().get(3).getTitle());
-//        songlistMoreTv.setText(recommendBean.getModule().get(3).getTitle_more());
-//        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(songlistIv);
-//
-//        newsongTitleTv.setText(recommendBean.getModule().get(5).getTitle());
-//        newsongMoreTv.setText(recommendBean.getModule().get(5).getTitle_more());
-//        Picasso.with(context).load(R.mipmap.ic_recommend_song).into(newsongIv);
-//
-//        hotsealTitleTv.setText(recommendBean.getModule().get(6).getTitle());
-//        hotsealMoreTv.setText(recommendBean.getModule().get(6).getTitle_more());
-//        Picasso.with(context).load(R.mipmap.ic_recommend_columnist).into(newsongIv);
-//
-//        hotMvTitleTv.setText(recommendBean.getModule().get(11).getTitle());
-//        hotMvMoreTv.setText(recommendBean.getModule().get(11).getTitle_more());
-//        Picasso.with(context).load(R.mipmap.ic_recommend_lebo).into(hotMvIv);
-//
-//        radioPlayTitleTv.setText(recommendBean.getModule().get(12).getTitle());
-//        radioPlayMoreTv.setText(recommendBean.getModule().get(12).getTitle_more());
-//        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(radioPlayIv);
-//
-//        specialTitleTv.setText(recommendBean.getModule().get(13).getTitle());
-//        specialMoreTv.setText(recommendBean.getModule().get(13).getTitle_more());
-//        Picasso.with(context).load(R.mipmap.ic_recommend_scene).into(specialIv);
-
-
-    }
-
 }

@@ -38,6 +38,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/mine_content_widget_margin"
             android:text="首"
+            android:visibility="invisible"
             android:textSize="@dimen/mine_content_sings_number_text_size" />
 
         <ImageView
@@ -75,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/mine_content_widget_margin"
+            android:visibility="invisible"
             android:text="共11首,11首离线播放"
             android:textSize="@dimen/mine_content_sings_number_text_size" />
 
@@ -112,6 +114,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/mine_content_widget_margin"
             android:text="0首"
+            android:visibility="invisible"
             android:textSize="@dimen/mine_content_sings_number_text_size" />
 
         <ImageView
@@ -148,6 +151,7 @@
             android:layout_gravity="center"
             android:layout_margin="@dimen/mine_content_widget_margin"
             android:text="0首"
+            android:visibility="invisible"
             android:textSize="@dimen/mine_content_sings_number_text_size" />
 
         <ImageView
@@ -190,23 +194,6 @@
                 android:layout_margin="@dimen/mine_content_widget_margin"
                 android:layout_toRightOf="@id/mine_like_iv"
                 android:text="@string/my_like_sing" />
-
-            <TextView
-                android:id="@+id/mine_like_num_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_toRightOf="@id/mine_like_iv"
-                android:layout_below="@id/mine_like_tv"
-                android:layout_margin="@dimen/mine_content_widget_margin"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/mine_like_tv"
-                android:layout_margin="@dimen/mine_content_widget_margin"
-                android:layout_toRightOf="@id/mine_like_num_tv"
-                android:text="首" />
 
             <ImageView
                 android:layout_width="wrap_content"

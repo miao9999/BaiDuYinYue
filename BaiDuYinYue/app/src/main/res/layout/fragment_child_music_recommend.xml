@@ -36,7 +36,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
-
                 android:numColumns="3" />
 
 
@@ -53,14 +52,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/recommend_title_pic_margin"
-                    android:src="@mipmap/ic_listen_count" />
+                    android:src="@mipmap/ic_recommend_columnist" />
 
                 <TextView
                     android:id="@+id/songlist_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/songlist_title_iv"
-                    android:text="title" />
+                    android:text="歌单推荐" />
 
                 <ImageView
                     android:id="@+id/songlist_more_iv"
@@ -73,8 +72,7 @@
                     android:id="@+id/songlist_more_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/songlist_more_iv"
-                     />
+                    android:layout_toLeftOf="@id/songlist_more_iv" />
             </RelativeLayout>
 
             <com.example.dllo.baiduyinyue.views.MyGridView
@@ -82,8 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
-                android:numColumns="3"
                 android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
+                android:numColumns="3"
                 android:scrollbars="none" />
             <!--新碟上架-->
             <RelativeLayout
@@ -98,14 +96,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/recommend_title_pic_margin"
-                    android:src="@mipmap/ic_listen_count" />
+                    android:src="@mipmap/ic_recommend_lebo" />
 
                 <TextView
                     android:id="@+id/newsong_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/newsong_title_iv"
-                     />
+                    android:text="新碟上架" />
 
                 <ImageView
                     android:id="@+id/newsong_more_iv"
@@ -118,8 +116,7 @@
                     android:id="@+id/newsong_more_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/newsong_more_iv"
-                     />
+                    android:layout_toLeftOf="@id/newsong_more_iv" />
             </RelativeLayout>
 
             <com.example.dllo.baiduyinyue.views.MyGridView
@@ -127,8 +124,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
-                android:numColumns="3"
                 android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
+                android:numColumns="3"
                 android:scrollbars="none" />
 
             <!--热销专辑-->
@@ -144,14 +141,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/recommend_title_pic_margin"
-                    android:src="@mipmap/ic_listen_count" />
+                    android:src="@mipmap/ic_recommend_scene" />
 
                 <TextView
                     android:id="@+id/hotseal_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/hotseal_title_iv"
-                     />
+                    android:text="热销专辑" />
 
                 <ImageView
                     android:id="@+id/hotseal_more_iv"
@@ -164,8 +161,7 @@
                     android:id="@+id/hotseal_more_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/hotseal_more_iv"
-                     />
+                    android:layout_toLeftOf="@id/hotseal_more_iv" />
             </RelativeLayout>
 
             <com.example.dllo.baiduyinyue.views.MyGridView
@@ -173,8 +169,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
-                android:numColumns="3"
                 android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
+                android:numColumns="3"
                 android:scrollbars="none" />
 
 
@@ -191,14 +187,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/recommend_title_pic_margin"
-                    android:src="@mipmap/ic_listen_count" />
+                    android:src="@mipmap/ic_recommend_song" />
 
                 <TextView
                     android:id="@+id/hotmv_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/hotmv_title_iv"
-                     />
+                    android:text="最热MV推荐" />
 
                 <ImageView
                     android:id="@+id/hotmv_more_iv"
@@ -211,8 +207,7 @@
                     android:id="@+id/hotmv_more_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/hotmv_more_iv"
-                     />
+                    android:layout_toLeftOf="@id/hotmv_more_iv" />
             </RelativeLayout>
 
             <com.example.dllo.baiduyinyue.views.MyGridView
@@ -220,8 +215,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/my_gridview_margin"
-                android:numColumns="3"
                 android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
+                android:numColumns="3"
                 android:scrollbars="none" />
 
 
@@ -229,9 +224,9 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:layout_marginLeft="@dimen/recommend_title_margin"
-                android:layout_marginRight="@dimen/recommend_title_margin">
+                android:layout_marginRight="@dimen/recommend_title_margin"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/radio_play_title_iv"
@@ -239,14 +234,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/recommend_title_pic_margin"
-                    android:src="@mipmap/ic_listen_count" />
+                    android:src="@mipmap/ic_recommend_lebo" />
 
                 <TextView
                     android:id="@+id/radio_play_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/radio_play_title_iv"
-                     />
+                    android:text="乐播节目" />
 
                 <ImageView
                     android:id="@+id/radio_play_more_iv"
@@ -259,16 +254,15 @@
                     android:id="@+id/radio_play_more_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/radio_play_more_iv"
-                    />
+                    android:layout_toLeftOf="@id/radio_play_more_iv" />
             </RelativeLayout>
 
             <com.example.dllo.baiduyinyue.views.MyGridView
                 android:id="@+id/radio_play_grid_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:layout_margin="@dimen/my_gridview_margin"
+                android:horizontalSpacing="@dimen/item_gridview_horizontalSpacing"
                 android:numColumns="3"
                 android:scrollbars="none" />
 
@@ -285,14 +279,14 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/recommend_title_pic_margin"
-                    android:src="@mipmap/ic_listen_count" />
+                    android:src="@mipmap/ic_recommend_columnist" />
 
                 <TextView
                     android:id="@+id/special_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/special_title_iv"
-                     />
+                    android:text="专栏" />
 
                 <ImageView
                     android:id="@+id/special_more_iv"
@@ -305,8 +299,7 @@
                     android:id="@+id/special_more_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/special_more_iv"
-                    />
+                    android:layout_toLeftOf="@id/special_more_iv" />
             </RelativeLayout>
 
             <com.example.dllo.baiduyinyue.views.MyListView

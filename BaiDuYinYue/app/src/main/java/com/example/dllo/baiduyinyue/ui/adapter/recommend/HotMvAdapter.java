@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/15.
+ * 最热mv的Adapter
  */
 public class HotMvAdapter extends BaseAdapter {
     private List<RecommendBean.ResultBean.Mix5Bean.HotMvBean> hotMvBeen;

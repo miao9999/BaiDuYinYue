@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
-    android:id="@+id/item_recommend_sort_content_gv_detail_tv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textSize="@dimen/recommend_sort_head_content_size"
-    android:background="@drawable/shape_recommend_sort_text"
-    />
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/item_recommend_sort_content_gv_detail_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_recommend_sort_text"
+        android:textSize="@dimen/recommend_sort_head_content_size" />
 </LinearLayout>

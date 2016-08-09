@@ -12,7 +12,7 @@
             android:id="@+id/mine_theme_iv"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:background="@mipmap/ic_mymusic_picture"/>
+            android:background="@mipmap/ic_mymusic_picture" />
 
         <LinearLayout
             android:layout_width="wrap_content"

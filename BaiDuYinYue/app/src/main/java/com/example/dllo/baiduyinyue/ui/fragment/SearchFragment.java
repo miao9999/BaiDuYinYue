@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.LocalMusicSongBean;
@@ -73,7 +74,6 @@ public class SearchFragment extends AbsBaseFragment implements View.OnClickListe
         VolleySingle.getInstance(context).startRequest(NetValues.SEARCH_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
-                L.e("searchFragment", "解析成功");
                 Gson gson = new Gson();
                 searchBean = gson.fromJson(url, SearchBean.class);
                 mySearchBeen = searchBean.getResult();
@@ -84,10 +84,8 @@ public class SearchFragment extends AbsBaseFragment implements View.OnClickListe
 
             @Override
             public void failure() {
-                L.e("searchFragment", "解析失败");
             }
         });
-
 
         searchEt.addTextChangedListener(new TextWatcher() {
             @Override
@@ -97,32 +95,23 @@ public class SearchFragment extends AbsBaseFragment implements View.OnClickListe
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                if (!TextUtils.isEmpty(s)) {
+                    search(s);
+                }else {
+                    myListView.setVisibility(View.GONE);
+                    myGridView.setVisibility(View.VISIBLE);
+                    hotSearchTv.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
             public void afterTextChanged(Editable s) {
                 if (!TextUtils.isEmpty(s)) {
-                    String url = urlLeft + s + rightUrl;
-                    VolleySingle.getInstance(context).startRequest(url, new VolleySingle.VolleyResult() {
-                        @Override
-                        public void success(String url) {
-                            L.e("searchFragment", Contant.SUCCESS);
-                            Gson gson = new Gson();
-                            resultBean = gson.fromJson(url, SearchResultBean.class);
-                            List<SearchResultBean.ResultBean.SongInfoBean.SongListBean> songListBeen = resultBean.getResult().getSong_info().getSong_list();
-                            resultAdapter.setSongListBeen(songListBeen);
-                            myListView.setAdapter(resultAdapter);
-                            myGridView.setVisibility(View.GONE);
-                            hotSearchTv.setVisibility(View.GONE);
-
-                        }
-
-                        @Override
-                        public void failure() {
-                            L.e("searchFragment", Contant.FAILURE);
-                        }
-                    });
+                    search(s);
+                }else {
+                    myListView.setVisibility(View.GONE);
+                    myGridView.setVisibility(View.VISIBLE);
+                    hotSearchTv.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -130,18 +119,49 @@ public class SearchFragment extends AbsBaseFragment implements View.OnClickListe
         //  back和search的点击事件
         backIv.setOnClickListener(this);
         searchIv.setOnClickListener(this);
+        String str = searchEt.getText().toString();
+        if (TextUtils.isEmpty(str)){
+            myListView.setVisibility(View.GONE);
+            myGridView.setVisibility(View.VISIBLE);
+            hotSearchTv.setVisibility(View.VISIBLE);
+        }
+    }
+
+    /**
+     * 搜索的方法
+     * @param s
+     */
+    private void search(CharSequence s) {
+        String url = urlLeft + s + rightUrl;
+        VolleySingle.getInstance(context).startRequest(url, new VolleySingle.VolleyResult() {
+            @Override
+            public void success(String url) {
+                Gson gson = new Gson();
+                resultBean = gson.fromJson(url, SearchResultBean.class);
+                List<SearchResultBean.ResultBean.SongInfoBean.SongListBean> songListBeen = resultBean.getResult().getSong_info().getSong_list();
+                resultAdapter.setSongListBeen(songListBeen);
+                myListView.setAdapter(resultAdapter);
+                myGridView.setVisibility(View.GONE);
+                hotSearchTv.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void failure() {
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.search_fragment_return_iv:
-                T.shortMsg("back");
                 if (onSkipFragment != null) {
                     onSkipFragment.toFragment(Contant.MAIN_FRAGMENT, null);
                 }
                 break;
             case R.id.search_fragment_search_iv:
+                String str = searchEt.getText().toString();
+                search(str);
                 break;
         }
     }

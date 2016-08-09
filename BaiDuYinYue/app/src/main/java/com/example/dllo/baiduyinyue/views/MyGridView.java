@@ -10,7 +10,6 @@ import android.widget.GridView;
  * 自定义的GridView 固定高度
  */
 public class MyGridView extends GridView {
-    private boolean haveScrollBar = true;
     public MyGridView(Context context) {
         super(context);
     }
@@ -23,10 +22,6 @@ public class MyGridView extends GridView {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setHasScorllBar(boolean haveScrollBar){
-        this.haveScrollBar = haveScrollBar;
-
-    }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int expandSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE >> 2,

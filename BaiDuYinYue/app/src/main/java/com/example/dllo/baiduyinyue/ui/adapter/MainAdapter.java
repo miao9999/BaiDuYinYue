@@ -1,8 +1,12 @@
 package com.example.dllo.baiduyinyue.ui.adapter;
 
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.dllo.baiduyinyue.R;
+import com.example.dllo.baiduyinyue.ui.application.MyApp;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -13,7 +17,8 @@ import java.util.List;
  */
 public class MainAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
-    private String [] titles = {"我的","乐库","K歌","直播"};
+    private Resources resources = MyApp.getContext().getResources();
+    private String [] titles = resources.getStringArray(R.array.main_tab_text);
 
     public void setFragments(List<Fragment> fragments) {
         this.fragments = fragments;

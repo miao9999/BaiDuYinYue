@@ -19,9 +19,10 @@ public class MyApp extends Application {
 
     /**
      * 对外提供一个静态get方法,来获得此context
+     *
      * @return
      */
-    public static Context getContext(){
+    public static Context getContext() {
         return context;
     }
 }

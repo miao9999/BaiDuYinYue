@@ -2,6 +2,7 @@ package com.example.dllo.baiduyinyue.ui.fragment.music_child_fragment;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,10 +34,7 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
     private MvBean mvBean;
     private List<MvBean.ResultBean.MvListBean> mvListBeen, mvHotListBeen;
     private TextView newTv, hotTv;
-    private MediaPlayer player;
     private MvDetailBean mvDetailBean;
-    private boolean newTvIsCheck = false;// 监听newTv是否选中,默认为false
-    private boolean hotTvIsCheck = false;// 监听hotTv是否选中,默认为false
 
     @Override
     protected int setLayout() {
@@ -54,7 +52,6 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
 
     @Override
     protected void initData() {
-        player = new MediaPlayer();
         mvAdapter = new MvAdapter(context);
         // 解析数据--最新
         VolleySingle.getInstance(context).startRequest(NetValues.MV_URL, new VolleySingle.VolleyResult() {
@@ -63,7 +60,6 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
                 Gson gson = new Gson();
                 mvBean = gson.fromJson(url, MvBean.class);
                 mvListBeen = mvBean.getResult().getMv_list();
-                L.e("mvFragment", "解析成功");
                 // 默认打开时显示最新
                 mvAdapter.setMvListBeen(mvListBeen);
                 mvGridView.setAdapter(mvAdapter);
@@ -71,7 +67,6 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
 
             @Override
             public void failure() {
-                L.e("mvFragment", "解析失败");
             }
         });
 
@@ -80,7 +75,6 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
         VolleySingle.getInstance(context).startRequest(NetValues.MV_HOT_URL, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
-                L.e("mvFragment", Contant.SUCCESS);
                 Gson gson = new Gson();
                 mvBean = gson.fromJson(url, MvBean.class);
                 mvHotListBeen = mvBean.getResult().getMv_list();
@@ -88,7 +82,6 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
 
             @Override
             public void failure() {
-                L.e("mvFragment", Contant.FAILURE);
             }
         });
         // gridView的点击事件,实现播放视频
@@ -97,24 +90,23 @@ public class MvFragment extends AbsBaseFragment implements View.OnClickListener 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String mvId = mvBean.getResult().getMv_list().get(position).getMv_id();
                 // 最新的视频
-                    String url = NetValues.MV_DETAIL_URL.replace("参数", mvId);
-                    VolleySingle.getInstance(context).startRequest(url, new VolleySingle.VolleyResult() {
-                        @Override
-                        public void success(String url) {
-                            L.e("mvFragment", Contant.SUCCESS);
-                            Gson gson = new Gson();
-                            mvDetailBean = gson.fromJson(url, MvDetailBean.class);
-                            Intent toMvAtyIntent = new Intent(context, MvActivity.class);
-//                            Log.d("MvFragment", mvDetailBean.getResult().getFiles().getValue21().getFile_link());
+                String url = NetValues.MV_DETAIL_URL.replace(Contant.ADD_URL, mvId);
+                VolleySingle.getInstance(context).startRequest(url, new VolleySingle.VolleyResult() {
+                    @Override
+                    public void success(String url) {
+                        Gson gson = new Gson();
+                        mvDetailBean = gson.fromJson(url, MvDetailBean.class);
+                        Intent toMvAtyIntent = new Intent(context, MvActivity.class);
+                        if (mvDetailBean.getResult().getFiles().getValue21().getFile_link()!= null) {
                             toMvAtyIntent.putExtra(Contant.MV_INTNET_URL, mvDetailBean.getResult().getFiles().getValue21().getFile_link());
                             context.startActivity(toMvAtyIntent);
                         }
-                        @Override
-                        public void failure() {
-                            L.e("mvFragment", Contant.FAILURE);
-                        }
-                    });
-                }
+                    }
+                    @Override
+                    public void failure() {
+                    }
+                });
+            }
         });
 
     }

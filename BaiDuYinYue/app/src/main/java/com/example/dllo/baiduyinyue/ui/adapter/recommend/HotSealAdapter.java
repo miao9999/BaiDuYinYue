@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/15.
+ * 热销Adapter
  */
 public class HotSealAdapter extends BaseAdapter {
     private List<RecommendBean.ResultBean.Mix22Bean.HotSealBean> hotSealBeen;

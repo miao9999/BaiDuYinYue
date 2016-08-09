@@ -22,16 +22,10 @@ public class RecommendViewAdapter extends PagerAdapter {
         this.context = context;
     }
 
-    private List<ImageView> imageView;
     List<RecommendBean.ResultBean.FocusBean.CyclePicBean> cyclePicBeen;
 
     public void setCyclePicBeen(List<RecommendBean.ResultBean.FocusBean.CyclePicBean> cyclePicBeen) {
         this.cyclePicBeen = cyclePicBeen;
-        notifyDataSetChanged();
-    }
-
-    public void setImageView(List<ImageView> imageView) {
-        this.imageView = imageView;
         notifyDataSetChanged();
     }
 
@@ -48,14 +42,7 @@ public class RecommendViewAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
 
-//        int index = position % imageView.size();
-//        ViewGroup parent = (ViewGroup) imageView.get(index).getParent();
-//        if (parent != null) {
-//            parent.removeView(imageView.get(index));
-//        }
-//        container.addView(imageView.get(index));
-//        return imageView.get(index);
-        ImageView imageView  = new ImageView(context);
+        ImageView imageView = new ImageView(context);
         Picasso.with(context).load(cyclePicBeen.get(position % (cyclePicBeen.size())).getRandpic()).into(imageView);
         ViewGroup parent = (ViewGroup) imageView.getParent();
         if (parent != null) {
@@ -67,6 +54,5 @@ public class RecommendViewAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-       // container.removeView(imageView.get(position % imageView.size() ));
     }
 }

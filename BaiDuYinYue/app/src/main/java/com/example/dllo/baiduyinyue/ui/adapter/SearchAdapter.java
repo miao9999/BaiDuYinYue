@@ -56,7 +56,6 @@ public class SearchAdapter extends BaseAdapter{
             holder = (SearchViewHolder) convertView.getTag();
         }
         holder.textView.setText(mySearchBeen.get(position).getWord());
-        L.e("msg",mySearchBeen.get(position).getWord());
         return convertView;
     }
 

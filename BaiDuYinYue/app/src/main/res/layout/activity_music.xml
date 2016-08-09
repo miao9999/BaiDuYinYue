@@ -56,9 +56,8 @@
         android:id="@+id/music_aty_viewpager"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_margin="20dp"
-        />
+        android:layout_weight="1" />
 
     <SeekBar
         android:id="@+id/music_aty_seek_bar"
@@ -71,26 +70,26 @@
         android:thumb="@mipmap/seek_ground" />
 
     <RelativeLayout
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <TextView
             android:id="@+id/music_aty_start_time_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/music_start_time"
-            />
+            android:textColor="@color/music_start_time" />
+
         <TextView
-            android:layout_alignParentRight="true"
             android:id="@+id/music_aty_end_time_tv"
             android:layout_width="wrap_content"
-            android:textColor="@color/music_end_time"
             android:layout_height="wrap_content"
-            />
+            android:layout_alignParentRight="true"
+            android:textColor="@color/music_end_time" />
 
     </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

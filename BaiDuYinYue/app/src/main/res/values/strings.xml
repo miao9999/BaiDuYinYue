@@ -54,5 +54,29 @@
     <string name="like_fragment_like">我喜欢的单曲</string>
     <string name="like_fragment_num">首</string>
 
+    <string name="second_title">音乐</string>
 
+    <string name="add_url">参数</string>
+
+    <string name="success">授权成功</string>
+    <string name="failure">授权失败</string>
+    <string name="cancel">授权取消</string>
+    <string-array name="local_tab_text">
+        <item>歌曲</item>
+        <item>文件夹</item>
+        <item>歌手</item>
+        <item>专辑</item>
+    </string-array>
+    <string-array name="main_tab_text">
+        <item>我的</item>
+        <item>乐库</item>
+        <item>K歌</item>
+    </string-array>
+    <string-array name="music_tab_text">
+        <item>推荐</item>
+        <item>排行</item>
+        <item>歌单</item>
+        <item>电台</item>
+        <item>MV</item>
+    </string-array>
 </resources>

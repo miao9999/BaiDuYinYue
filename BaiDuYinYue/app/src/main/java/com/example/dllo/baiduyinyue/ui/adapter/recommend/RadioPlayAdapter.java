@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/15.
+ * 电台Adapter
  */
 public class RadioPlayAdapter extends BaseAdapter {
     private List<RecommendBean.ResultBean.RadioBean.MusicPlayBean> musicPlayBeen;

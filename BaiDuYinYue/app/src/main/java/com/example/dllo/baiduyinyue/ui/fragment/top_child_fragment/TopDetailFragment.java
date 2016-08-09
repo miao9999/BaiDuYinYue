@@ -1,5 +1,6 @@
 package com.example.dllo.baiduyinyue.ui.fragment.top_child_fragment;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -41,7 +42,6 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
  * 乐库---排行---每一条的详情的Fragment
  */
 public class TopDetailFragment extends AbsBaseFragment {
-    private CoordinatorLayout coordinatorLayout;
     private AppBarLayout appBarLayout;
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private Toolbar toolbar;
@@ -51,10 +51,12 @@ public class TopDetailFragment extends AbsBaseFragment {
     private TopDetailBean topDetailBean;
     private List<TopDetailBean.SongListBean> songListBeen;
     private TopDetailBean.BillboardBean billboardBean;
-    private ImageView titleBgIv, playIv;
     private TopDetailAdapter topDetailAdapter;
     private EventBus eventBus;
     private ImageView shareIv;
+    private String url;
+    private ImageView loadingIv;
+    private TextView songNumTv;
 
 
     @Override
@@ -65,27 +67,27 @@ public class TopDetailFragment extends AbsBaseFragment {
     @Override
     protected void initView() {
         collapsingToolbarLayout = findView(R.id.top_detail_fragment_ctl);
-        coordinatorLayout = findView(R.id.top_detail_fragment_cl);
         appBarLayout = findView(R.id.top_detail_fragment_abl);
         toolbar = findView(R.id.top_detail_fragment_abl_toolbar);
         myListView = findView(R.id.top_detail_fragment_cl_lv);
         dateTv = findView(R.id.top_detail_fragment_ctl_date_tv);
         headLayout = findView(R.id.top_detail_fragment_ctl_rl);
-        titleBgIv = findView(R.id.top_detail_fragment_ctl_bg_iv);
-        playIv = findView(R.id.top_detail_fragment_ctl_play_iv);
         shareIv = findView(R.id.top_detail_fragment_share_iv);
-
+        loadingIv = findView(R.id.loading_iv);
+        songNumTv = findView(R.id.top_detail_fragment_total_song_num);
 
     }
 
     @Override
     protected void initData() {
-        ShareSDK.initSDK(context,"sharesdk的appkey");
+        final AnimationDrawable drawable = (AnimationDrawable) loadingIv.getBackground();
+        drawable.start();
+        ShareSDK.initSDK(context, "sharesdk的appkey");
         eventBus = EventBus.getDefault();
         topDetailAdapter = new TopDetailAdapter(context);
         // 获取传来的值
         Bundle bundle = getArguments();
-        String url = (String) bundle.get(NetValues.TOP_DETAIL_URL);
+        url = (String) bundle.get(NetValues.TOP_DETAIL_URL);
         // 设置toolbar必须强转成AppcompatActivity才能调用set方法
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
         // 为左上角设置一个默认的图标
@@ -110,6 +112,9 @@ public class TopDetailFragment extends AbsBaseFragment {
                 billboardBean = topDetailBean.getBillboard();
                 L.e("songListBeen", songListBeen.size() + " -------");
                 dateTv.setText(billboardBean.getUpdate_date());
+                songNumTv.setText(songListBeen.size() + "");
+                drawable.stop();
+                loadingIv.setVisibility(View.GONE);
                 // 设置下方的listview
                 topDetailAdapter.setSongListBeen(songListBeen);
                 myListView.setAdapter(topDetailAdapter);
@@ -118,14 +123,12 @@ public class TopDetailFragment extends AbsBaseFragment {
                     @Override
                     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                         // 当向上滑动到标题的3/4时下面的字和图片消失,标题显示
-                        if (verticalOffset <= -headLayout.getHeight() / 2) {
+                        if (verticalOffset <= -headLayout.getHeight() / 4 * 3) {
                             headLayout.setVisibility(View.INVISIBLE);
-//                            playIv.setVisibility(View.INVISIBLE);
                             collapsingToolbarLayout.setTitle(topDetailBean.getBillboard().getName());
                         } else {
                             headLayout.setVisibility(View.VISIBLE);
                             collapsingToolbarLayout.setTitle("");
-//                            playIv.setVisibility(View.VISIBLE);
                         }
                     }
                 });
@@ -152,7 +155,7 @@ public class TopDetailFragment extends AbsBaseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TopDetailBean.SongListBean songListBean = (TopDetailBean.SongListBean) parent.getItemAtPosition(position);
                 EventBean eventBean = new EventBean();
-                String songUrl = NetValues.SONG_ULR.replace("参数", songListBean.getSong_id());
+                String songUrl = NetValues.SONG_ULR.replace(Contant.ADD_URL, songListBean.getSong_id());
                 eventBean.setSongUrl(songUrl);
                 eventBean.setType(Contant.TOP_DETAIL_TYPE);
                 eventBean.setTopDetailBean(topDetailBean);
@@ -178,21 +181,21 @@ public class TopDetailFragment extends AbsBaseFragment {
         oks.disableSSOWhenAuthorize();
 
         // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
-        oks.setTitle("标题");
+        oks.setTitle("百度音乐");
         // titleUrl是标题的网络链接，QQ和QQ空间等使用
-        oks.setTitleUrl("http://sharesdk.cn");
+        oks.setTitleUrl(url);
         // text是分享文本，所有平台都需要这个字段
-        oks.setText("我是分享文本");
+        oks.setText("百度音乐");
         // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
         //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
         // url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl("http://sharesdk.cn");
+        oks.setUrl(url);
         // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-        oks.setComment("我是测试评论文本");
+        oks.setComment("百度音乐");
         // site是分享此内容的网站名称，仅在QQ空间使用
         oks.setSite(getString(R.string.app_name));
         // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-        oks.setSiteUrl("http://sharesdk.cn");
+        oks.setSiteUrl(url);
 
         // 启动分享GUI
         oks.show(context);

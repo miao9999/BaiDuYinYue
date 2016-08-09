@@ -9,10 +9,7 @@
         android:id="@+id/item_songlist_bg_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="centerInside"
-        android:src="@mipmap/ic_launcher"
-
-        />
+        android:scaleType="centerInside" />
 
     <ImageView
         android:id="@+id/item_songlist_eyephone_iv"
@@ -29,7 +26,6 @@
         android:layout_alignBottom="@id/item_songlist_bg_iv"
         android:layout_margin="5dp"
         android:layout_toRightOf="@id/item_songlist_eyephone_iv"
-        android:text="num"
         android:textColor="#ffffff"
         android:textSize="10sp" />
 
@@ -38,7 +34,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/item_songlist_bg_iv"
-        android:text="title"
         android:textSize="11sp" />
 
     <TextView
@@ -46,15 +41,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/item_songlist_title_tv"
-        android:text="name"
         android:textColor="#888888"
         android:textSize="10sp" />
+
     <ImageView
         android:id="@+id/item_songlist_paly_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/selector_songtop_paly_btn"
+        android:layout_alignBottom="@id/item_songlist_num_tv"
         android:layout_alignRight="@id/item_songlist_bg_iv"
-        android:layout_alignBottom="@id/item_songlist_num_tv"/>
+        android:src="@drawable/selector_songtop_paly_btn" />
 
 </RelativeLayout>

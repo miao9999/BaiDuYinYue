@@ -1,12 +1,8 @@
 package com.example.dllo.baiduyinyue.ui.fragment.mine_child_fragment;
 
-import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.database.Cursor;
-import android.media.MediaPlayer;
 import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.view.View;
@@ -16,7 +12,6 @@ import android.widget.ListView;
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.EventBean;
 import com.example.dllo.baiduyinyue.mode.bean.LocalMusicSongBean;
-import com.example.dllo.baiduyinyue.ui.activity.MainActivity;
 import com.example.dllo.baiduyinyue.ui.adapter.localmusic.LocalMusicSongAdapter;
 import com.example.dllo.baiduyinyue.ui.fragment.AbsBaseFragment;
 import com.example.dllo.baiduyinyue.utils.Contant;
@@ -55,6 +50,7 @@ public class LocalMusicSongFragment extends AbsBaseFragment {
         eventBean = new EventBean();
         localMusicSongBeen = new ArrayList<>();
         songAdapter = new LocalMusicSongAdapter(context);
+        // 查询数据库获取本地音乐的数据
         ContentResolver resolver = context.getContentResolver();
         Cursor cursor = resolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
         while (cursor.moveToNext()) {
@@ -72,14 +68,8 @@ public class LocalMusicSongFragment extends AbsBaseFragment {
         cursor.close();
         songAdapter.setSongBeen(localMusicSongBeen);
         listView.setAdapter(songAdapter);
-        Intent songNumIntent = new Intent(Contant.SONG_NUM_RECEIVER);
-        songNumIntent.putExtra("songNum",localMusicSongBeen.size());
-        songNumIntent.putParcelableArrayListExtra("localMusicSongBeen", (ArrayList<? extends Parcelable>) localMusicSongBeen);
-        context.sendBroadcast(songNumIntent);
-
 
         //listview设置点击事件,播放本地音乐
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,16 +78,11 @@ public class LocalMusicSongFragment extends AbsBaseFragment {
                 eventBean.setType(Contant.LOCAL_TYPE);
                 eventBean.setSongNum(localMusicSongBeen.size());
                 eventBean.setCurrentIndex(position);
-                L.e("localmusicsongnum",localMusicSongBeen.size() + "");
                 eventBean.setLocalMusicSongBeen(localMusicSongBeen);
                 eventBus.post(eventBean);
-
-
             }
         });
-
     }
-
 
 
 }

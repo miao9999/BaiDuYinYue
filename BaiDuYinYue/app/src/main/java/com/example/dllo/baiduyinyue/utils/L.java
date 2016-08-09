@@ -14,7 +14,7 @@ public final class L {
     // tag标签
     private static  String TAG = "BaiDuYinYue";
     // 是否为调试模式
-    private static boolean isDebug = true;
+    private static boolean isDebug = false;
 
     /**
      * 使用默认tag标签

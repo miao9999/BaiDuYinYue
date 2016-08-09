@@ -19,7 +19,6 @@ public class DBTool implements IDBTool<CollectionBean> {
     private SQLiteDatabase database;
     private DaoMaster.DevOpenHelper helper;
     private QueryBuilder queryBuilder = getCollectionBeanDao().queryBuilder();
-
     private static DBTool dbInstance;
 
     /**
@@ -126,15 +125,7 @@ public class DBTool implements IDBTool<CollectionBean> {
         getCollectionBeanDao().insertOrReplace(collectionBean);
     }
 
-    /**
-     * 添加数据集合的方法
-     *
-     * @param collectionBeen
-     */
-    @Override
-    public void insertList(List<CollectionBean> collectionBeen) {
-        getCollectionBeanDao().insertOrReplaceInTx(collectionBeen);
-    }
+
 
     /**
      * 通过歌曲名字查询数据的方法
@@ -148,24 +139,6 @@ public class DBTool implements IDBTool<CollectionBean> {
         queryBuilder.where(CollectionBeanDao.Properties.SongName.eq(songName));
         return queryBuilder.list();
     }
-
-    /**
-     * 查询多少条数据的方法,默认每次最多显示15条
-     *
-     * @param count
-     * @return
-     */
-    @Override
-    public List<CollectionBean> query(int count) {
-        int all = getCollectionBeanDao().loadAll().size();
-        if (count > all) {
-            queryBuilder.limit(15);
-        } else {
-            queryBuilder.limit(count);
-        }
-        return queryBuilder.list();
-    }
-
 
     @Override
     public List<CollectionBean> queryAll() {

@@ -50,23 +50,24 @@ public class SongListRecommendAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         GridViewHolder holder = null;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_songlist_recommend_gridview,parent,false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_songlist_recommend_gridview, parent, false);
             holder = new GridViewHolder(convertView);
             convertView.setTag(holder);
-        }else {
+        } else {
             holder = (GridViewHolder) convertView.getTag();
         }
         RecommendBean.ResultBean.DiyBean.SonglistRecommendstBean songlistRecommendstBean = songlistRecommendstBeen.get(position);
         holder.numTv.setText(songlistRecommendstBean.getListenum());
         holder.titleTv.setText(songlistRecommendstBean.getTitle());
-        Picasso.with(context).load(songlistRecommendstBean.getPic()).resize(300,300).into(holder.bgIv);
+        Picasso.with(context).load(songlistRecommendstBean.getPic()).resize(300, 300).into(holder.bgIv);
         return convertView;
     }
 
 
-    class GridViewHolder{
+    class GridViewHolder {
         private ImageView bgIv;
-        private TextView titleTv,numTv;
+        private TextView titleTv, numTv;
+
         public GridViewHolder(View view) {
             bgIv = (ImageView) view.findViewById(R.id.item_gridview_bg_iv);
             titleTv = (TextView) view.findViewById(R.id.item_gridview_title_tv);

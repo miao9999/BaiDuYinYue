@@ -1,8 +1,12 @@
 package com.example.dllo.baiduyinyue.ui.adapter;
 
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.dllo.baiduyinyue.R;
+import com.example.dllo.baiduyinyue.ui.application.MyApp;
 
 import java.util.List;
 
@@ -12,7 +16,8 @@ import java.util.List;
  */
 public class MusicAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments;
-    private String[] titles = {"推荐", "排行", "歌单", "电台", "MV"};
+    private Resources resources = MyApp.getContext().getResources();
+    private String[] titles = resources.getStringArray(R.array.music_tab_text);
 
     public MusicAdapter(FragmentManager fm) {
         super(fm);

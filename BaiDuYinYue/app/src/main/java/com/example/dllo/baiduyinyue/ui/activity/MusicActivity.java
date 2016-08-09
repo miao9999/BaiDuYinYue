@@ -6,16 +6,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.example.dllo.baiduyinyue.R;
 import com.example.dllo.baiduyinyue.mode.bean.EventBean;
 import com.example.dllo.baiduyinyue.mode.bean.LocalMusicSongBean;
@@ -28,12 +35,21 @@ import com.example.dllo.baiduyinyue.ui.adapter.MusicAtyVpAdapter;
 import com.example.dllo.baiduyinyue.ui.service.MusicService;
 import com.example.dllo.baiduyinyue.utils.Contant;
 import com.example.dllo.baiduyinyue.utils.L;
+import com.example.dllo.baiduyinyue.utils.StreamRequest;
 import com.example.dllo.baiduyinyue.utils.T;
 import com.example.dllo.baiduyinyue.utils.VolleySingle;
 import com.example.dllo.baiduyinyue.views.LrcView;
+import com.example.dllo.baiduyinyue.views.PicLrcView;
+import com.example.dllo.baiduyinyue.views.RunningView;
 import com.google.gson.Gson;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -54,19 +70,18 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
     private MusicService.MyBinder myBinder;
     private ServiceConnection connection;
     private boolean isSeeking = false;// 监听seekbar是否被拖动
-    private int currentIndex = 1;
+    private int currentIndex = 0;// 当前歌曲的索引
     private List<LocalMusicSongBean> localMusicSongBeen;
     private boolean isPlaying;// 监听播放状态
     private TopDetailBean topDetailBean;
     private MusicDetailBean musicDetailBean;
     private int musicType;
     private String songUrl;
-    private String topDetailSongUrl;
     private MusicAtyVpAdapter musicAtyVpAdapter;
     private ViewPager viewPager;
     private List<View> views;
     private MusicDetailBean.SonginfoBean songinfoBean;
-    private ImageView picIv, collectIv;
+    private ImageView collectIv;
     private TextView startTv, endTv, titleTv, nameTv;
     private Handler handler;
     private boolean isLike = false;// 监听是为收藏,默认是不收藏
@@ -74,6 +89,11 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
     private LrcView lrcView;
     private View picView;
     private RefreshSongInfoReceiver refreshSongInfoReceiver;
+    private RunningView runningView;
+    private PicLrcView picLrcView;
+    private int playMode = Contant.MODE_LOOP;// 播放模式
+    private boolean refreshLike = false;// 点击上一首,下一首时刷新收藏状态,默认不收藏
+
 
     @Override
     protected int setLayout() {
@@ -96,12 +116,29 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
         titleTv = findView(R.id.music_aty_title_tv);
         nameTv = findView(R.id.music_aty_name_tv);
 
+        // 绑定服务
+        connection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder service) {
+                myBinder = (MusicService.MyBinder) service;
+                myBinder.setPlayMode(playMode);
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                myBinder = null;
+            }
+        };
+
+        Intent intent = new Intent(this, MusicService.class);
+        startService(intent);
+        bindService(intent, connection, BIND_AUTO_CREATE);
 
     }
 
     @Override
     protected void initData() {
-        ShareSDK.initSDK(this, "sharesdk的appkey");
+        ShareSDK.initSDK(this, "1583d5563be06");
         backIv.setOnClickListener(this);
         playIv.setOnClickListener(this);
         musicListIv.setOnClickListener(this);
@@ -114,10 +151,10 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
         musicAtyVpAdapter = new MusicAtyVpAdapter();
         views = new ArrayList<>();
         picView = LayoutInflater.from(this).inflate(R.layout.item_music_activity_pic, null);
+        picLrcView = (PicLrcView) picView.findViewById(R.id.item_music_aty_like_lrcview);
         View lyricView = LayoutInflater.from(this).inflate(R.layout.item_music_aty_lyric, null);
         lrcView = (LrcView) lyricView.findViewById(R.id.item_music_aty_like_lrc_view);
-
-        picIv = (ImageView) picView.findViewById(R.id.item_music_aty_pic_iv);
+        runningView = (RunningView) picView.findViewById(R.id.item_music_aty_pic_runningview);
         views.add(picView);
         views.add(lyricView);
         musicAtyVpAdapter.setViews(views);
@@ -154,11 +191,11 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                 currentIndex = dataIntent.getIntExtra("pos", 0);
                 localMusicSongBean = localMusicSongBeen.get(currentIndex);
                 localSongUrl = localMusicSongBean.getPath();
-                picIv.setImageResource(R.mipmap.music_aty_pic_defult);
+                runningView.setImgSrc(R.mipmap.music_aty_pic_defult);
                 titleTv.setText(localMusicSongBean.getName());
                 nameTv.setText(localMusicSongBean.getSinger());
                 lrcView.loadLrc(localSongUrl);
-
+                picLrcView.loadLrc(localSongUrl);
                 break;
             // topDetailMusic的数据
             case Contant.TOP_DETAIL_TYPE:
@@ -167,24 +204,7 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                 musicDetailBean = dataIntent.getParcelableExtra("musicDetailBean");
                 songUrl = dataIntent.getStringExtra("songUrl");
                 preserSong(songUrl);
-                // 绑定服务
-                connection = new ServiceConnection() {
-                    @Override
-                    public void onServiceConnected(ComponentName name, IBinder service) {
-                        myBinder = (MusicService.MyBinder) service;
 
-
-                    }
-
-                    @Override
-                    public void onServiceDisconnected(ComponentName name) {
-                        myBinder = null;
-                    }
-                };
-
-                Intent intent = new Intent(this, MusicService.class);
-                startService(intent);
-                bindService(intent, connection, BIND_AUTO_CREATE);
 
         }
         isPlaying = dataIntent.getBooleanExtra("isPlaying", false);
@@ -212,11 +232,11 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                 myBinder.getPlayer().seekTo(progress);
                 if (lrcView.hasLrc()) {
                     lrcView.onDrag(progress);
+                    picLrcView.onDrag(progress);
                 }
                 isSeeking = false;
             }
         });
-
 
         //更新seekbar的进度
         new Thread(new Runnable() {
@@ -249,11 +269,11 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                     case 0:
                         int date = (int) msg.obj;
                         String startDate = simpleDateFormat.format(new Date(Long.valueOf(date)));
-//                        L.e("date",startDate);
                         startTv.setText(startDate);
                         String endDate = simpleDateFormat.format(new Date(myBinder.getPlayer().getDuration()));
                         endTv.setText(endDate);
                         lrcView.updateTime(myBinder.getPlayer().getCurrentPosition());
+                        picLrcView.updateTime(myBinder.getPlayer().getCurrentPosition());
                         break;
                 }
                 return true;
@@ -275,7 +295,27 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
         refreshSongInfoReceiver = new RefreshSongInfoReceiver();
         registerReceiver(refreshSongInfoReceiver, filter);
 
+        // 旋转图片的开始和暂停
+        runningView.setRunningListener(new RunningView.OnRunningListener() {
+            @Override
+            public void onStart() {
+            }
 
+            @Override
+            public void onStop() {
+            }
+        });
+    }
+
+    /**
+     * 刷新当前歌曲是否收藏
+     */
+    private void isLike() {
+        if (refreshLike) {
+            collectIv.setImageResource(R.mipmap.bt_playpage_button_like_hl);
+        } else {
+            collectIv.setImageResource(R.mipmap.bt_playpage_button_like_press);
+        }
     }
 
 
@@ -284,22 +324,18 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
         switch (v.getId()) {
             // 返回mainActivity
             case R.id.music_aty_back_iv:
-                T.shortMsg("返回");
                 startActivity(new Intent(MusicActivity.this, MainActivity.class));
                 break;
             // 播放暂停音乐
             case R.id.music_aty_play_iv:
-                T.shortMsg("播放");
                 playOrPause();
                 break;
             // 播放列表
             case R.id.music_aty_list_iv:
-                T.shortMsg("列表");
                 break;
             // 上一首
             case R.id.music_aty_previous_iv:
                 previous();
-
                 break;
             // 下一首
             case R.id.music_aty_next_iv:
@@ -307,26 +343,34 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                 break;
             // 播放模式
             case R.id.music_aty_play_mode_iv:
-
+                switch (playMode) {
+                    case Contant.MODE_LOOP:
+                        playModeIv.setImageResource(R.mipmap.bt_playpage_loop_press);
+                        myBinder.setPlayMode(Contant.MODE_LOOP);
+                        playMode = Contant.MODE_RANDOM;
+                        break;
+                    case Contant.MODE_RANDOM:
+                        playModeIv.setImageResource(R.mipmap.bt_playpage_random_press);
+                        myBinder.setPlayMode(Contant.MODE_LOOP);
+                        playMode = Contant.MODE_LOOP;
+                        break;
+                }
                 break;
             // 歌词和图片
             case R.id.music_aty_lrc_pic_iv:
                 if (viewPager.getCurrentItem() == 1) {
                     viewPager.setCurrentItem(0);
                     picOrLyricIv.setImageResource(R.mipmap.bt_playpage_button_lyric_press);
-                    L.e("vp", viewPager.getCurrentItem() + " ");
                     break;
                 }
                 if (viewPager.getCurrentItem() == 0) {
                     viewPager.setCurrentItem(1);
                     picOrLyricIv.setImageResource(R.mipmap.bt_playpage_button_pic_press);
-                    L.e("vp", viewPager.getCurrentItem() + " ");
                     break;
                 }
                 break;
             // 收藏
             case R.id.item_music_aty_like_iv:
-
                 if (isLike) {
                     collectIv.setImageResource(R.mipmap.bt_playpage_button_like_press);
                     switch (musicType) {
@@ -338,7 +382,6 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                             break;
                     }
                     isLike = !isLike;
-//
                 } else {
                     collectIv.setImageResource(R.mipmap.bt_playpage_button_like_hl);
                     switch (musicType) {
@@ -364,7 +407,6 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                             break;
                     }
                     isLike = !isLike;
-//
                 }
                 break;
         }
@@ -376,13 +418,14 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
     private void playOrPause() {
         if (isPlaying) {
             playIv.setImageResource(R.mipmap.bt_playpage_button_pause_press);
-//            myBinder.play(localSongUrl);
             myBinder.continuePlay();
             isPlaying = !isPlaying;
+            runningView.start();
         } else {
             playIv.setImageResource(R.mipmap.bt_playpage_button_play_press);
             myBinder.pause();
             isPlaying = !isPlaying;
+            runningView.stop();
         }
     }
 
@@ -392,6 +435,7 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
 
     private void previous() {
         myBinder.previous(musicType);
+        isLike();
     }
 
     /**
@@ -399,6 +443,7 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
      */
     public void next() {
         myBinder.next(musicType);
+        isLike();
 
     }
 
@@ -408,9 +453,10 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
     class RefreshSongInfoReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            refreshLike = intent.getBooleanExtra("isLike", false);
+            Log.d("RefreshSongInfoReceiver", "refreshLike:" + refreshLike);
             int current = intent.getIntExtra("currentIndex", 0);
             int type = intent.getIntExtra("type", 0);
-
             switch (type) {
                 case Contant.LOCAL_TYPE:
                     titleTv.setText(localMusicSongBeen.get(current).getName());
@@ -418,7 +464,7 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
                     break;
                 case Contant.TOP_DETAIL_TYPE:
                     TopDetailBean.SongListBean songListBean = topDetailBean.getSong_list().get(current);
-                    String songUrl = NetValues.SONG_ULR.replace("参数", songListBean.getSong_id());
+                    String songUrl = NetValues.SONG_ULR.replace(Contant.ADD_URL, songListBean.getSong_id());
                     preserSong(songUrl);
                     break;
             }
@@ -436,23 +482,26 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
 
     /**
      * 解析单曲
+     *
      * @param url
      */
     public void preserSong(String url) {
+        runningView.setImgSrc(R.mipmap.music_aty_pic_defult);
         VolleySingle.getInstance(this).startRequest(url, new VolleySingle.VolleyResult() {
             @Override
             public void success(String url) {
                 String songUrl = url.substring(1, url.length() - 2);
                 Gson gson = new Gson();
+//                if (songinfoBean.getPic_huge() != null) {
+//                    runningView.setImgUrl(songinfoBean.getPic_huge());
+//                }
                 musicDetailBean = gson.fromJson(songUrl, MusicDetailBean.class);
                 songinfoBean = musicDetailBean.getSonginfo();
                 bitrateBean = musicDetailBean.getBitrate();
-                topDetailSongUrl = bitrateBean.getShow_link();
-                Picasso.with(MusicActivity.this).load(songinfoBean.getPic_huge()).error(R.mipmap.music_aty_pic_defult).into(picIv);
                 titleTv.setText(songinfoBean.getTitle());
                 nameTv.setText(songinfoBean.getAuthor());
+                picLrcView.loadLrc(songinfoBean.getLrclink());
                 lrcView.loadLrc(songinfoBean.getLrclink());
-                L.e("songUR", songUrl);
             }
 
             @Override
@@ -460,4 +509,5 @@ public class MusicActivity extends AbsBaseActivity implements View.OnClickListen
             }
         });
     }
+
 }

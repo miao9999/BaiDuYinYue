@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by Limiao on 16/7/19.
+ * 推荐--分类--上面显示部分的Adapter
  */
 public class RecommendSortHeadAdapter extends BaseAdapter {
     private List<RecommendSortHeadBean.TaglistBean> taglistBeen;
